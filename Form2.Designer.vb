@@ -52,9 +52,9 @@ Partial Class Form2
         PanelLeft.Controls.Add(PictureBoxLogo)
         PanelLeft.Dock = DockStyle.Left
         PanelLeft.Location = New Point(0, 0)
-        PanelLeft.Margin = New Padding(3, 4, 3, 4)
+        PanelLeft.Margin = New Padding(4, 5, 4, 5)
         PanelLeft.Name = "PanelLeft"
-        PanelLeft.Size = New Size(286, 533)
+        PanelLeft.Size = New Size(358, 666)
         PanelLeft.TabIndex = 0
         ' 
         ' LblTokoPakaianPria
@@ -62,9 +62,10 @@ Partial Class Form2
         LblTokoPakaianPria.AutoSize = True
         LblTokoPakaianPria.Font = New Font("Segoe UI", 11.25F, FontStyle.Bold)
         LblTokoPakaianPria.ForeColor = Color.White
-        LblTokoPakaianPria.Location = New Point(46, 413)
+        LblTokoPakaianPria.Location = New Point(58, 516)
+        LblTokoPakaianPria.Margin = New Padding(4, 0, 4, 0)
         LblTokoPakaianPria.Name = "LblTokoPakaianPria"
-        LblTokoPakaianPria.Size = New Size(171, 25)
+        LblTokoPakaianPria.Size = New Size(203, 31)
         LblTokoPakaianPria.TabIndex = 4
         LblTokoPakaianPria.Text = "Toko Pakaian Pria"
         LblTokoPakaianPria.TextAlign = ContentAlignment.MiddleCenter
@@ -74,9 +75,10 @@ Partial Class Form2
         LblSistemManajemen.AutoSize = True
         LblSistemManajemen.Font = New Font("Segoe UI", 9.75F)
         LblSistemManajemen.ForeColor = Color.White
-        LblSistemManajemen.Location = New Point(51, 380)
+        LblSistemManajemen.Location = New Point(64, 475)
+        LblSistemManajemen.Margin = New Padding(4, 0, 4, 0)
         LblSistemManajemen.Name = "LblSistemManajemen"
-        LblSistemManajemen.Size = New Size(155, 23)
+        LblSistemManajemen.Size = New Size(177, 28)
         LblSistemManajemen.TabIndex = 3
         LblSistemManajemen.Text = "Sistem Manajemen"
         LblSistemManajemen.TextAlign = ContentAlignment.MiddleCenter
@@ -86,9 +88,10 @@ Partial Class Form2
         LblMensWear.AutoSize = True
         LblMensWear.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
         LblMensWear.ForeColor = Color.White
-        LblMensWear.Location = New Point(86, 307)
+        LblMensWear.Location = New Point(108, 384)
+        LblMensWear.Margin = New Padding(4, 0, 4, 0)
         LblMensWear.Name = "LblMensWear"
-        LblMensWear.Size = New Size(103, 20)
+        LblMensWear.Size = New Size(126, 25)
         LblMensWear.TabIndex = 2
         LblMensWear.Text = "MEN'S WEAR"
         LblMensWear.TextAlign = ContentAlignment.MiddleCenter
@@ -98,19 +101,20 @@ Partial Class Form2
         LblGentlemen.AutoSize = True
         LblGentlemen.Font = New Font("Georgia", 14.25F, FontStyle.Bold)
         LblGentlemen.ForeColor = Color.Goldenrod
-        LblGentlemen.Location = New Point(46, 267)
+        LblGentlemen.Location = New Point(58, 334)
+        LblGentlemen.Margin = New Padding(4, 0, 4, 0)
         LblGentlemen.Name = "LblGentlemen"
-        LblGentlemen.Size = New Size(180, 29)
+        LblGentlemen.Size = New Size(219, 34)
         LblGentlemen.TabIndex = 1
         LblGentlemen.Text = "GENTLEMEN"
         LblGentlemen.TextAlign = ContentAlignment.MiddleCenter
         ' 
         ' PictureBoxLogo
         ' 
-        PictureBoxLogo.Location = New Point(51, 61)
-        PictureBoxLogo.Margin = New Padding(3, 4, 3, 4)
+        PictureBoxLogo.Location = New Point(64, 76)
+        PictureBoxLogo.Margin = New Padding(4, 5, 4, 5)
         PictureBoxLogo.Name = "PictureBoxLogo"
-        PictureBoxLogo.Size = New Size(166, 179)
+        PictureBoxLogo.Size = New Size(208, 224)
         PictureBoxLogo.SizeMode = PictureBoxSizeMode.Zoom
         PictureBoxLogo.TabIndex = 0
         PictureBoxLogo.TabStop = False
@@ -119,9 +123,10 @@ Partial Class Form2
         ' 
         LabelUsername.AutoSize = True
         LabelUsername.Font = New Font("Segoe UI", 9F)
-        LabelUsername.Location = New Point(331, 200)
+        LabelUsername.Location = New Point(414, 250)
+        LabelUsername.Margin = New Padding(4, 0, 4, 0)
         LabelUsername.Name = "LabelUsername"
-        LabelUsername.Size = New Size(75, 20)
+        LabelUsername.Size = New Size(91, 25)
         LabelUsername.TabIndex = 1
         LabelUsername.Text = "Username"
         ' 
@@ -129,20 +134,21 @@ Partial Class Form2
         ' 
         TextBoxUsername.BorderStyle = BorderStyle.FixedSingle
         TextBoxUsername.Font = New Font("Segoe UI", 10F)
-        TextBoxUsername.Location = New Point(335, 227)
-        TextBoxUsername.Margin = New Padding(3, 4, 3, 4)
+        TextBoxUsername.Location = New Point(419, 284)
+        TextBoxUsername.Margin = New Padding(4, 5, 4, 5)
         TextBoxUsername.Name = "TextBoxUsername"
         TextBoxUsername.PlaceholderText = "masukkan username"
-        TextBoxUsername.Size = New Size(343, 30)
+        TextBoxUsername.Size = New Size(428, 34)
         TextBoxUsername.TabIndex = 2
         ' 
         ' LabelPassword
         ' 
         LabelPassword.AutoSize = True
         LabelPassword.Font = New Font("Segoe UI", 9F)
-        LabelPassword.Location = New Point(331, 280)
+        LabelPassword.Location = New Point(414, 350)
+        LabelPassword.Margin = New Padding(4, 0, 4, 0)
         LabelPassword.Name = "LabelPassword"
-        LabelPassword.Size = New Size(70, 20)
+        LabelPassword.Size = New Size(87, 25)
         LabelPassword.TabIndex = 3
         LabelPassword.Text = "Password"
         ' 
@@ -150,22 +156,22 @@ Partial Class Form2
         ' 
         TextBoxPassword.BorderStyle = BorderStyle.FixedSingle
         TextBoxPassword.Font = New Font("Segoe UI", 10F)
-        TextBoxPassword.Location = New Point(335, 307)
-        TextBoxPassword.Margin = New Padding(3, 4, 3, 4)
+        TextBoxPassword.Location = New Point(419, 384)
+        TextBoxPassword.Margin = New Padding(4, 5, 4, 5)
         TextBoxPassword.Name = "TextBoxPassword"
         TextBoxPassword.PasswordChar = "*"c
         TextBoxPassword.PlaceholderText = "masukkan password"
-        TextBoxPassword.Size = New Size(343, 30)
+        TextBoxPassword.Size = New Size(428, 34)
         TextBoxPassword.TabIndex = 4
         ' 
         ' CheckBoxIngatSaya
         ' 
         CheckBoxIngatSaya.AutoSize = True
         CheckBoxIngatSaya.Font = New Font("Segoe UI", 8.25F)
-        CheckBoxIngatSaya.Location = New Point(335, 353)
-        CheckBoxIngatSaya.Margin = New Padding(3, 4, 3, 4)
+        CheckBoxIngatSaya.Location = New Point(419, 441)
+        CheckBoxIngatSaya.Margin = New Padding(4, 5, 4, 5)
         CheckBoxIngatSaya.Name = "CheckBoxIngatSaya"
-        CheckBoxIngatSaya.Size = New Size(95, 23)
+        CheckBoxIngatSaya.Size = New Size(116, 27)
         CheckBoxIngatSaya.TabIndex = 5
         CheckBoxIngatSaya.Text = "Ingat Saya"
         CheckBoxIngatSaya.UseVisualStyleBackColor = True
@@ -177,10 +183,10 @@ Partial Class Form2
         ButtonLogin.FlatStyle = FlatStyle.Flat
         ButtonLogin.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
         ButtonLogin.ForeColor = Color.White
-        ButtonLogin.Location = New Point(335, 413)
-        ButtonLogin.Margin = New Padding(3, 4, 3, 4)
+        ButtonLogin.Location = New Point(419, 516)
+        ButtonLogin.Margin = New Padding(4, 5, 4, 5)
         ButtonLogin.Name = "ButtonLogin"
-        ButtonLogin.Size = New Size(160, 47)
+        ButtonLogin.Size = New Size(200, 59)
         ButtonLogin.TabIndex = 6
         ButtonLogin.Text = "Login"
         ButtonLogin.UseVisualStyleBackColor = False
@@ -192,10 +198,10 @@ Partial Class Form2
         ButtonBatal.FlatStyle = FlatStyle.Flat
         ButtonBatal.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
         ButtonBatal.ForeColor = Color.Black
-        ButtonBatal.Location = New Point(518, 413)
-        ButtonBatal.Margin = New Padding(3, 4, 3, 4)
+        ButtonBatal.Location = New Point(648, 516)
+        ButtonBatal.Margin = New Padding(4, 5, 4, 5)
         ButtonBatal.Name = "ButtonBatal"
-        ButtonBatal.Size = New Size(160, 47)
+        ButtonBatal.Size = New Size(200, 59)
         ButtonBatal.TabIndex = 7
         ButtonBatal.Text = "Batal"
         ButtonBatal.UseVisualStyleBackColor = False
@@ -204,28 +210,29 @@ Partial Class Form2
         ' 
         LabelLoginTitle.AutoSize = True
         LabelLoginTitle.Font = New Font("Segoe UI", 15.75F, FontStyle.Bold)
-        LabelLoginTitle.Location = New Point(469, 107)
+        LabelLoginTitle.Location = New Point(586, 134)
+        LabelLoginTitle.Margin = New Padding(4, 0, 4, 0)
         LabelLoginTitle.Name = "LabelLoginTitle"
-        LabelLoginTitle.Size = New Size(89, 37)
+        LabelLoginTitle.Size = New Size(104, 45)
         LabelLoginTitle.TabIndex = 8
         LabelLoginTitle.Text = "Login"
         ' 
         ' PictureBoxUserIcon
         ' 
-        PictureBoxUserIcon.Location = New Point(402, 94)
-        PictureBoxUserIcon.Margin = New Padding(3, 4, 3, 4)
+        PictureBoxUserIcon.Location = New Point(502, 118)
+        PictureBoxUserIcon.Margin = New Padding(4, 5, 4, 5)
         PictureBoxUserIcon.Name = "PictureBoxUserIcon"
-        PictureBoxUserIcon.Size = New Size(61, 59)
+        PictureBoxUserIcon.Size = New Size(76, 74)
         PictureBoxUserIcon.SizeMode = PictureBoxSizeMode.Zoom
         PictureBoxUserIcon.TabIndex = 9
         PictureBoxUserIcon.TabStop = False
         ' 
         ' Form2
         ' 
-        AutoScaleDimensions = New SizeF(8F, 20F)
+        AutoScaleDimensions = New SizeF(10F, 25F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.White
-        ClientSize = New Size(731, 533)
+        ClientSize = New Size(914, 666)
         Controls.Add(PictureBoxUserIcon)
         Controls.Add(LabelLoginTitle)
         Controls.Add(ButtonBatal)
@@ -237,7 +244,7 @@ Partial Class Form2
         Controls.Add(LabelUsername)
         Controls.Add(PanelLeft)
         FormBorderStyle = FormBorderStyle.FixedDialog
-        Margin = New Padding(3, 4, 3, 4)
+        Margin = New Padding(4, 5, 4, 5)
         MaximizeBox = False
         Name = "Form2"
         StartPosition = FormStartPosition.CenterScreen
