@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Class Form11
+Partial Class FormUser
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -54,8 +54,8 @@ Partial Class Form11
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As DataGridViewCellStyle = New DataGridViewCellStyle()
         btnTambah = New Button()
         btnSimpan = New Button()
         btnUbah = New Button()
@@ -169,9 +169,9 @@ Partial Class Form11
         txtUsername.Location = New Point(143, 109)
         txtUsername.Margin = New Padding(3, 4, 3, 4)
         txtUsername.Name = "txtUsername"
+        txtUsername.PlaceholderText = "masukkan username"
         txtUsername.Size = New Size(285, 27)
         txtUsername.TabIndex = 8
-        txtUsername.Text = "admin"
         ' 
         ' lblNamaLengkap
         ' 
@@ -187,9 +187,9 @@ Partial Class Form11
         txtNamaLengkap.Location = New Point(143, 156)
         txtNamaLengkap.Margin = New Padding(3, 4, 3, 4)
         txtNamaLengkap.Name = "txtNamaLengkap"
+        txtNamaLengkap.PlaceholderText = "masukkan nama lengkap"
         txtNamaLengkap.Size = New Size(285, 27)
         txtNamaLengkap.TabIndex = 6
-        txtNamaLengkap.Text = "Administrator"
         ' 
         ' lblLevel
         ' 
@@ -286,24 +286,25 @@ Partial Class Form11
         ' 
         ' colStatus
         ' 
-        DataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter
-        colStatus.DefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter
+        colStatus.DefaultCellStyle = DataGridViewCellStyle3
         colStatus.HeaderText = "Status"
         colStatus.MinimumWidth = 6
         colStatus.Name = "colStatus"
         colStatus.ReadOnly = True
+        colStatus.Width = 125
         ' 
         ' colTerakhirLogin
         ' 
-        DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter
-        colTerakhirLogin.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter
+        colTerakhirLogin.DefaultCellStyle = DataGridViewCellStyle4
         colTerakhirLogin.HeaderText = "Terakhir Login"
         colTerakhirLogin.MinimumWidth = 6
         colTerakhirLogin.Name = "colTerakhirLogin"
         colTerakhirLogin.ReadOnly = True
         colTerakhirLogin.Width = 160
         ' 
-        ' Form11
+        ' FormUser
         ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
@@ -326,9 +327,9 @@ Partial Class Form11
         Controls.Add(btnTambah)
         Font = New Font("Segoe UI", 9F)
         Margin = New Padding(3, 4, 3, 4)
-        Name = "Form11"
+        Name = "FormUser"
         StartPosition = FormStartPosition.CenterScreen
-        Text = "11. User / Admin Management"
+        Text = "User / Admin Management"
         CType(picAvatar, ComponentModel.ISupportInitialize).EndInit()
         CType(dgvUsers, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)

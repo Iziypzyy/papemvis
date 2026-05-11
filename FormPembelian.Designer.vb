@@ -61,14 +61,12 @@ Partial Class Form8
         lblSupplier = New Label()
         cmbSupplier = New ComboBox()
         btnCariSupplier = New Button()
-
         dgvDetailPembelian = New DataGridView()
         colKode = New DataGridViewTextBoxColumn()
         colNama = New DataGridViewTextBoxColumn()
         colQty = New DataGridViewTextBoxColumn()
         colHarga = New DataGridViewTextBoxColumn()
         colSubTotal = New DataGridViewTextBoxColumn()
-
         pnlSummary = New Panel()
         lblTextTotalItem = New Label()
         lblOutputTotalItem = New Label()
@@ -78,22 +76,20 @@ Partial Class Form8
         txtOngkir = New TextBox()
         lblTextGrandTotal = New Label()
         lblOutputGrandTotal = New Label()
-
         btnSimpan = New Button()
         btnCetak = New Button()
         btnBatal = New Button()
-
         CType(dgvDetailPembelian, ComponentModel.ISupportInitialize).BeginInit()
         pnlSummary.SuspendLayout()
         SuspendLayout()
-
         ' 
         ' lblNoPembelian
         ' 
         lblNoPembelian.AutoSize = True
         lblNoPembelian.Location = New Point(25, 27)
         lblNoPembelian.Name = "lblNoPembelian"
-        lblNoPembelian.Size = New Size(103, 20)
+        lblNoPembelian.Size = New Size(102, 20)
+        lblNoPembelian.TabIndex = 11
         lblNoPembelian.Text = "No Pembelian"
         ' 
         ' txtNoPembelian
@@ -102,6 +98,7 @@ Partial Class Form8
         txtNoPembelian.Name = "txtNoPembelian"
         txtNoPembelian.ReadOnly = True
         txtNoPembelian.Size = New Size(180, 27)
+        txtNoPembelian.TabIndex = 10
         txtNoPembelian.Text = "PB2405220001"
         ' 
         ' lblTanggal
@@ -110,6 +107,7 @@ Partial Class Form8
         lblTanggal.Location = New Point(25, 67)
         lblTanggal.Name = "lblTanggal"
         lblTanggal.Size = New Size(61, 20)
+        lblTanggal.TabIndex = 9
         lblTanggal.Text = "Tanggal"
         ' 
         ' dtpTanggal
@@ -118,6 +116,7 @@ Partial Class Form8
         dtpTanggal.Location = New Point(130, 64)
         dtpTanggal.Name = "dtpTanggal"
         dtpTanggal.Size = New Size(140, 27)
+        dtpTanggal.TabIndex = 8
         ' 
         ' lblSupplier
         ' 
@@ -125,6 +124,7 @@ Partial Class Form8
         lblSupplier.Location = New Point(25, 107)
         lblSupplier.Name = "lblSupplier"
         lblSupplier.Size = New Size(64, 20)
+        lblSupplier.TabIndex = 7
         lblSupplier.Text = "Supplier"
         ' 
         ' cmbSupplier
@@ -133,6 +133,7 @@ Partial Class Form8
         cmbSupplier.Location = New Point(130, 104)
         cmbSupplier.Name = "cmbSupplier"
         cmbSupplier.Size = New Size(285, 28)
+        cmbSupplier.TabIndex = 6
         cmbSupplier.Text = "SUP001 - PT. Fashionindo Utama"
         ' 
         ' btnCariSupplier
@@ -140,6 +141,7 @@ Partial Class Form8
         btnCariSupplier.Location = New Point(425, 103)
         btnCariSupplier.Name = "btnCariSupplier"
         btnCariSupplier.Size = New Size(40, 29)
+        btnCariSupplier.TabIndex = 5
         btnCariSupplier.Text = "..."
         btnCariSupplier.UseVisualStyleBackColor = True
         ' 
@@ -152,31 +154,43 @@ Partial Class Form8
         dgvDetailPembelian.Location = New Point(25, 150)
         dgvDetailPembelian.Name = "dgvDetailPembelian"
         dgvDetailPembelian.RowHeadersVisible = False
+        dgvDetailPembelian.RowHeadersWidth = 51
         dgvDetailPembelian.Size = New Size(690, 210)
+        dgvDetailPembelian.TabIndex = 4
         ' 
         ' colKode
         ' 
         colKode.HeaderText = "Kode Barang"
+        colKode.MinimumWidth = 6
+        colKode.Name = "colKode"
         colKode.Width = 120
         ' 
         ' colNama
         ' 
         colNama.HeaderText = "Nama Barang"
+        colNama.MinimumWidth = 6
+        colNama.Name = "colNama"
         colNama.Width = 220
         ' 
         ' colQty
         ' 
         colQty.HeaderText = "Qty"
+        colQty.MinimumWidth = 6
+        colQty.Name = "colQty"
         colQty.Width = 80
         ' 
         ' colHarga
         ' 
         colHarga.HeaderText = "Harga Beli"
+        colHarga.MinimumWidth = 6
+        colHarga.Name = "colHarga"
         colHarga.Width = 130
         ' 
         ' colSubTotal
         ' 
         colSubTotal.HeaderText = "Sub Total"
+        colSubTotal.MinimumWidth = 6
+        colSubTotal.Name = "colSubTotal"
         colSubTotal.Width = 135
         ' 
         ' pnlSummary
@@ -194,55 +208,74 @@ Partial Class Form8
         pnlSummary.Location = New Point(450, 375)
         pnlSummary.Name = "pnlSummary"
         pnlSummary.Size = New Size(265, 140)
+        pnlSummary.TabIndex = 3
         ' 
         ' lblTextTotalItem
         ' 
         lblTextTotalItem.AutoSize = True
-        lblTextTotalItem.Font = New Font("Segoe UI", 9.0F, FontStyle.Bold)
+        lblTextTotalItem.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
         lblTextTotalItem.Location = New Point(15, 15)
+        lblTextTotalItem.Name = "lblTextTotalItem"
+        lblTextTotalItem.Size = New Size(81, 20)
+        lblTextTotalItem.TabIndex = 0
         lblTextTotalItem.Text = "Total Item"
         ' 
         ' lblOutputTotalItem
         ' 
         lblOutputTotalItem.Location = New Point(145, 15)
+        lblOutputTotalItem.Name = "lblOutputTotalItem"
         lblOutputTotalItem.Size = New Size(100, 20)
+        lblOutputTotalItem.TabIndex = 1
         lblOutputTotalItem.Text = "35"
         lblOutputTotalItem.TextAlign = ContentAlignment.TopRight
         ' 
         ' lblTextTotal
         ' 
         lblTextTotal.AutoSize = True
-        lblTextTotal.Font = New Font("Segoe UI", 9.0F, FontStyle.Bold)
+        lblTextTotal.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
         lblTextTotal.Location = New Point(15, 45)
+        lblTextTotal.Name = "lblTextTotal"
+        lblTextTotal.Size = New Size(44, 20)
+        lblTextTotal.TabIndex = 2
         lblTextTotal.Text = "Total"
         ' 
         ' lblOutputTotal
         ' 
         lblOutputTotal.Location = New Point(145, 45)
+        lblOutputTotal.Name = "lblOutputTotal"
         lblOutputTotal.Size = New Size(100, 20)
+        lblOutputTotal.TabIndex = 3
         lblOutputTotal.Text = "4.650.000"
         lblOutputTotal.TextAlign = ContentAlignment.TopRight
         ' 
         ' lblTextOngkir
         ' 
         lblTextOngkir.AutoSize = True
-        lblTextOngkir.Font = New Font("Segoe UI", 9.0F, FontStyle.Bold)
+        lblTextOngkir.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
         lblTextOngkir.Location = New Point(15, 75)
+        lblTextOngkir.Name = "lblTextOngkir"
+        lblTextOngkir.Size = New Size(56, 20)
+        lblTextOngkir.TabIndex = 4
         lblTextOngkir.Text = "Ongkir"
         ' 
         ' txtOngkir
         ' 
         txtOngkir.Location = New Point(145, 72)
+        txtOngkir.Name = "txtOngkir"
         txtOngkir.Size = New Size(100, 27)
+        txtOngkir.TabIndex = 5
         txtOngkir.Text = "0"
         txtOngkir.TextAlign = HorizontalAlignment.Right
         ' 
         ' lblTextGrandTotal
         ' 
         lblTextGrandTotal.AutoSize = True
-        lblTextGrandTotal.Font = New Font("Segoe UI", 9.0F, FontStyle.Bold)
+        lblTextGrandTotal.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
         lblTextGrandTotal.ForeColor = Color.MidnightBlue
         lblTextGrandTotal.Location = New Point(15, 105)
+        lblTextGrandTotal.Name = "lblTextGrandTotal"
+        lblTextGrandTotal.Size = New Size(91, 20)
+        lblTextGrandTotal.TabIndex = 6
         lblTextGrandTotal.Text = "Grand Total"
         ' 
         ' lblOutputGrandTotal
@@ -250,7 +283,9 @@ Partial Class Form8
         lblOutputGrandTotal.Font = New Font("Segoe UI", 9.5F, FontStyle.Bold)
         lblOutputGrandTotal.ForeColor = Color.Blue
         lblOutputGrandTotal.Location = New Point(125, 104)
+        lblOutputGrandTotal.Name = "lblOutputGrandTotal"
         lblOutputGrandTotal.Size = New Size(120, 25)
+        lblOutputGrandTotal.TabIndex = 7
         lblOutputGrandTotal.Text = "4.650.000"
         lblOutputGrandTotal.TextAlign = ContentAlignment.TopRight
         ' 
@@ -258,11 +293,12 @@ Partial Class Form8
         ' 
         btnSimpan.BackColor = Color.MediumSeaGreen
         btnSimpan.FlatStyle = FlatStyle.Flat
-        btnSimpan.Font = New Font("Segoe UI", 9.0F, FontStyle.Bold)
+        btnSimpan.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
         btnSimpan.ForeColor = Color.White
         btnSimpan.Location = New Point(265, 540)
         btnSimpan.Name = "btnSimpan"
         btnSimpan.Size = New Size(100, 40)
+        btnSimpan.TabIndex = 2
         btnSimpan.Text = "Simpan"
         btnSimpan.UseVisualStyleBackColor = False
         ' 
@@ -270,10 +306,11 @@ Partial Class Form8
         ' 
         btnCetak.BackColor = Color.LightGray
         btnCetak.FlatStyle = FlatStyle.Flat
-        btnCetak.Font = New Font("Segoe UI", 9.0F, FontStyle.Bold)
+        btnCetak.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
         btnCetak.Location = New Point(385, 540)
         btnCetak.Name = "btnCetak"
         btnCetak.Size = New Size(100, 40)
+        btnCetak.TabIndex = 1
         btnCetak.Text = "Cetak"
         btnCetak.UseVisualStyleBackColor = False
         ' 
@@ -281,19 +318,20 @@ Partial Class Form8
         ' 
         btnBatal.BackColor = Color.Crimson
         btnBatal.FlatStyle = FlatStyle.Flat
-        btnBatal.Font = New Font("Segoe UI", 9.0F, FontStyle.Bold)
+        btnBatal.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
         btnBatal.ForeColor = Color.White
         btnBatal.Location = New Point(505, 540)
         btnBatal.Name = "btnBatal"
         btnBatal.Size = New Size(100, 40)
+        btnBatal.TabIndex = 0
         btnBatal.Text = "Batal"
         btnBatal.UseVisualStyleBackColor = False
         ' 
         ' Form8
         ' 
-        AutoScaleDimensions = New SizeF(8.0F, 20.0F)
+        AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
-        BackColor = Color.FromArgb(245, 245, 250)
+        BackColor = Color.FromArgb(CByte(245), CByte(245), CByte(250))
         ClientSize = New Size(743, 610)
         Controls.Add(btnBatal)
         Controls.Add(btnCetak)
@@ -309,8 +347,7 @@ Partial Class Form8
         Controls.Add(lblNoPembelian)
         Name = "Form8"
         StartPosition = FormStartPosition.CenterScreen
-        Text = "8. Pembelian / Stok Masuk"
-
+        Text = "Pembelian / Stok Masuk"
         CType(dgvDetailPembelian, ComponentModel.ISupportInitialize).EndInit()
         pnlSummary.ResumeLayout(False)
         pnlSummary.PerformLayout()

@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Class Form9
+Partial Class FormStokBarang
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -42,10 +42,10 @@ Partial Class Form9
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle5 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle7 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle8 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As DataGridViewCellStyle = New DataGridViewCellStyle()
         txtCari = New TextBox()
         dgvStok = New DataGridView()
         colKode = New DataGridViewTextBoxColumn()
@@ -96,6 +96,7 @@ Partial Class Form9
         colKode.MinimumWidth = 6
         colKode.Name = "colKode"
         colKode.ReadOnly = True
+        colKode.Width = 125
         ' 
         ' colNama
         ' 
@@ -107,8 +108,8 @@ Partial Class Form9
         ' 
         ' colStok
         ' 
-        DataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter
-        colStok.DefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter
+        colStok.DefaultCellStyle = DataGridViewCellStyle1
         colStok.HeaderText = "Stok"
         colStok.MinimumWidth = 6
         colStok.Name = "colStok"
@@ -117,8 +118,8 @@ Partial Class Form9
         ' 
         ' colStokMin
         ' 
-        DataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleCenter
-        colStokMin.DefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter
+        colStokMin.DefaultCellStyle = DataGridViewCellStyle2
         colStokMin.HeaderText = "Stok Min"
         colStokMin.MinimumWidth = 6
         colStokMin.Name = "colStokMin"
@@ -127,8 +128,8 @@ Partial Class Form9
         ' 
         ' colSatuan
         ' 
-        DataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleCenter
-        colSatuan.DefaultCellStyle = DataGridViewCellStyle7
+        DataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter
+        colSatuan.DefaultCellStyle = DataGridViewCellStyle3
         colSatuan.HeaderText = "Satuan"
         colSatuan.MinimumWidth = 6
         colSatuan.Name = "colSatuan"
@@ -137,9 +138,9 @@ Partial Class Form9
         ' 
         ' colStatus
         ' 
-        DataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle8.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
-        colStatus.DefaultCellStyle = DataGridViewCellStyle8
+        DataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle4.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
+        colStatus.DefaultCellStyle = DataGridViewCellStyle4
         colStatus.HeaderText = "Status"
         colStatus.MinimumWidth = 6
         colStatus.Name = "colStatus"
@@ -192,7 +193,7 @@ Partial Class Form9
         lblKetMenipis.TabIndex = 0
         lblKetMenipis.Text = "Menipis"
         ' 
-        ' Form9
+        ' FormStokBarang
         ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
@@ -207,9 +208,9 @@ Partial Class Form9
         Controls.Add(txtCari)
         Font = New Font("Segoe UI", 9F)
         Margin = New Padding(3, 4, 3, 4)
-        Name = "Form9"
+        Name = "FormStokBarang"
         StartPosition = FormStartPosition.CenterScreen
-        Text = "9. Stok Barang"
+        Text = "Stok Barang"
         CType(dgvStok, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()
