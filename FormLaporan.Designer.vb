@@ -75,10 +75,10 @@ Partial Class FormLaporan
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle5 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle7 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle8 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As DataGridViewCellStyle = New DataGridViewCellStyle()
         tabControlLaporan = New TabControl()
         tabPenjualan = New TabPage()
         pnlTotal = New Panel()
@@ -229,8 +229,8 @@ Partial Class FormLaporan
         ' 
         ' colTanggal
         ' 
-        DataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter
-        colTanggal.DefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter
+        colTanggal.DefaultCellStyle = DataGridViewCellStyle1
         colTanggal.HeaderText = "Tanggal"
         colTanggal.MinimumWidth = 6
         colTanggal.Name = "colTanggal"
@@ -238,8 +238,8 @@ Partial Class FormLaporan
         ' 
         ' colTotalTransaksi
         ' 
-        DataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleCenter
-        colTotalTransaksi.DefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter
+        colTotalTransaksi.DefaultCellStyle = DataGridViewCellStyle2
         colTotalTransaksi.HeaderText = "Total Transaksi"
         colTotalTransaksi.MinimumWidth = 6
         colTotalTransaksi.Name = "colTotalTransaksi"
@@ -247,8 +247,8 @@ Partial Class FormLaporan
         ' 
         ' colTotalPenjualan
         ' 
-        DataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleCenter
-        colTotalPenjualan.DefaultCellStyle = DataGridViewCellStyle7
+        DataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter
+        colTotalPenjualan.DefaultCellStyle = DataGridViewCellStyle3
         colTotalPenjualan.HeaderText = "Total Penjualan"
         colTotalPenjualan.MinimumWidth = 6
         colTotalPenjualan.Name = "colTotalPenjualan"
@@ -256,8 +256,8 @@ Partial Class FormLaporan
         ' 
         ' colLabaKotor
         ' 
-        DataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleCenter
-        colLabaKotor.DefaultCellStyle = DataGridViewCellStyle8
+        DataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter
+        colLabaKotor.DefaultCellStyle = DataGridViewCellStyle4
         colLabaKotor.HeaderText = "Laba Kotor"
         colLabaKotor.MinimumWidth = 6
         colLabaKotor.Name = "colLabaKotor"

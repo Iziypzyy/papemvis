@@ -22,377 +22,359 @@ Partial Class FormDataBarang
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Me.BtnTambah = New System.Windows.Forms.Button()
-        Me.BtnSimpan = New System.Windows.Forms.Button()
-        Me.BtnUbah = New System.Windows.Forms.Button()
-        Me.BtnHapus = New System.Windows.Forms.Button()
-        Me.BtnCari = New System.Windows.Forms.Button()
-        Me.TxtFilter = New System.Windows.Forms.TextBox()
-        Me.TxtCari = New System.Windows.Forms.TextBox()
-        Me.DgvDataBarang = New System.Windows.Forms.DataGridView()
-        Me.ColKodeBarang = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ColNamaBarang = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ColKategori = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ColUkuran = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ColWarna = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ColHarga = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ColStok = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.LblTotalData = New System.Windows.Forms.Label()
-        Me.PanelDetail = New System.Windows.Forms.Panel()
-        Me.PictureBoxBarang = New System.Windows.Forms.PictureBox()
-        Me.LblTtlKode = New System.Windows.Forms.Label()
-        Me.LblTtlNama = New System.Windows.Forms.Label()
-        Me.LblTtlKategori = New System.Windows.Forms.Label()
-        Me.LblTtlHarga = New System.Windows.Forms.Label()
-        Me.LblTtlStok = New System.Windows.Forms.Label()
-        Me.LblValKode = New System.Windows.Forms.Label()
-        Me.LblValNama = New System.Windows.Forms.Label()
-        Me.LblValKategori = New System.Windows.Forms.Label()
-        Me.LblValHarga = New System.Windows.Forms.Label()
-        Me.LblValStok = New System.Windows.Forms.Label()
-        CType(Me.DgvDataBarang, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.PanelDetail.SuspendLayout()
-        CType(Me.PictureBoxBarang, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.SuspendLayout()
-        '
-        'BtnTambah
-        '
-        Me.BtnTambah.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(167, Byte), Integer), CType(CType(69, Byte), Integer))
-        Me.BtnTambah.FlatAppearance.BorderSize = 0
-        Me.BtnTambah.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnTambah.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.BtnTambah.ForeColor = System.Drawing.Color.White
-        Me.BtnTambah.Location = New System.Drawing.Point(20, 20)
-        Me.BtnTambah.Name = "BtnTambah"
-        Me.BtnTambah.Size = New System.Drawing.Size(90, 35)
-        Me.BtnTambah.TabIndex = 0
-        Me.BtnTambah.Text = "+ Tambah"
-        Me.BtnTambah.UseVisualStyleBackColor = False
-        '
-        'BtnSimpan
-        '
-        Me.BtnSimpan.BackColor = System.Drawing.Color.FromArgb(CType(CType(13, Byte), Integer), CType(CType(110, Byte), Integer), CType(CType(253, Byte), Integer))
-        Me.BtnSimpan.FlatAppearance.BorderSize = 0
-        Me.BtnSimpan.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnSimpan.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.BtnSimpan.ForeColor = System.Drawing.Color.White
-        Me.BtnSimpan.Location = New System.Drawing.Point(120, 20)
-        Me.BtnSimpan.Name = "BtnSimpan"
-        Me.BtnSimpan.Size = New System.Drawing.Size(90, 35)
-        Me.BtnSimpan.TabIndex = 1
-        Me.BtnSimpan.Text = "Simpan"
-        Me.BtnSimpan.UseVisualStyleBackColor = False
-        '
-        'BtnUbah
-        '
-        Me.BtnUbah.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(193, Byte), Integer), CType(CType(7, Byte), Integer))
-        Me.BtnUbah.FlatAppearance.BorderSize = 0
-        Me.BtnUbah.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnUbah.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.BtnUbah.ForeColor = System.Drawing.Color.Black
-        Me.BtnUbah.Location = New System.Drawing.Point(220, 20)
-        Me.BtnUbah.Name = "BtnUbah"
-        Me.BtnUbah.Size = New System.Drawing.Size(90, 35)
-        Me.BtnUbah.TabIndex = 2
-        Me.BtnUbah.Text = "Ubah"
-        Me.BtnUbah.UseVisualStyleBackColor = False
-        '
-        'BtnHapus
-        '
-        Me.BtnHapus.BackColor = System.Drawing.Color.FromArgb(CType(CType(220, Byte), Integer), CType(CType(53, Byte), Integer), CType(CType(69, Byte), Integer))
-        Me.BtnHapus.FlatAppearance.BorderSize = 0
-        Me.BtnHapus.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnHapus.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.BtnHapus.ForeColor = System.Drawing.Color.White
-        Me.BtnHapus.Location = New System.Drawing.Point(320, 20)
-        Me.BtnHapus.Name = "BtnHapus"
-        Me.BtnHapus.Size = New System.Drawing.Size(90, 35)
-        Me.BtnHapus.TabIndex = 3
-        Me.BtnHapus.Text = "Hapus"
-        Me.BtnHapus.UseVisualStyleBackColor = False
-        '
-        'BtnCari
-        '
-        Me.BtnCari.BackColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(230, Byte), Integer), CType(CType(234, Byte), Integer))
-        Me.BtnCari.FlatAppearance.BorderSize = 0
-        Me.BtnCari.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnCari.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.BtnCari.ForeColor = System.Drawing.Color.Black
-        Me.BtnCari.Location = New System.Drawing.Point(420, 20)
-        Me.BtnCari.Name = "BtnCari"
-        Me.BtnCari.Size = New System.Drawing.Size(80, 35)
-        Me.BtnCari.TabIndex = 4
-        Me.BtnCari.Text = "Cari"
-        Me.BtnCari.UseVisualStyleBackColor = False
-        '
-        'TxtFilter
-        '
-        Me.TxtFilter.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TxtFilter.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.TxtFilter.Location = New System.Drawing.Point(20, 70)
-        Me.TxtFilter.Name = "TxtFilter"
-        Me.TxtFilter.Size = New System.Drawing.Size(250, 25)
-        Me.TxtFilter.TabIndex = 5
-        '
-        'TxtCari
-        '
-        Me.TxtCari.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TxtCari.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TxtCari.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.TxtCari.ForeColor = System.Drawing.Color.Gray
-        Me.TxtCari.Location = New System.Drawing.Point(540, 70)
-        Me.TxtCari.Name = "TxtCari"
-        Me.TxtCari.Size = New System.Drawing.Size(240, 25)
-        Me.TxtCari.TabIndex = 6
-        Me.TxtCari.Text = "Cari barang..."
-        '
-        'DgvDataBarang
-        '
-        Me.DgvDataBarang.AllowUserToAddRows = False
-        Me.DgvDataBarang.AllowUserToDeleteRows = False
-        Me.DgvDataBarang.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.DgvDataBarang.BackgroundColor = System.Drawing.Color.White
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(240, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(240, Byte), Integer))
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DgvDataBarang.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
-        Me.DgvDataBarang.ColumnHeadersHeight = 30
-        Me.DgvDataBarang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
-        Me.DgvDataBarang.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ColKodeBarang, Me.ColNamaBarang, Me.ColKategori, Me.ColUkuran, Me.ColWarna, Me.ColHarga, Me.ColStok})
-        Me.DgvDataBarang.EnableHeadersVisualStyles = False
-        Me.DgvDataBarang.Location = New System.Drawing.Point(20, 110)
-        Me.DgvDataBarang.Name = "DgvDataBarang"
-        Me.DgvDataBarang.ReadOnly = True
-        Me.DgvDataBarang.RowHeadersVisible = False
-        Me.DgvDataBarang.RowTemplate.Height = 25
-        Me.DgvDataBarang.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DgvDataBarang.Size = New System.Drawing.Size(760, 220)
-        Me.DgvDataBarang.TabIndex = 7
-        '
-        'ColKodeBarang
-        '
-        Me.ColKodeBarang.HeaderText = "Kode Barang"
-        Me.ColKodeBarang.Name = "ColKodeBarang"
-        Me.ColKodeBarang.ReadOnly = True
-        Me.ColKodeBarang.Width = 110
-        '
-        'ColNamaBarang
-        '
-        Me.ColNamaBarang.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.ColNamaBarang.HeaderText = "Nama Barang"
-        Me.ColNamaBarang.Name = "ColNamaBarang"
-        Me.ColNamaBarang.ReadOnly = True
-        '
-        'ColKategori
-        '
-        Me.ColKategori.HeaderText = "Kategori"
-        Me.ColKategori.Name = "ColKategori"
-        Me.ColKategori.ReadOnly = True
-        Me.ColKategori.Width = 120
-        '
-        'ColUkuran
-        '
-        Me.ColUkuran.HeaderText = "Ukuran"
-        Me.ColUkuran.Name = "ColUkuran"
-        Me.ColUkuran.ReadOnly = True
-        Me.ColUkuran.Width = 70
-        '
-        'ColWarna
-        '
-        Me.ColWarna.HeaderText = "Warna"
-        Me.ColWarna.Name = "ColWarna"
-        Me.ColWarna.ReadOnly = True
-        Me.ColWarna.Width = 80
-        '
-        'ColHarga
-        '
-        Me.ColHarga.HeaderText = "Harga"
-        Me.ColHarga.Name = "ColHarga"
-        Me.ColHarga.ReadOnly = True
-        Me.ColHarga.Width = 100
-        '
-        'ColStok
-        '
-        Me.ColStok.HeaderText = "Stok"
-        Me.ColStok.Name = "ColStok"
-        Me.ColStok.ReadOnly = True
-        Me.ColStok.Width = 60
-        '
-        'LblTotalData
-        '
-        Me.LblTotalData.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.LblTotalData.AutoSize = True
-        Me.LblTotalData.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.LblTotalData.Location = New System.Drawing.Point(20, 520)
-        Me.LblTotalData.Name = "LblTotalData"
-        Me.LblTotalData.Size = New System.Drawing.Size(81, 15)
-        Me.LblTotalData.TabIndex = 8
-        Me.LblTotalData.Text = "Total Data : 6"
-        '
-        'PanelDetail
-        '
-        Me.PanelDetail.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.PanelDetail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.PanelDetail.Controls.Add(Me.LblValStok)
-        Me.PanelDetail.Controls.Add(Me.LblValHarga)
-        Me.PanelDetail.Controls.Add(Me.LblValKategori)
-        Me.PanelDetail.Controls.Add(Me.LblValNama)
-        Me.PanelDetail.Controls.Add(Me.LblValKode)
-        Me.PanelDetail.Controls.Add(Me.LblTtlStok)
-        Me.PanelDetail.Controls.Add(Me.LblTtlHarga)
-        Me.PanelDetail.Controls.Add(Me.LblTtlKategori)
-        Me.PanelDetail.Controls.Add(Me.LblTtlNama)
-        Me.PanelDetail.Controls.Add(Me.LblTtlKode)
-        Me.PanelDetail.Controls.Add(Me.PictureBoxBarang)
-        Me.PanelDetail.Location = New System.Drawing.Point(380, 345)
-        Me.PanelDetail.Name = "PanelDetail"
-        Me.PanelDetail.Size = New System.Drawing.Size(400, 190)
-        Me.PanelDetail.TabIndex = 9
-        '
-        'PictureBoxBarang
-        '
-        Me.PictureBoxBarang.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.PictureBoxBarang.Location = New System.Drawing.Point(15, 15)
-        Me.PictureBoxBarang.Name = "PictureBoxBarang"
-        Me.PictureBoxBarang.Size = New System.Drawing.Size(120, 155)
-        Me.PictureBoxBarang.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBoxBarang.TabIndex = 0
-        Me.PictureBoxBarang.TabStop = False
-        '
-        'LblTtlKode
-        '
-        Me.LblTtlKode.AutoSize = True
-        Me.LblTtlKode.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.LblTtlKode.Location = New System.Drawing.Point(150, 20)
-        Me.LblTtlKode.Name = "LblTtlKode"
-        Me.LblTtlKode.Size = New System.Drawing.Size(77, 15)
-        Me.LblTtlKode.TabIndex = 1
-        Me.LblTtlKode.Text = "Kode Barang"
-        '
-        'LblTtlNama
-        '
-        Me.LblTtlNama.AutoSize = True
-        Me.LblTtlNama.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.LblTtlNama.Location = New System.Drawing.Point(150, 50)
-        Me.LblTtlNama.Name = "LblTtlNama"
-        Me.LblTtlNama.Size = New System.Drawing.Size(81, 15)
-        Me.LblTtlNama.TabIndex = 2
-        Me.LblTtlNama.Text = "Nama Barang"
-        '
-        'LblTtlKategori
-        '
-        Me.LblTtlKategori.AutoSize = True
-        Me.LblTtlKategori.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.LblTtlKategori.Location = New System.Drawing.Point(150, 80)
-        Me.LblTtlKategori.Name = "LblTtlKategori"
-        Me.LblTtlKategori.Size = New System.Drawing.Size(53, 15)
-        Me.LblTtlKategori.TabIndex = 3
-        Me.LblTtlKategori.Text = "Kategori"
-        '
-        'LblTtlHarga
-        '
-        Me.LblTtlHarga.AutoSize = True
-        Me.LblTtlHarga.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.LblTtlHarga.Location = New System.Drawing.Point(150, 110)
-        Me.LblTtlHarga.Name = "LblTtlHarga"
-        Me.LblTtlHarga.Size = New System.Drawing.Size(40, 15)
-        Me.LblTtlHarga.TabIndex = 4
-        Me.LblTtlHarga.Text = "Harga"
-        '
-        'LblTtlStok
-        '
-        Me.LblTtlStok.AutoSize = True
-        Me.LblTtlStok.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.LblTtlStok.Location = New System.Drawing.Point(150, 140)
-        Me.LblTtlStok.Name = "LblTtlStok"
-        Me.LblTtlStok.Size = New System.Drawing.Size(32, 15)
-        Me.LblTtlStok.TabIndex = 5
-        Me.LblTtlStok.Text = "Stok"
-        '
-        'LblValKode
-        '
-        Me.LblValKode.AutoSize = True
-        Me.LblValKode.Location = New System.Drawing.Point(260, 20)
-        Me.LblValKode.Name = "LblValKode"
-        Me.LblValKode.Size = New System.Drawing.Size(52, 15)
-        Me.LblValKode.TabIndex = 6
-        Me.LblValKode.Text = "BRG001"
-        '
-        'LblValNama
-        '
-        Me.LblValNama.AutoSize = True
-        Me.LblValNama.Location = New System.Drawing.Point(260, 50)
-        Me.LblValNama.Name = "LblValNama"
-        Me.LblValNama.Size = New System.Drawing.Size(89, 15)
-        Me.LblValNama.TabIndex = 7
-        Me.LblValNama.Text = "Kemeja Formal"
-        '
-        'LblValKategori
-        '
-        Me.LblValKategori.AutoSize = True
-        Me.LblValKategori.Location = New System.Drawing.Point(260, 80)
-        Me.LblValKategori.Name = "LblValKategori"
-        Me.LblValKategori.Size = New System.Drawing.Size(46, 15)
-        Me.LblValKategori.TabIndex = 8
-        Me.LblValKategori.Text = "Kemeja"
-        '
-        'LblValHarga
-        '
-        Me.LblValHarga.AutoSize = True
-        Me.LblValHarga.Location = New System.Drawing.Point(260, 110)
-        Me.LblValHarga.Name = "LblValHarga"
-        Me.LblValHarga.Size = New System.Drawing.Size(49, 15)
-        Me.LblValHarga.TabIndex = 9
-        Me.LblValHarga.Text = "150.000"
-        '
-        'LblValStok
-        '
-        Me.LblValStok.AutoSize = True
-        Me.LblValStok.Location = New System.Drawing.Point(260, 140)
-        Me.LblValStok.Name = "LblValStok"
-        Me.LblValStok.Size = New System.Drawing.Size(19, 15)
-        Me.LblValStok.TabIndex = 10
-        Me.LblValStok.Text = "25"
-        '
-        'Form3
-        '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
-        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(800, 550)
-        Me.Controls.Add(Me.PanelDetail)
-        Me.Controls.Add(Me.LblTotalData)
-        Me.Controls.Add(Me.DgvDataBarang)
-        Me.Controls.Add(Me.TxtCari)
-        Me.Controls.Add(Me.TxtFilter)
-        Me.Controls.Add(Me.BtnCari)
-        Me.Controls.Add(Me.BtnHapus)
-        Me.Controls.Add(Me.BtnUbah)
-        Me.Controls.Add(Me.BtnSimpan)
-        Me.Controls.Add(Me.BtnTambah)
-        Me.Name = "Form3"
-        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Data Barang"
-        CType(Me.DgvDataBarang, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.PanelDetail.ResumeLayout(False)
-        Me.PanelDetail.PerformLayout()
-        CType(Me.PictureBoxBarang, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.ResumeLayout(False)
-        Me.PerformLayout()
+        Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        BtnTambah = New Button()
+        BtnUbah = New Button()
+        BtnHapus = New Button()
+        TxtFilter = New TextBox()
+        TxtCari = New TextBox()
+        DgvDataBarang = New DataGridView()
+        ColKodeBarang = New DataGridViewTextBoxColumn()
+        ColNamaBarang = New DataGridViewTextBoxColumn()
+        ColKategori = New DataGridViewTextBoxColumn()
+        ColUkuran = New DataGridViewTextBoxColumn()
+        ColWarna = New DataGridViewTextBoxColumn()
+        ColHarga = New DataGridViewTextBoxColumn()
+        ColStok = New DataGridViewTextBoxColumn()
+        LblTotalData = New Label()
+        PanelDetail = New Panel()
+        LblValStok = New Label()
+        LblValHarga = New Label()
+        LblValKategori = New Label()
+        LblValNama = New Label()
+        LblValKode = New Label()
+        LblTtlStok = New Label()
+        LblTtlHarga = New Label()
+        LblTtlKategori = New Label()
+        LblTtlNama = New Label()
+        LblTtlKode = New Label()
+        PictureBoxBarang = New PictureBox()
+        CType(DgvDataBarang, ComponentModel.ISupportInitialize).BeginInit()
+        PanelDetail.SuspendLayout()
+        CType(PictureBoxBarang, ComponentModel.ISupportInitialize).BeginInit()
+        SuspendLayout()
+        ' 
+        ' BtnTambah
+        ' 
+        BtnTambah.BackColor = Color.FromArgb(CByte(40), CByte(167), CByte(69))
+        BtnTambah.FlatAppearance.BorderSize = 0
+        BtnTambah.FlatStyle = FlatStyle.Flat
+        BtnTambah.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
+        BtnTambah.ForeColor = Color.White
+        BtnTambah.Location = New Point(23, 27)
+        BtnTambah.Margin = New Padding(3, 4, 3, 4)
+        BtnTambah.Name = "BtnTambah"
+        BtnTambah.Size = New Size(103, 47)
+        BtnTambah.TabIndex = 0
+        BtnTambah.Text = "+ Tambah"
+        BtnTambah.UseVisualStyleBackColor = False
+        ' 
+        ' BtnUbah
+        ' 
+        BtnUbah.BackColor = Color.FromArgb(CByte(255), CByte(193), CByte(7))
+        BtnUbah.FlatAppearance.BorderSize = 0
+        BtnUbah.FlatStyle = FlatStyle.Flat
+        BtnUbah.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
+        BtnUbah.ForeColor = Color.Black
+        BtnUbah.Location = New Point(138, 27)
+        BtnUbah.Margin = New Padding(3, 4, 3, 4)
+        BtnUbah.Name = "BtnUbah"
+        BtnUbah.Size = New Size(103, 47)
+        BtnUbah.TabIndex = 2
+        BtnUbah.Text = "Ubah"
+        BtnUbah.UseVisualStyleBackColor = False
+        ' 
+        ' BtnHapus
+        ' 
+        BtnHapus.BackColor = Color.FromArgb(CByte(220), CByte(53), CByte(69))
+        BtnHapus.FlatAppearance.BorderSize = 0
+        BtnHapus.FlatStyle = FlatStyle.Flat
+        BtnHapus.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
+        BtnHapus.ForeColor = Color.White
+        BtnHapus.Location = New Point(253, 27)
+        BtnHapus.Margin = New Padding(3, 4, 3, 4)
+        BtnHapus.Name = "BtnHapus"
+        BtnHapus.Size = New Size(103, 47)
+        BtnHapus.TabIndex = 3
+        BtnHapus.Text = "Hapus"
+        BtnHapus.UseVisualStyleBackColor = False
+        ' 
+        ' TxtFilter
+        ' 
+        TxtFilter.BorderStyle = BorderStyle.FixedSingle
+        TxtFilter.Font = New Font("Segoe UI", 10F)
+        TxtFilter.Location = New Point(23, 93)
+        TxtFilter.Margin = New Padding(3, 4, 3, 4)
+        TxtFilter.Name = "TxtFilter"
+        TxtFilter.Size = New Size(285, 30)
+        TxtFilter.TabIndex = 5
+        ' 
+        ' TxtCari
+        ' 
+        TxtCari.Anchor = AnchorStyles.Top Or AnchorStyles.Right
+        TxtCari.BorderStyle = BorderStyle.FixedSingle
+        TxtCari.Font = New Font("Segoe UI", 10F)
+        TxtCari.ForeColor = Color.Gray
+        TxtCari.Location = New Point(617, 93)
+        TxtCari.Margin = New Padding(3, 4, 3, 4)
+        TxtCari.Name = "TxtCari"
+        TxtCari.PlaceholderText = "Cari Barang..."
+        TxtCari.Size = New Size(274, 30)
+        TxtCari.TabIndex = 6
+        ' 
+        ' DgvDataBarang
+        ' 
+        DgvDataBarang.AllowUserToAddRows = False
+        DgvDataBarang.AllowUserToDeleteRows = False
+        DgvDataBarang.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
+        DgvDataBarang.BackgroundColor = Color.White
+        DataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = Color.FromArgb(CByte(240), CByte(240), CByte(240))
+        DataGridViewCellStyle1.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
+        DataGridViewCellStyle1.ForeColor = Color.Black
+        DataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = DataGridViewTriState.True
+        DgvDataBarang.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        DgvDataBarang.ColumnHeadersHeight = 30
+        DgvDataBarang.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing
+        DgvDataBarang.Columns.AddRange(New DataGridViewColumn() {ColKodeBarang, ColNamaBarang, ColKategori, ColUkuran, ColWarna, ColHarga, ColStok})
+        DgvDataBarang.EnableHeadersVisualStyles = False
+        DgvDataBarang.Location = New Point(23, 147)
+        DgvDataBarang.Margin = New Padding(3, 4, 3, 4)
+        DgvDataBarang.Name = "DgvDataBarang"
+        DgvDataBarang.ReadOnly = True
+        DgvDataBarang.RowHeadersVisible = False
+        DgvDataBarang.RowHeadersWidth = 51
+        DgvDataBarang.RowTemplate.Height = 25
+        DgvDataBarang.SelectionMode = DataGridViewSelectionMode.FullRowSelect
+        DgvDataBarang.Size = New Size(869, 293)
+        DgvDataBarang.TabIndex = 7
+        ' 
+        ' ColKodeBarang
+        ' 
+        ColKodeBarang.HeaderText = "Kode Barang"
+        ColKodeBarang.MinimumWidth = 6
+        ColKodeBarang.Name = "ColKodeBarang"
+        ColKodeBarang.ReadOnly = True
+        ColKodeBarang.Width = 110
+        ' 
+        ' ColNamaBarang
+        ' 
+        ColNamaBarang.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+        ColNamaBarang.HeaderText = "Nama Barang"
+        ColNamaBarang.MinimumWidth = 6
+        ColNamaBarang.Name = "ColNamaBarang"
+        ColNamaBarang.ReadOnly = True
+        ' 
+        ' ColKategori
+        ' 
+        ColKategori.HeaderText = "Kategori"
+        ColKategori.MinimumWidth = 6
+        ColKategori.Name = "ColKategori"
+        ColKategori.ReadOnly = True
+        ColKategori.Width = 120
+        ' 
+        ' ColUkuran
+        ' 
+        ColUkuran.HeaderText = "Ukuran"
+        ColUkuran.MinimumWidth = 6
+        ColUkuran.Name = "ColUkuran"
+        ColUkuran.ReadOnly = True
+        ColUkuran.Width = 70
+        ' 
+        ' ColWarna
+        ' 
+        ColWarna.HeaderText = "Warna"
+        ColWarna.MinimumWidth = 6
+        ColWarna.Name = "ColWarna"
+        ColWarna.ReadOnly = True
+        ColWarna.Width = 80
+        ' 
+        ' ColHarga
+        ' 
+        ColHarga.HeaderText = "Harga"
+        ColHarga.MinimumWidth = 6
+        ColHarga.Name = "ColHarga"
+        ColHarga.ReadOnly = True
+        ColHarga.Width = 125
+        ' 
+        ' ColStok
+        ' 
+        ColStok.HeaderText = "Stok"
+        ColStok.MinimumWidth = 6
+        ColStok.Name = "ColStok"
+        ColStok.ReadOnly = True
+        ColStok.Width = 60
+        ' 
+        ' LblTotalData
+        ' 
+        LblTotalData.Anchor = AnchorStyles.Bottom Or AnchorStyles.Left
+        LblTotalData.AutoSize = True
+        LblTotalData.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
+        LblTotalData.Location = New Point(23, 693)
+        LblTotalData.Name = "LblTotalData"
+        LblTotalData.Size = New Size(102, 20)
+        LblTotalData.TabIndex = 8
+        LblTotalData.Text = "Total Data : 6"
+        ' 
+        ' PanelDetail
+        ' 
+        PanelDetail.Anchor = AnchorStyles.Bottom Or AnchorStyles.Right
+        PanelDetail.BorderStyle = BorderStyle.FixedSingle
+        PanelDetail.Controls.Add(LblValStok)
+        PanelDetail.Controls.Add(LblValHarga)
+        PanelDetail.Controls.Add(LblValKategori)
+        PanelDetail.Controls.Add(LblValNama)
+        PanelDetail.Controls.Add(LblValKode)
+        PanelDetail.Controls.Add(LblTtlStok)
+        PanelDetail.Controls.Add(LblTtlHarga)
+        PanelDetail.Controls.Add(LblTtlKategori)
+        PanelDetail.Controls.Add(LblTtlNama)
+        PanelDetail.Controls.Add(LblTtlKode)
+        PanelDetail.Controls.Add(PictureBoxBarang)
+        PanelDetail.Location = New Point(434, 460)
+        PanelDetail.Margin = New Padding(3, 4, 3, 4)
+        PanelDetail.Name = "PanelDetail"
+        PanelDetail.Size = New Size(457, 253)
+        PanelDetail.TabIndex = 9
+        ' 
+        ' LblValStok
+        ' 
+        LblValStok.AutoSize = True
+        LblValStok.Location = New Point(297, 187)
+        LblValStok.Name = "LblValStok"
+        LblValStok.Size = New Size(25, 20)
+        LblValStok.TabIndex = 10
+        LblValStok.Text = "25"
+        ' 
+        ' LblValHarga
+        ' 
+        LblValHarga.AutoSize = True
+        LblValHarga.Location = New Point(297, 147)
+        LblValHarga.Name = "LblValHarga"
+        LblValHarga.Size = New Size(60, 20)
+        LblValHarga.TabIndex = 9
+        LblValHarga.Text = "150.000"
+        ' 
+        ' LblValKategori
+        ' 
+        LblValKategori.AutoSize = True
+        LblValKategori.Location = New Point(297, 107)
+        LblValKategori.Name = "LblValKategori"
+        LblValKategori.Size = New Size(59, 20)
+        LblValKategori.TabIndex = 8
+        LblValKategori.Text = "Kemeja"
+        ' 
+        ' LblValNama
+        ' 
+        LblValNama.AutoSize = True
+        LblValNama.Location = New Point(297, 67)
+        LblValNama.Name = "LblValNama"
+        LblValNama.Size = New Size(109, 20)
+        LblValNama.TabIndex = 7
+        LblValNama.Text = "Kemeja Formal"
+        ' 
+        ' LblValKode
+        ' 
+        LblValKode.AutoSize = True
+        LblValKode.Location = New Point(297, 27)
+        LblValKode.Name = "LblValKode"
+        LblValKode.Size = New Size(61, 20)
+        LblValKode.TabIndex = 6
+        LblValKode.Text = "BRG001"
+        ' 
+        ' LblTtlStok
+        ' 
+        LblTtlStok.AutoSize = True
+        LblTtlStok.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
+        LblTtlStok.Location = New Point(171, 187)
+        LblTtlStok.Name = "LblTtlStok"
+        LblTtlStok.Size = New Size(40, 20)
+        LblTtlStok.TabIndex = 5
+        LblTtlStok.Text = "Stok"
+        ' 
+        ' LblTtlHarga
+        ' 
+        LblTtlHarga.AutoSize = True
+        LblTtlHarga.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
+        LblTtlHarga.Location = New Point(171, 147)
+        LblTtlHarga.Name = "LblTtlHarga"
+        LblTtlHarga.Size = New Size(51, 20)
+        LblTtlHarga.TabIndex = 4
+        LblTtlHarga.Text = "Harga"
+        ' 
+        ' LblTtlKategori
+        ' 
+        LblTtlKategori.AutoSize = True
+        LblTtlKategori.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
+        LblTtlKategori.Location = New Point(171, 107)
+        LblTtlKategori.Name = "LblTtlKategori"
+        LblTtlKategori.Size = New Size(69, 20)
+        LblTtlKategori.TabIndex = 3
+        LblTtlKategori.Text = "Kategori"
+        ' 
+        ' LblTtlNama
+        ' 
+        LblTtlNama.AutoSize = True
+        LblTtlNama.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
+        LblTtlNama.Location = New Point(171, 67)
+        LblTtlNama.Name = "LblTtlNama"
+        LblTtlNama.Size = New Size(105, 20)
+        LblTtlNama.TabIndex = 2
+        LblTtlNama.Text = "Nama Barang"
+        ' 
+        ' LblTtlKode
+        ' 
+        LblTtlKode.AutoSize = True
+        LblTtlKode.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
+        LblTtlKode.Location = New Point(171, 27)
+        LblTtlKode.Name = "LblTtlKode"
+        LblTtlKode.Size = New Size(99, 20)
+        LblTtlKode.TabIndex = 1
+        LblTtlKode.Text = "Kode Barang"
+        ' 
+        ' PictureBoxBarang
+        ' 
+        PictureBoxBarang.BorderStyle = BorderStyle.FixedSingle
+        PictureBoxBarang.Location = New Point(17, 20)
+        PictureBoxBarang.Margin = New Padding(3, 4, 3, 4)
+        PictureBoxBarang.Name = "PictureBoxBarang"
+        PictureBoxBarang.Size = New Size(137, 206)
+        PictureBoxBarang.SizeMode = PictureBoxSizeMode.Zoom
+        PictureBoxBarang.TabIndex = 0
+        PictureBoxBarang.TabStop = False
+        ' 
+        ' FormDataBarang
+        ' 
+        AutoScaleDimensions = New SizeF(8F, 20F)
+        AutoScaleMode = AutoScaleMode.Font
+        BackColor = Color.White
+        ClientSize = New Size(914, 733)
+        Controls.Add(PanelDetail)
+        Controls.Add(LblTotalData)
+        Controls.Add(DgvDataBarang)
+        Controls.Add(TxtCari)
+        Controls.Add(TxtFilter)
+        Controls.Add(BtnHapus)
+        Controls.Add(BtnUbah)
+        Controls.Add(BtnTambah)
+        Margin = New Padding(3, 4, 3, 4)
+        Name = "FormDataBarang"
+        StartPosition = FormStartPosition.CenterScreen
+        Text = "Data Barang"
+        CType(DgvDataBarang, ComponentModel.ISupportInitialize).EndInit()
+        PanelDetail.ResumeLayout(False)
+        PanelDetail.PerformLayout()
+        CType(PictureBoxBarang, ComponentModel.ISupportInitialize).EndInit()
+        ResumeLayout(False)
+        PerformLayout()
 
     End Sub
 
     Friend WithEvents BtnTambah As System.Windows.Forms.Button
-    Friend WithEvents BtnSimpan As System.Windows.Forms.Button
     Friend WithEvents BtnUbah As System.Windows.Forms.Button
     Friend WithEvents BtnHapus As System.Windows.Forms.Button
-    Friend WithEvents BtnCari As System.Windows.Forms.Button
     Friend WithEvents TxtFilter As System.Windows.Forms.TextBox
     Friend WithEvents TxtCari As System.Windows.Forms.TextBox
     Friend WithEvents DgvDataBarang As System.Windows.Forms.DataGridView

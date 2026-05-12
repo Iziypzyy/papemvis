@@ -241,19 +241,19 @@ Partial Class FormDashboard
         ' LoginToolStripMenuItem
         ' 
         LoginToolStripMenuItem.Name = "LoginToolStripMenuItem"
-        LoginToolStripMenuItem.Size = New Size(142, 26)
+        LoginToolStripMenuItem.Size = New Size(224, 26)
         LoginToolStripMenuItem.Text = "Login"
         ' 
         ' LogoutToolStripMenuItem
         ' 
         LogoutToolStripMenuItem.Name = "LogoutToolStripMenuItem"
-        LogoutToolStripMenuItem.Size = New Size(142, 26)
+        LogoutToolStripMenuItem.Size = New Size(224, 26)
         LogoutToolStripMenuItem.Text = "Logout"
         ' 
         ' KeluarToolStripMenuItem
         ' 
         KeluarToolStripMenuItem.Name = "KeluarToolStripMenuItem"
-        KeluarToolStripMenuItem.Size = New Size(142, 26)
+        KeluarToolStripMenuItem.Size = New Size(224, 26)
         KeluarToolStripMenuItem.Text = "Keluar"
         ' 
         ' MasterDataToolStripMenuItem
@@ -266,31 +266,31 @@ Partial Class FormDashboard
         ' DataBarangToolStripMenuItem
         ' 
         DataBarangToolStripMenuItem.Name = "DataBarangToolStripMenuItem"
-        DataBarangToolStripMenuItem.Size = New Size(186, 26)
+        DataBarangToolStripMenuItem.Size = New Size(224, 26)
         DataBarangToolStripMenuItem.Text = "Data Barang"
         ' 
         ' KategoriToolStripMenuItem
         ' 
         KategoriToolStripMenuItem.Name = "KategoriToolStripMenuItem"
-        KategoriToolStripMenuItem.Size = New Size(186, 26)
+        KategoriToolStripMenuItem.Size = New Size(224, 26)
         KategoriToolStripMenuItem.Text = "Kategori"
         ' 
         ' SupplierToolStripMenuItem
         ' 
         SupplierToolStripMenuItem.Name = "SupplierToolStripMenuItem"
-        SupplierToolStripMenuItem.Size = New Size(186, 26)
+        SupplierToolStripMenuItem.Size = New Size(224, 26)
         SupplierToolStripMenuItem.Text = "Supplier"
         ' 
         ' PelangganToolStripMenuItem
         ' 
         PelangganToolStripMenuItem.Name = "PelangganToolStripMenuItem"
-        PelangganToolStripMenuItem.Size = New Size(186, 26)
+        PelangganToolStripMenuItem.Size = New Size(224, 26)
         PelangganToolStripMenuItem.Text = "Pelanggan"
         ' 
         ' UserAdminToolStripMenuItem
         ' 
         UserAdminToolStripMenuItem.Name = "UserAdminToolStripMenuItem"
-        UserAdminToolStripMenuItem.Size = New Size(186, 26)
+        UserAdminToolStripMenuItem.Size = New Size(224, 26)
         UserAdminToolStripMenuItem.Text = "User / Admin"
         ' 
         ' TransaksiToolStripMenuItem
@@ -405,7 +405,7 @@ Partial Class FormDashboard
         PanelSidebar.Controls.Add(BtnUser)
         PanelSidebar.Controls.Add(BtnLogout)
         PanelSidebar.Location = New Point(0, 22)
-        PanelSidebar.Margin = New Padding(2, 2, 2, 2)
+        PanelSidebar.Margin = New Padding(2)
         PanelSidebar.Name = "PanelSidebar"
         PanelSidebar.Size = New Size(186, 586)
         PanelSidebar.TabIndex = 1
@@ -454,7 +454,7 @@ Partial Class FormDashboard
         BtnDashboard.Font = New Font("Segoe UI", 10F, FontStyle.Bold)
         BtnDashboard.ForeColor = Color.White
         BtnDashboard.Location = New Point(14, 112)
-        BtnDashboard.Margin = New Padding(2, 2, 2, 2)
+        BtnDashboard.Margin = New Padding(2)
         BtnDashboard.Name = "BtnDashboard"
         BtnDashboard.Padding = New Padding(8, 0, 0, 0)
         BtnDashboard.Size = New Size(157, 32)
@@ -471,7 +471,7 @@ Partial Class FormDashboard
         BtnDataBarang.Font = New Font("Segoe UI", 10F, FontStyle.Bold)
         BtnDataBarang.ForeColor = Color.White
         BtnDataBarang.Location = New Point(14, 149)
-        BtnDataBarang.Margin = New Padding(2, 2, 2, 2)
+        BtnDataBarang.Margin = New Padding(2)
         BtnDataBarang.Name = "BtnDataBarang"
         BtnDataBarang.Padding = New Padding(8, 0, 0, 0)
         BtnDataBarang.Size = New Size(157, 32)
@@ -488,7 +488,7 @@ Partial Class FormDashboard
         BtnKategori.Font = New Font("Segoe UI", 10F, FontStyle.Bold)
         BtnKategori.ForeColor = Color.White
         BtnKategori.Location = New Point(14, 186)
-        BtnKategori.Margin = New Padding(2, 2, 2, 2)
+        BtnKategori.Margin = New Padding(2)
         BtnKategori.Name = "BtnKategori"
         BtnKategori.Padding = New Padding(8, 0, 0, 0)
         BtnKategori.Size = New Size(157, 32)
@@ -505,7 +505,7 @@ Partial Class FormDashboard
         BtnSupplier.Font = New Font("Segoe UI", 10F, FontStyle.Bold)
         BtnSupplier.ForeColor = Color.White
         BtnSupplier.Location = New Point(14, 222)
-        BtnSupplier.Margin = New Padding(2, 2, 2, 2)
+        BtnSupplier.Margin = New Padding(2)
         BtnSupplier.Name = "BtnSupplier"
         BtnSupplier.Padding = New Padding(8, 0, 0, 0)
         BtnSupplier.Size = New Size(157, 32)
@@ -522,7 +522,7 @@ Partial Class FormDashboard
         BtnPelanggan.Font = New Font("Segoe UI", 10F, FontStyle.Bold)
         BtnPelanggan.ForeColor = Color.White
         BtnPelanggan.Location = New Point(14, 259)
-        BtnPelanggan.Margin = New Padding(2, 2, 2, 2)
+        BtnPelanggan.Margin = New Padding(2)
         BtnPelanggan.Name = "BtnPelanggan"
         BtnPelanggan.Padding = New Padding(8, 0, 0, 0)
         BtnPelanggan.Size = New Size(157, 32)
@@ -539,7 +539,7 @@ Partial Class FormDashboard
         BtnPenjualan.Font = New Font("Segoe UI", 10F, FontStyle.Bold)
         BtnPenjualan.ForeColor = Color.White
         BtnPenjualan.Location = New Point(14, 296)
-        BtnPenjualan.Margin = New Padding(2, 2, 2, 2)
+        BtnPenjualan.Margin = New Padding(2)
         BtnPenjualan.Name = "BtnPenjualan"
         BtnPenjualan.Padding = New Padding(8, 0, 0, 0)
         BtnPenjualan.Size = New Size(157, 32)
@@ -556,7 +556,7 @@ Partial Class FormDashboard
         BtnPembelian.Font = New Font("Segoe UI", 10F, FontStyle.Bold)
         BtnPembelian.ForeColor = Color.White
         BtnPembelian.Location = New Point(14, 333)
-        BtnPembelian.Margin = New Padding(2, 2, 2, 2)
+        BtnPembelian.Margin = New Padding(2)
         BtnPembelian.Name = "BtnPembelian"
         BtnPembelian.Padding = New Padding(8, 0, 0, 0)
         BtnPembelian.Size = New Size(157, 32)
@@ -573,7 +573,7 @@ Partial Class FormDashboard
         BtnStok.Font = New Font("Segoe UI", 10F, FontStyle.Bold)
         BtnStok.ForeColor = Color.White
         BtnStok.Location = New Point(14, 370)
-        BtnStok.Margin = New Padding(2, 2, 2, 2)
+        BtnStok.Margin = New Padding(2)
         BtnStok.Name = "BtnStok"
         BtnStok.Padding = New Padding(8, 0, 0, 0)
         BtnStok.Size = New Size(157, 32)
@@ -590,7 +590,7 @@ Partial Class FormDashboard
         BtnLaporan.Font = New Font("Segoe UI", 10F, FontStyle.Bold)
         BtnLaporan.ForeColor = Color.White
         BtnLaporan.Location = New Point(14, 406)
-        BtnLaporan.Margin = New Padding(2, 2, 2, 2)
+        BtnLaporan.Margin = New Padding(2)
         BtnLaporan.Name = "BtnLaporan"
         BtnLaporan.Padding = New Padding(8, 0, 0, 0)
         BtnLaporan.Size = New Size(157, 32)
@@ -607,7 +607,7 @@ Partial Class FormDashboard
         BtnUser.Font = New Font("Segoe UI", 10F, FontStyle.Bold)
         BtnUser.ForeColor = Color.White
         BtnUser.Location = New Point(14, 443)
-        BtnUser.Margin = New Padding(2, 2, 2, 2)
+        BtnUser.Margin = New Padding(2)
         BtnUser.Name = "BtnUser"
         BtnUser.Padding = New Padding(8, 0, 0, 0)
         BtnUser.Size = New Size(157, 32)
@@ -624,7 +624,7 @@ Partial Class FormDashboard
         BtnLogout.Font = New Font("Segoe UI", 10F, FontStyle.Bold)
         BtnLogout.ForeColor = Color.FromArgb(CByte(255), CByte(90), CByte(90))
         BtnLogout.Location = New Point(14, 488)
-        BtnLogout.Margin = New Padding(2, 2, 2, 2)
+        BtnLogout.Margin = New Padding(2)
         BtnLogout.Name = "BtnLogout"
         BtnLogout.Padding = New Padding(8, 0, 0, 0)
         BtnLogout.Size = New Size(157, 32)
@@ -649,7 +649,7 @@ Partial Class FormDashboard
         PanelContent.Controls.Add(PanelNotifikasi)
         PanelContent.Controls.Add(PanelInfo)
         PanelContent.Location = New Point(186, 22)
-        PanelContent.Margin = New Padding(2, 2, 2, 2)
+        PanelContent.Margin = New Padding(2)
         PanelContent.Name = "PanelContent"
         PanelContent.Size = New Size(774, 586)
         PanelContent.TabIndex = 2
@@ -707,7 +707,7 @@ Partial Class FormDashboard
         PanelProduk.Controls.Add(LabelProdukValue)
         PanelProduk.Controls.Add(LabelProdukInfo)
         PanelProduk.Location = New Point(30, 104)
-        PanelProduk.Margin = New Padding(2, 2, 2, 2)
+        PanelProduk.Margin = New Padding(2)
         PanelProduk.Name = "PanelProduk"
         PanelProduk.Size = New Size(164, 84)
         PanelProduk.TabIndex = 4
@@ -763,7 +763,7 @@ Partial Class FormDashboard
         PanelStok.Controls.Add(LabelStokValue)
         PanelStok.Controls.Add(LabelStokInfo)
         PanelStok.Location = New Point(216, 104)
-        PanelStok.Margin = New Padding(2, 2, 2, 2)
+        PanelStok.Margin = New Padding(2)
         PanelStok.Name = "PanelStok"
         PanelStok.Size = New Size(164, 84)
         PanelStok.TabIndex = 5
@@ -819,7 +819,7 @@ Partial Class FormDashboard
         PanelPenjualan.Controls.Add(LabelPenjualanValue)
         PanelPenjualan.Controls.Add(LabelPenjualanInfo)
         PanelPenjualan.Location = New Point(402, 104)
-        PanelPenjualan.Margin = New Padding(2, 2, 2, 2)
+        PanelPenjualan.Margin = New Padding(2)
         PanelPenjualan.Name = "PanelPenjualan"
         PanelPenjualan.Size = New Size(164, 84)
         PanelPenjualan.TabIndex = 6
@@ -875,7 +875,7 @@ Partial Class FormDashboard
         PanelPelanggan.Controls.Add(LabelPelangganValue)
         PanelPelanggan.Controls.Add(LabelPelangganInfo)
         PanelPelanggan.Location = New Point(587, 104)
-        PanelPelanggan.Margin = New Padding(2, 2, 2, 2)
+        PanelPelanggan.Margin = New Padding(2)
         PanelPelanggan.Name = "PanelPelanggan"
         PanelPelanggan.Size = New Size(164, 84)
         PanelPelanggan.TabIndex = 7
@@ -934,7 +934,7 @@ Partial Class FormDashboard
         PanelGrafik.Controls.Add(LabelGrafik5)
         PanelGrafik.Controls.Add(LabelGrafikTanggal)
         PanelGrafik.Location = New Point(30, 208)
-        PanelGrafik.Margin = New Padding(2, 2, 2, 2)
+        PanelGrafik.Margin = New Padding(2)
         PanelGrafik.Name = "PanelGrafik"
         PanelGrafik.Size = New Size(364, 196)
         PanelGrafik.TabIndex = 8
@@ -1021,7 +1021,7 @@ Partial Class FormDashboard
         PanelTopProduk.Controls.Add(LabelTopProdukTitle)
         PanelTopProduk.Controls.Add(TableTopProduk)
         PanelTopProduk.Location = New Point(412, 208)
-        PanelTopProduk.Margin = New Padding(2, 2, 2, 2)
+        PanelTopProduk.Margin = New Padding(2)
         PanelTopProduk.Name = "PanelTopProduk"
         PanelTopProduk.Size = New Size(336, 196)
         PanelTopProduk.TabIndex = 9
@@ -1044,7 +1044,7 @@ Partial Class FormDashboard
         TableTopProduk.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 100F))
         TableTopProduk.ColumnStyles.Add(New ColumnStyle(SizeType.Absolute, 65F))
         TableTopProduk.Location = New Point(14, 46)
-        TableTopProduk.Margin = New Padding(2, 2, 2, 2)
+        TableTopProduk.Margin = New Padding(2)
         TableTopProduk.Name = "TableTopProduk"
         TableTopProduk.RowCount = 6
         TableTopProduk.RowStyles.Add(New RowStyle(SizeType.Absolute, 21F))
@@ -1065,7 +1065,7 @@ Partial Class FormDashboard
         PanelNotifikasi.Controls.Add(LabelNotif2)
         PanelNotifikasi.Controls.Add(LabelNotif3)
         PanelNotifikasi.Location = New Point(30, 420)
-        PanelNotifikasi.Margin = New Padding(2, 2, 2, 2)
+        PanelNotifikasi.Margin = New Padding(2)
         PanelNotifikasi.Name = "PanelNotifikasi"
         PanelNotifikasi.Size = New Size(364, 128)
         PanelNotifikasi.TabIndex = 10
@@ -1120,7 +1120,7 @@ Partial Class FormDashboard
         PanelInfo.Controls.Add(LabelInfoLevel)
         PanelInfo.Controls.Add(LabelInfoVersi)
         PanelInfo.Location = New Point(412, 420)
-        PanelInfo.Margin = New Padding(2, 2, 2, 2)
+        PanelInfo.Margin = New Padding(2)
         PanelInfo.Name = "PanelInfo"
         PanelInfo.Size = New Size(336, 128)
         PanelInfo.TabIndex = 11
@@ -1176,7 +1176,7 @@ Partial Class FormDashboard
         Controls.Add(PanelSidebar)
         Controls.Add(MenuStrip1)
         MainMenuStrip = MenuStrip1
-        Margin = New Padding(2, 2, 2, 2)
+        Margin = New Padding(2)
         Name = "FormDashboard"
         StartPosition = FormStartPosition.CenterScreen
         Text = "Sistem Manajemen Toko Pakaian Pria"

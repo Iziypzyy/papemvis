@@ -54,8 +54,8 @@ Partial Class FormUser
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
         btnTambah = New Button()
         btnSimpan = New Button()
         btnUbah = New Button()
@@ -286,8 +286,8 @@ Partial Class FormUser
         ' 
         ' colStatus
         ' 
-        DataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter
-        colStatus.DefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter
+        colStatus.DefaultCellStyle = DataGridViewCellStyle1
         colStatus.HeaderText = "Status"
         colStatus.MinimumWidth = 6
         colStatus.Name = "colStatus"
@@ -296,8 +296,8 @@ Partial Class FormUser
         ' 
         ' colTerakhirLogin
         ' 
-        DataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter
-        colTerakhirLogin.DefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter
+        colTerakhirLogin.DefaultCellStyle = DataGridViewCellStyle2
         colTerakhirLogin.HeaderText = "Terakhir Login"
         colTerakhirLogin.MinimumWidth = 6
         colTerakhirLogin.Name = "colTerakhirLogin"
