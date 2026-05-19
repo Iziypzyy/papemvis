@@ -1,4 +1,4 @@
-﻿Public Class FormLogin
+﻿Public Class FormLoginAdmin
 
     ' 1. Logika saat tombol Login diklik
     Private Sub ButtonLogin_Click(sender As Object, e As EventArgs) Handles ButtonLogin.Click

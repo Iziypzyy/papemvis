@@ -241,19 +241,19 @@ Partial Class FormDashboard
         ' LoginToolStripMenuItem
         ' 
         LoginToolStripMenuItem.Name = "LoginToolStripMenuItem"
-        LoginToolStripMenuItem.Size = New Size(224, 26)
+        LoginToolStripMenuItem.Size = New Size(142, 26)
         LoginToolStripMenuItem.Text = "Login"
         ' 
         ' LogoutToolStripMenuItem
         ' 
         LogoutToolStripMenuItem.Name = "LogoutToolStripMenuItem"
-        LogoutToolStripMenuItem.Size = New Size(224, 26)
+        LogoutToolStripMenuItem.Size = New Size(142, 26)
         LogoutToolStripMenuItem.Text = "Logout"
         ' 
         ' KeluarToolStripMenuItem
         ' 
         KeluarToolStripMenuItem.Name = "KeluarToolStripMenuItem"
-        KeluarToolStripMenuItem.Size = New Size(224, 26)
+        KeluarToolStripMenuItem.Size = New Size(142, 26)
         KeluarToolStripMenuItem.Text = "Keluar"
         ' 
         ' MasterDataToolStripMenuItem
@@ -404,10 +404,10 @@ Partial Class FormDashboard
         PanelSidebar.Controls.Add(BtnLaporan)
         PanelSidebar.Controls.Add(BtnUser)
         PanelSidebar.Controls.Add(BtnLogout)
-        PanelSidebar.Location = New Point(0, 22)
+        PanelSidebar.Location = New Point(0, 30)
         PanelSidebar.Margin = New Padding(2)
         PanelSidebar.Name = "PanelSidebar"
-        PanelSidebar.Size = New Size(186, 586)
+        PanelSidebar.Size = New Size(186, 578)
         PanelSidebar.TabIndex = 1
         ' 
         ' LabelLogoIcon
@@ -648,10 +648,10 @@ Partial Class FormDashboard
         PanelContent.Controls.Add(PanelTopProduk)
         PanelContent.Controls.Add(PanelNotifikasi)
         PanelContent.Controls.Add(PanelInfo)
-        PanelContent.Location = New Point(186, 22)
+        PanelContent.Location = New Point(186, 30)
         PanelContent.Margin = New Padding(2)
         PanelContent.Name = "PanelContent"
-        PanelContent.Size = New Size(774, 586)
+        PanelContent.Size = New Size(774, 578)
         PanelContent.TabIndex = 2
         ' 
         ' LabelWelcome

@@ -176,4 +176,12 @@
     Private Sub LabelGrafik2_Click(sender As Object, e As EventArgs) Handles LabelGrafik2.Click
 
     End Sub
+
+    Private Sub MenuStrip1_ItemClicked(sender As Object, e As ToolStripItemClickedEventArgs) Handles MenuStrip1.ItemClicked
+
+    End Sub
+
+    Private Sub PanelContent_Paint(sender As Object, e As PaintEventArgs) Handles PanelContent.Paint
+
+    End Sub
 End Class

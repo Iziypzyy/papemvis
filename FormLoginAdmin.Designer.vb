@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Class FormLogin
+Partial Class FormLoginAdmin
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -37,6 +37,7 @@ Partial Class FormLogin
         ButtonBatal = New Button()
         LabelLoginTitle = New Label()
         PictureBoxUserIcon = New PictureBox()
+        LblSubLogAdmin = New Label()
         PanelLeft.SuspendLayout()
         CType(PictureBoxLogo, ComponentModel.ISupportInitialize).BeginInit()
         CType(PictureBoxUserIcon, ComponentModel.ISupportInitialize).BeginInit()
@@ -62,7 +63,7 @@ Partial Class FormLogin
         LblTokoPakaianPria.AutoSize = True
         LblTokoPakaianPria.Font = New Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         LblTokoPakaianPria.ForeColor = Color.White
-        LblTokoPakaianPria.Location = New Point(54, 422)
+        LblTokoPakaianPria.Location = New Point(55, 422)
         LblTokoPakaianPria.Name = "LblTokoPakaianPria"
         LblTokoPakaianPria.Size = New Size(163, 25)
         LblTokoPakaianPria.TabIndex = 4
@@ -207,18 +208,18 @@ Partial Class FormLogin
         ' 
         LabelLoginTitle.AutoSize = True
         LabelLoginTitle.Font = New Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        LabelLoginTitle.Location = New Point(469, 107)
+        LabelLoginTitle.Location = New Point(359, 112)
         LabelLoginTitle.Name = "LabelLoginTitle"
-        LabelLoginTitle.Size = New Size(90, 38)
+        LabelLoginTitle.Size = New Size(303, 38)
         LabelLoginTitle.TabIndex = 8
-        LabelLoginTitle.Text = "Login"
+        LabelLoginTitle.Text = "Administrator System"
         ' 
         ' PictureBoxUserIcon
         ' 
         PictureBoxUserIcon.BackColor = Color.Transparent
         PictureBoxUserIcon.BackgroundImage = My.Resources.Resources.Vector_Icon_Login
         PictureBoxUserIcon.BackgroundImageLayout = ImageLayout.Stretch
-        PictureBoxUserIcon.Location = New Point(365, 77)
+        PictureBoxUserIcon.Location = New Point(454, 7)
         PictureBoxUserIcon.Margin = New Padding(3, 4, 3, 4)
         PictureBoxUserIcon.Name = "PictureBoxUserIcon"
         PictureBoxUserIcon.Size = New Size(98, 103)
@@ -226,12 +227,23 @@ Partial Class FormLogin
         PictureBoxUserIcon.TabIndex = 9
         PictureBoxUserIcon.TabStop = False
         ' 
-        ' FormLogin
+        ' LblSubLogAdmin
+        ' 
+        LblSubLogAdmin.AutoSize = True
+        LblSubLogAdmin.ForeColor = Color.Gray
+        LblSubLogAdmin.Location = New Point(317, 155)
+        LblSubLogAdmin.Name = "LblSubLogAdmin"
+        LblSubLogAdmin.Size = New Size(384, 20)
+        LblSubLogAdmin.TabIndex = 10
+        LblSubLogAdmin.Text = "Otorisasi diperlukan untuk mengakses panel manajemen."
+        ' 
+        ' FormLoginAdmin
         ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = SystemColors.Window
         ClientSize = New Size(731, 533)
+        Controls.Add(LblSubLogAdmin)
         Controls.Add(PictureBoxUserIcon)
         Controls.Add(LabelLoginTitle)
         Controls.Add(ButtonBatal)
@@ -245,7 +257,7 @@ Partial Class FormLogin
         FormBorderStyle = FormBorderStyle.FixedDialog
         Margin = New Padding(3, 4, 3, 4)
         MaximizeBox = False
-        Name = "FormLogin"
+        Name = "FormLoginAdmin"
         StartPosition = FormStartPosition.CenterScreen
         Text = "Login - Sistem Manajemen Toko Pakaian Pria"
         PanelLeft.ResumeLayout(False)
@@ -272,4 +284,5 @@ Partial Class FormLogin
     Friend WithEvents ButtonBatal As System.Windows.Forms.Button
     Friend WithEvents LabelLoginTitle As System.Windows.Forms.Label
     Friend WithEvents PictureBoxUserIcon As System.Windows.Forms.PictureBox
+    Friend WithEvents LblSubLogAdmin As Label
 End Class
