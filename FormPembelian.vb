@@ -1,15 +1,45 @@
-﻿Public Class Form8
+﻿Imports MySql.Data.MySqlClient
+Imports MySqlConnector
+
+Public Class Form8
 
     ' 1. Inisialisasi data saat form dimuat
     Private Sub FormPembelian_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        ' Set tanggal ke hari ini
         dtpTanggal.Value = DateTime.Now
+        LoadDataDB()
+    End Sub
 
-        ' Tambahkan data contoh ke tabel detail
-        dgvDetailPembelian.Rows.Add("B001", "Kemeja Formal Slim Fit", "20", "150000", "3000000")
-        dgvDetailPembelian.Rows.Add("B002", "Celana Chino Khaki", "15", "110000", "1650000")
+    ' Load data detail pembelian terakhir dari database
+    Private Sub LoadDataDB()
+        dgvDetailPembelian.Rows.Clear()
+        Try
+            Using conn As MySqlConnection = KoneksiDB.GetConnection()
+                ' Ambil detail dari pembelian terakhir yang ada
+                Dim query As String =
+                    "SELECT dp.kode_barang, dp.nama_barang, dp.qty, dp.harga_satuan, dp.subtotal " &
+                    "FROM detail_pembelian dp " &
+                    "INNER JOIN pembelian p ON dp.id_pembelian = p.id_pembelian " &
+                    "ORDER BY p.tgl_pembelian DESC, dp.id_detail " &
+                    "LIMIT 20"
 
-        ' Hitung total awal
+                Using cmd As New MySqlCommand(query, conn)
+                    Using dr As MySqlDataReader = cmd.ExecuteReader()
+                        Do While dr.Read()
+                            dgvDetailPembelian.Rows.Add(
+                                dr("kode_barang").ToString(),
+                                dr("nama_barang").ToString(),
+                                dr("qty").ToString(),
+                                Format(Convert.ToDouble(dr("harga_satuan")), "###,###,##0"),
+                                Format(Convert.ToDouble(dr("subtotal")), "###,###,##0")
+                            )
+                        Loop
+                    End Using
+                End Using
+            End Using
+        Catch ex As Exception
+            ' Jika gagal, tampilkan data kosong agar form tidak crash
+        End Try
+
         HitungRingkasan()
     End Sub
 
@@ -19,20 +49,17 @@
         Dim subTotal As Double = 0
         Dim ongkir As Double = 0
 
-        ' Iterasi setiap baris di DataGridView
         For Each row As DataGridViewRow In dgvDetailPembelian.Rows
             If Not row.IsNewRow Then
                 totalItem += Val(row.Cells("colQty").Value)
-                subTotal += Val(row.Cells("colSubTotal").Value)
+                subTotal += Val(row.Cells("colSubTotal").Value.ToString().Replace(".", ""))
             End If
         Next
 
-        ' Ambil nilai ongkir dari textbox
         Double.TryParse(txtOngkir.Text, ongkir)
 
-        ' Update label output
         lblOutputTotalItem.Text = totalItem.ToString()
-        lblOutputTotal.Text = subTotal.ToString("N0") ' Format angka dengan pemisah ribuan
+        lblOutputTotal.Text = subTotal.ToString("N0")
         lblOutputGrandTotal.Text = (subTotal + ongkir).ToString("N0")
     End Sub
 

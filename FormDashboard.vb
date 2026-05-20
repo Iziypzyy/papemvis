@@ -1,22 +1,19 @@
-﻿Public Class FormDashboard
+﻿Imports MySql.Data.MySqlClient
+Imports MySqlConnector
+
+Public Class FormDashboard
 
     Private WithEvents waktuTimer As New Timer()
 
     Private Sub FormDashboard_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-        ' FORMAT TANGGAL DAN JAM
         LabelDate.Text = Format(Date.Now, "dddd, dd MMMM yyyy")
         LabelTime.Text = Format(Date.Now, "HH:mm:ss")
 
         waktuTimer.Interval = 1000
         waktuTimer.Start()
 
-        ' LOAD DATA DASHBOARD
         LoadDashboard()
-
-        ' LOAD TABEL TOP PRODUK
         LoadTopProduk()
-
     End Sub
 
     Private Sub waktuTimer_Tick(sender As Object, e As EventArgs) Handles waktuTimer.Tick
@@ -24,27 +21,40 @@
     End Sub
 
     Private Sub LoadDashboard()
+        ' === KONEKSI DATABASE — ambil data dari VIEW v_dashboard ===
+        Try
+            Using conn As MySqlConnection = KoneksiDB.GetConnection()
+                Dim query As String = "SELECT * FROM v_dashboard"
+                Using cmd As New MySqlCommand(query, conn)
+                    Using dr As MySqlDataReader = cmd.ExecuteReader()
+                        If dr.Read() Then
+                            LabelProdukValue.Text = dr("total_produk").ToString()
+                            LabelStokValue.Text = dr("produk_stok_menipis").ToString()
+                            LabelPenjualanValue.Text = "Rp " & Format(Convert.ToDouble(dr("penjualan_hari_ini")), "###,###,##0")
+                            LabelPelangganValue.Text = dr("total_pelanggan").ToString()
 
-        ' DATA DUMMY
-        ' Nanti tinggal ganti pakai database
+                            LabelNotif1.Text = "- " & dr("produk_stok_menipis").ToString() & " produk dengan stok menipis"
+                        End If
+                    End Using
+                End Using
+            End Using
 
-        LabelProdukValue.Text = "156"
-        LabelStokValue.Text = "18"
-        LabelPenjualanValue.Text = "Rp 5.250.000"
-        LabelPelangganValue.Text = "125"
+            LabelNotif2.Text = "- 2 pesanan pembelian belum diterima"
+            LabelNotif3.Text = "- Backup data terakhir : " & Format(Date.Now, "dd/MM/yyyy HH:mm")
+            LabelInfoUser.Text = "User Aktif              :   admin"
+            LabelInfoLevel.Text = "Level                   :   Administrator"
+            LabelInfoVersi.Text = "Versi Aplikasi          :   1.0.0.0"
 
-        LabelNotif1.Text = "- 18 produk dengan stok menipis"
-        LabelNotif2.Text = "- 2 pesanan pembelian belum diterima"
-        LabelNotif3.Text = "- Backup data terakhir : " & Format(Date.Now, "dd/MM/yyyy HH:mm")
-
-        LabelInfoUser.Text = "User Aktif              :   admin"
-        LabelInfoLevel.Text = "Level                   :   Administrator"
-        LabelInfoVersi.Text = "Versi Aplikasi          :   1.0.0.0"
-
+        Catch ex As Exception
+            ' Jika DB gagal, tampilkan data default agar form tidak crash
+            LabelProdukValue.Text = "-"
+            LabelStokValue.Text = "-"
+            LabelPenjualanValue.Text = "Rp 0"
+            LabelPelangganValue.Text = "-"
+        End Try
     End Sub
 
     Private Sub LoadTopProduk()
-
         TableTopProduk.Controls.Clear()
 
         ' HEADER
@@ -52,34 +62,39 @@
         TableTopProduk.Controls.Add(BuatLabelTable("Nama Produk", True), 1, 0)
         TableTopProduk.Controls.Add(BuatLabelTable("Terjual", True), 2, 0)
 
-        ' DATA
-        TableTopProduk.Controls.Add(BuatLabelTable("1"), 0, 1)
-        TableTopProduk.Controls.Add(BuatLabelTable("Kaos Polos"), 1, 1)
-        TableTopProduk.Controls.Add(BuatLabelTable("120"), 2, 1)
+        ' === KONEKSI DATABASE — Top 5 produk terlaris ===
+        Try
+            Using conn As MySqlConnection = KoneksiDB.GetConnection()
+                Dim query As String =
+                    "SELECT nama_barang, SUM(qty) AS total_terjual " &
+                    "FROM detail_penjualan " &
+                    "GROUP BY nama_barang " &
+                    "ORDER BY total_terjual DESC " &
+                    "LIMIT 5"
 
-        TableTopProduk.Controls.Add(BuatLabelTable("2"), 0, 2)
-        TableTopProduk.Controls.Add(BuatLabelTable("Kemeja Flannel"), 1, 2)
-        TableTopProduk.Controls.Add(BuatLabelTable("98"), 2, 2)
-
-        TableTopProduk.Controls.Add(BuatLabelTable("3"), 0, 3)
-        TableTopProduk.Controls.Add(BuatLabelTable("Celana Chino"), 1, 3)
-        TableTopProduk.Controls.Add(BuatLabelTable("85"), 2, 3)
-
-        TableTopProduk.Controls.Add(BuatLabelTable("4"), 0, 4)
-        TableTopProduk.Controls.Add(BuatLabelTable("Jaket Hoodie"), 1, 4)
-        TableTopProduk.Controls.Add(BuatLabelTable("76"), 2, 4)
-
-        TableTopProduk.Controls.Add(BuatLabelTable("5"), 0, 5)
-        TableTopProduk.Controls.Add(BuatLabelTable("Polo Shirt"), 1, 5)
-        TableTopProduk.Controls.Add(BuatLabelTable("70"), 2, 5)
-
+                Using cmd As New MySqlCommand(query, conn)
+                    Using dr As MySqlDataReader = cmd.ExecuteReader()
+                        Dim no As Integer = 1
+                        Do While dr.Read()
+                            TableTopProduk.Controls.Add(BuatLabelTable(no.ToString()), 0, no)
+                            TableTopProduk.Controls.Add(BuatLabelTable(dr("nama_barang").ToString()), 1, no)
+                            TableTopProduk.Controls.Add(BuatLabelTable(dr("total_terjual").ToString()), 2, no)
+                            no += 1
+                        Loop
+                    End Using
+                End Using
+            End Using
+        Catch ex As Exception
+            ' Jika DB gagal, isi dengan data kosong agar tabel tidak error
+            TableTopProduk.Controls.Add(BuatLabelTable("-"), 0, 1)
+            TableTopProduk.Controls.Add(BuatLabelTable("Tidak ada data", 1), 1, 1)
+            TableTopProduk.Controls.Add(BuatLabelTable("-"), 2, 1)
+        End Try
     End Sub
 
     Private Function BuatLabelTable(teks As String,
                                     Optional header As Boolean = False) As Label
-
         Dim lbl As New Label
-
         lbl.Text = teks
         lbl.Dock = DockStyle.Fill
         lbl.TextAlign = ContentAlignment.MiddleCenter
@@ -94,7 +109,6 @@
         End If
 
         Return lbl
-
     End Function
 
     ' =========================
@@ -142,23 +156,13 @@
     End Sub
 
     Private Sub BtnLogout_Click(sender As Object, e As EventArgs) Handles BtnLogout.Click
-
         Dim hasil As DialogResult
-
-        hasil = MessageBox.Show(
-            "Yakin ingin logout?",
-            "Konfirmasi",
-            MessageBoxButtons.YesNo,
-            MessageBoxIcon.Question
-        )
-
+        hasil = MessageBox.Show("Yakin ingin logout?", "Konfirmasi",
+                                MessageBoxButtons.YesNo, MessageBoxIcon.Question)
         If hasil = DialogResult.Yes Then
-
             Me.Hide()
             FormLoginAdmin.Show()
-
         End If
-
     End Sub
 
     ' =========================

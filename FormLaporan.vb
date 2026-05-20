@@ -1,63 +1,89 @@
-﻿Public Class FormLaporan
+﻿Imports MySql.Data.MySqlClient
+Imports MySqlConnector
+
+Public Class FormLaporan
 
     ' 1. Event saat Form pertama kali dimuat
     Private Sub FormLaporan_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        ' Atur rentang tanggal default (misal: sebulan terakhir)
         dtpDari.Value = DateTime.Now.AddMonths(-1)
         dtpSampai.Value = DateTime.Now
-
-        ' Isi data awal ke tabel dan grafik
         LoadDataLaporan()
     End Sub
 
-    ' 2. Logika untuk mengisi data ke tabel dan visualisasi grafik
+    ' 2. Logika untuk mengisi data ke tabel dari database
     Private Sub LoadDataLaporan()
-        ' Bersihkan baris lama di DataGridView
         dgvLaporan.Rows.Clear()
 
-        ' Menambahkan data contoh transaksi (Tanggal, Total Transaksi, Penjualan, Laba)
-        dgvLaporan.Rows.Add("16/05/2026", "5", "2.500.000", "1.000.000")
-        dgvLaporan.Rows.Add("17/05/2026", "3", "1.200.000", "500.000")
-        dgvLaporan.Rows.Add("18/05/2026", "8", "4.800.000", "2.100.000")
-        dgvLaporan.Rows.Add("20/05/2026", "4", "3.100.000", "1.200.000")
-        dgvLaporan.Rows.Add("21/05/2026", "10", "1.400.000", "480.000")
+        Try
+            Using conn As MySqlConnection = KoneksiDB.GetConnection()
+                ' Ambil dari VIEW v_laporan_harian dengan filter tanggal
+                Dim query As String =
+                    "SELECT tanggal, total_transaksi, total_penjualan, estimasi_laba " &
+                    "FROM v_laporan_harian " &
+                    "WHERE tanggal BETWEEN @dari AND @sampai " &
+                    "ORDER BY tanggal DESC"
 
-        ' Update label rangkuman (Summary) di bagian bawah
-        lblTotalTransaksi.Text = "30"
-        lblTotalPenjualan.Text = "13.000.000"
-        lblTotalLaba.Text = "5.280.000"
+                Using cmd As New MySqlCommand(query, conn)
+                    cmd.Parameters.AddWithValue("@dari", dtpDari.Value.ToString("yyyy-MM-dd"))
+                    cmd.Parameters.AddWithValue("@sampai", dtpSampai.Value.ToString("yyyy-MM-dd"))
 
-        ' Panggil fungsi untuk mengatur tinggi batang grafik
+                    Dim totalTransaksi As Long = 0
+                    Dim totalPenjualan As Double = 0
+                    Dim totalLaba As Double = 0
+
+                    Using dr As MySqlDataReader = cmd.ExecuteReader()
+                        Do While dr.Read()
+                            Dim tanggal As String = Convert.ToDateTime(dr("tanggal")).ToString("dd/MM/yyyy")
+                            Dim trx As String = dr("total_transaksi").ToString()
+                            Dim penjualan As Double = Convert.ToDouble(dr("total_penjualan"))
+                            Dim laba As Double = Convert.ToDouble(dr("estimasi_laba"))
+
+                            dgvLaporan.Rows.Add(
+                                tanggal,
+                                trx,
+                                Format(penjualan, "###,###,##0"),
+                                Format(laba, "###,###,##0")
+                            )
+
+                            totalTransaksi += Convert.ToInt64(dr("total_transaksi"))
+                            totalPenjualan += penjualan
+                            totalLaba += laba
+                        Loop
+                    End Using
+
+                    ' Update label summary
+                    lblTotalTransaksi.Text = totalTransaksi.ToString()
+                    lblTotalPenjualan.Text = Format(totalPenjualan, "###,###,##0")
+                    lblTotalLaba.Text = Format(totalLaba, "###,###,##0")
+                End Using
+            End Using
+        Catch ex As Exception
+            MessageBox.Show("Gagal memuat laporan!" & vbNewLine & ex.Message,
+                            "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+
         UpdateChartBars()
     End Sub
 
-    ' 3. Logika untuk mengatur visualisasi Grafik Batang (Faux Chart)
+    ' 3. Logika untuk mengatur visualisasi Grafik Batang (tetap seperti aslinya)
     Private Sub UpdateChartBars()
-        ' Kita mengatur tinggi (Height) panel secara manual berdasarkan data
-        ' Semakin besar nilai penjualan, semakin tinggi panelnya
-        pnlBar1.Height = 50  ' Data tgl 16
-        pnlBar2.Height = 30  ' Data tgl 17
-        pnlBar3.Height = 90  ' Data tgl 18 (Tertinggi)
-        pnlBar4.Height = 60  ' Data tgl 20
-        pnlBar5.Height = 40  ' Data tgl 21
-        pnlBar6.Height = 110 ' Data tgl 22
-
-        ' Catatan: Lokasi Y harus disesuaikan agar batang tetap menempel di bawah
-        ' Biasanya dihitung: (Titik Dasar Grafik - Tinggi Batang)
+        pnlBar1.Height = 50
+        pnlBar2.Height = 30
+        pnlBar3.Height = 90
+        pnlBar4.Height = 60
+        pnlBar5.Height = 40
+        pnlBar6.Height = 110
     End Sub
 
     ' 4. Tombol Filter Data
     Private Sub btnTampilkan_Click(sender As Object, e As EventArgs) Handles btnTampilkan.Click
-        ' Logika untuk menyaring data berdasarkan dtpDari dan dtpSampai
         MessageBox.Show("Menampilkan laporan dari " & dtpDari.Value.ToShortDateString &
                         " hingga " & dtpSampai.Value.ToShortDateString)
-
         LoadDataLaporan()
     End Sub
 
     ' 5. Event saat Tab berpindah
     Private Sub tabControlLaporan_SelectedIndexChanged(sender As Object, e As EventArgs) Handles tabControlLaporan.SelectedIndexChanged
-        ' Memberikan respon berbeda saat user pindah ke tab Stok atau Pembelian
         If tabControlLaporan.SelectedTab Is tabStok Then
             ' Load data khusus stok
         ElseIf tabControlLaporan.SelectedTab Is tabPembelian Then
