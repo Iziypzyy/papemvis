@@ -22,10 +22,10 @@ Partial Class FormDataBarang
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
         BtnTambah = New Button()
         BtnUbah = New Button()
-        BtnHapus = New Button()
+        BtnHapusItem = New Button()
         TxtFilter = New TextBox()
         TxtCari = New TextBox()
         DgvDataBarang = New DataGridView()
@@ -61,10 +61,10 @@ Partial Class FormDataBarang
         BtnTambah.FlatStyle = FlatStyle.Flat
         BtnTambah.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
         BtnTambah.ForeColor = Color.White
-        BtnTambah.Location = New Point(23, 27)
-        BtnTambah.Margin = New Padding(3, 4, 3, 4)
+        BtnTambah.Location = New Point(29, 34)
+        BtnTambah.Margin = New Padding(4, 5, 4, 5)
         BtnTambah.Name = "BtnTambah"
-        BtnTambah.Size = New Size(103, 47)
+        BtnTambah.Size = New Size(129, 59)
         BtnTambah.TabIndex = 0
         BtnTambah.Text = "+ Tambah"
         BtnTambah.UseVisualStyleBackColor = False
@@ -76,37 +76,37 @@ Partial Class FormDataBarang
         BtnUbah.FlatStyle = FlatStyle.Flat
         BtnUbah.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
         BtnUbah.ForeColor = Color.Black
-        BtnUbah.Location = New Point(138, 27)
-        BtnUbah.Margin = New Padding(3, 4, 3, 4)
+        BtnUbah.Location = New Point(172, 34)
+        BtnUbah.Margin = New Padding(4, 5, 4, 5)
         BtnUbah.Name = "BtnUbah"
-        BtnUbah.Size = New Size(103, 47)
+        BtnUbah.Size = New Size(129, 59)
         BtnUbah.TabIndex = 2
         BtnUbah.Text = "Ubah"
         BtnUbah.UseVisualStyleBackColor = False
         ' 
-        ' BtnHapus
+        ' BtnHapusItem
         ' 
-        BtnHapus.BackColor = Color.FromArgb(CByte(220), CByte(53), CByte(69))
-        BtnHapus.FlatAppearance.BorderSize = 0
-        BtnHapus.FlatStyle = FlatStyle.Flat
-        BtnHapus.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
-        BtnHapus.ForeColor = Color.White
-        BtnHapus.Location = New Point(253, 27)
-        BtnHapus.Margin = New Padding(3, 4, 3, 4)
-        BtnHapus.Name = "BtnHapus"
-        BtnHapus.Size = New Size(103, 47)
-        BtnHapus.TabIndex = 3
-        BtnHapus.Text = "Hapus"
-        BtnHapus.UseVisualStyleBackColor = False
+        BtnHapusItem.BackColor = Color.FromArgb(CByte(220), CByte(53), CByte(69))
+        BtnHapusItem.FlatAppearance.BorderSize = 0
+        BtnHapusItem.FlatStyle = FlatStyle.Flat
+        BtnHapusItem.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
+        BtnHapusItem.ForeColor = Color.White
+        BtnHapusItem.Location = New Point(316, 34)
+        BtnHapusItem.Margin = New Padding(4, 5, 4, 5)
+        BtnHapusItem.Name = "BtnHapusItem"
+        BtnHapusItem.Size = New Size(129, 59)
+        BtnHapusItem.TabIndex = 3
+        BtnHapusItem.Text = "Hapus"
+        BtnHapusItem.UseVisualStyleBackColor = False
         ' 
         ' TxtFilter
         ' 
         TxtFilter.BorderStyle = BorderStyle.FixedSingle
         TxtFilter.Font = New Font("Segoe UI", 10F)
-        TxtFilter.Location = New Point(23, 93)
-        TxtFilter.Margin = New Padding(3, 4, 3, 4)
+        TxtFilter.Location = New Point(29, 116)
+        TxtFilter.Margin = New Padding(4, 5, 4, 5)
         TxtFilter.Name = "TxtFilter"
-        TxtFilter.Size = New Size(285, 30)
+        TxtFilter.Size = New Size(356, 34)
         TxtFilter.TabIndex = 5
         ' 
         ' TxtCari
@@ -115,11 +115,11 @@ Partial Class FormDataBarang
         TxtCari.BorderStyle = BorderStyle.FixedSingle
         TxtCari.Font = New Font("Segoe UI", 10F)
         TxtCari.ForeColor = Color.Gray
-        TxtCari.Location = New Point(617, 93)
-        TxtCari.Margin = New Padding(3, 4, 3, 4)
+        TxtCari.Location = New Point(898, 116)
+        TxtCari.Margin = New Padding(4, 5, 4, 5)
         TxtCari.Name = "TxtCari"
         TxtCari.PlaceholderText = "Cari Barang..."
-        TxtCari.Size = New Size(274, 30)
+        TxtCari.Size = New Size(342, 34)
         TxtCari.TabIndex = 6
         ' 
         ' DgvDataBarang
@@ -128,27 +128,27 @@ Partial Class FormDataBarang
         DgvDataBarang.AllowUserToDeleteRows = False
         DgvDataBarang.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
         DgvDataBarang.BackgroundColor = Color.White
-        DataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle1.BackColor = Color.FromArgb(CByte(240), CByte(240), CByte(240))
-        DataGridViewCellStyle1.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
-        DataGridViewCellStyle1.ForeColor = Color.Black
-        DataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight
-        DataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText
-        DataGridViewCellStyle1.WrapMode = DataGridViewTriState.True
-        DgvDataBarang.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = Color.FromArgb(CByte(240), CByte(240), CByte(240))
+        DataGridViewCellStyle2.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
+        DataGridViewCellStyle2.ForeColor = Color.Black
+        DataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = DataGridViewTriState.True
+        DgvDataBarang.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         DgvDataBarang.ColumnHeadersHeight = 30
         DgvDataBarang.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         DgvDataBarang.Columns.AddRange(New DataGridViewColumn() {ColKodeBarang, ColNamaBarang, ColKategori, ColUkuran, ColWarna, ColHarga, ColStok})
         DgvDataBarang.EnableHeadersVisualStyles = False
-        DgvDataBarang.Location = New Point(23, 147)
-        DgvDataBarang.Margin = New Padding(3, 4, 3, 4)
+        DgvDataBarang.Location = New Point(29, 184)
+        DgvDataBarang.Margin = New Padding(4, 5, 4, 5)
         DgvDataBarang.Name = "DgvDataBarang"
         DgvDataBarang.ReadOnly = True
         DgvDataBarang.RowHeadersVisible = False
         DgvDataBarang.RowHeadersWidth = 51
         DgvDataBarang.RowTemplate.Height = 25
         DgvDataBarang.SelectionMode = DataGridViewSelectionMode.FullRowSelect
-        DgvDataBarang.Size = New Size(869, 293)
+        DgvDataBarang.Size = New Size(1213, 366)
         DgvDataBarang.TabIndex = 7
         ' 
         ' ColKodeBarang
@@ -212,9 +212,10 @@ Partial Class FormDataBarang
         LblTotalData.Anchor = AnchorStyles.Bottom Or AnchorStyles.Left
         LblTotalData.AutoSize = True
         LblTotalData.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
-        LblTotalData.Location = New Point(23, 693)
+        LblTotalData.Location = New Point(29, 866)
+        LblTotalData.Margin = New Padding(4, 0, 4, 0)
         LblTotalData.Name = "LblTotalData"
-        LblTotalData.Size = New Size(102, 20)
+        LblTotalData.Size = New Size(124, 25)
         LblTotalData.TabIndex = 8
         LblTotalData.Text = "Total Data : 6"
         ' 
@@ -233,54 +234,59 @@ Partial Class FormDataBarang
         PanelDetail.Controls.Add(LblTtlNama)
         PanelDetail.Controls.Add(LblTtlKode)
         PanelDetail.Controls.Add(PictureBoxBarang)
-        PanelDetail.Location = New Point(434, 460)
-        PanelDetail.Margin = New Padding(3, 4, 3, 4)
+        PanelDetail.Location = New Point(669, 575)
+        PanelDetail.Margin = New Padding(4, 5, 4, 5)
         PanelDetail.Name = "PanelDetail"
-        PanelDetail.Size = New Size(457, 253)
+        PanelDetail.Size = New Size(571, 316)
         PanelDetail.TabIndex = 9
         ' 
         ' LblValStok
         ' 
         LblValStok.AutoSize = True
-        LblValStok.Location = New Point(297, 187)
+        LblValStok.Location = New Point(371, 234)
+        LblValStok.Margin = New Padding(4, 0, 4, 0)
         LblValStok.Name = "LblValStok"
-        LblValStok.Size = New Size(25, 20)
+        LblValStok.Size = New Size(32, 25)
         LblValStok.TabIndex = 10
         LblValStok.Text = "25"
         ' 
         ' LblValHarga
         ' 
         LblValHarga.AutoSize = True
-        LblValHarga.Location = New Point(297, 147)
+        LblValHarga.Location = New Point(371, 184)
+        LblValHarga.Margin = New Padding(4, 0, 4, 0)
         LblValHarga.Name = "LblValHarga"
-        LblValHarga.Size = New Size(60, 20)
+        LblValHarga.Size = New Size(76, 25)
         LblValHarga.TabIndex = 9
         LblValHarga.Text = "150.000"
         ' 
         ' LblValKategori
         ' 
         LblValKategori.AutoSize = True
-        LblValKategori.Location = New Point(297, 107)
+        LblValKategori.Location = New Point(371, 134)
+        LblValKategori.Margin = New Padding(4, 0, 4, 0)
         LblValKategori.Name = "LblValKategori"
-        LblValKategori.Size = New Size(59, 20)
+        LblValKategori.Size = New Size(69, 25)
         LblValKategori.TabIndex = 8
         LblValKategori.Text = "Kemeja"
         ' 
         ' LblValNama
         ' 
         LblValNama.AutoSize = True
-        LblValNama.Location = New Point(297, 67)
+        LblValNama.Location = New Point(371, 84)
+        LblValNama.Margin = New Padding(4, 0, 4, 0)
         LblValNama.Name = "LblValNama"
-        LblValNama.Size = New Size(109, 20)
+        LblValNama.Size = New Size(129, 25)
         LblValNama.TabIndex = 7
         LblValNama.Text = "Kemeja Formal"
         ' 
         ' LblValKode
         ' 
         LblValKode.AutoSize = True
-        LblValKode.Location = New Point(297, 27)
+        LblValKode.Location = New Point(371, 34)
+        LblValKode.Margin = New Padding(4, 0, 4, 0)
         LblValKode.Name = "LblValKode"
-        LblValKode.Size = New Size(61, 20)
+        LblValKode.Size = New Size(75, 25)
         LblValKode.TabIndex = 6
         LblValKode.Text = "BRG001"
         ' 
@@ -288,9 +294,10 @@ Partial Class FormDataBarang
         ' 
         LblTtlStok.AutoSize = True
         LblTtlStok.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
-        LblTtlStok.Location = New Point(171, 187)
+        LblTtlStok.Location = New Point(214, 234)
+        LblTtlStok.Margin = New Padding(4, 0, 4, 0)
         LblTtlStok.Name = "LblTtlStok"
-        LblTtlStok.Size = New Size(40, 20)
+        LblTtlStok.Size = New Size(50, 25)
         LblTtlStok.TabIndex = 5
         LblTtlStok.Text = "Stok"
         ' 
@@ -298,9 +305,10 @@ Partial Class FormDataBarang
         ' 
         LblTtlHarga.AutoSize = True
         LblTtlHarga.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
-        LblTtlHarga.Location = New Point(171, 147)
+        LblTtlHarga.Location = New Point(214, 184)
+        LblTtlHarga.Margin = New Padding(4, 0, 4, 0)
         LblTtlHarga.Name = "LblTtlHarga"
-        LblTtlHarga.Size = New Size(51, 20)
+        LblTtlHarga.Size = New Size(64, 25)
         LblTtlHarga.TabIndex = 4
         LblTtlHarga.Text = "Harga"
         ' 
@@ -308,9 +316,10 @@ Partial Class FormDataBarang
         ' 
         LblTtlKategori.AutoSize = True
         LblTtlKategori.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
-        LblTtlKategori.Location = New Point(171, 107)
+        LblTtlKategori.Location = New Point(214, 134)
+        LblTtlKategori.Margin = New Padding(4, 0, 4, 0)
         LblTtlKategori.Name = "LblTtlKategori"
-        LblTtlKategori.Size = New Size(69, 20)
+        LblTtlKategori.Size = New Size(85, 25)
         LblTtlKategori.TabIndex = 3
         LblTtlKategori.Text = "Kategori"
         ' 
@@ -318,9 +327,10 @@ Partial Class FormDataBarang
         ' 
         LblTtlNama.AutoSize = True
         LblTtlNama.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
-        LblTtlNama.Location = New Point(171, 67)
+        LblTtlNama.Location = New Point(214, 84)
+        LblTtlNama.Margin = New Padding(4, 0, 4, 0)
         LblTtlNama.Name = "LblTtlNama"
-        LblTtlNama.Size = New Size(105, 20)
+        LblTtlNama.Size = New Size(128, 25)
         LblTtlNama.TabIndex = 2
         LblTtlNama.Text = "Nama Barang"
         ' 
@@ -328,38 +338,39 @@ Partial Class FormDataBarang
         ' 
         LblTtlKode.AutoSize = True
         LblTtlKode.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
-        LblTtlKode.Location = New Point(171, 27)
+        LblTtlKode.Location = New Point(214, 34)
+        LblTtlKode.Margin = New Padding(4, 0, 4, 0)
         LblTtlKode.Name = "LblTtlKode"
-        LblTtlKode.Size = New Size(99, 20)
+        LblTtlKode.Size = New Size(122, 25)
         LblTtlKode.TabIndex = 1
         LblTtlKode.Text = "Kode Barang"
         ' 
         ' PictureBoxBarang
         ' 
         PictureBoxBarang.BorderStyle = BorderStyle.FixedSingle
-        PictureBoxBarang.Location = New Point(17, 20)
-        PictureBoxBarang.Margin = New Padding(3, 4, 3, 4)
+        PictureBoxBarang.Location = New Point(21, 25)
+        PictureBoxBarang.Margin = New Padding(4, 5, 4, 5)
         PictureBoxBarang.Name = "PictureBoxBarang"
-        PictureBoxBarang.Size = New Size(137, 206)
+        PictureBoxBarang.Size = New Size(171, 257)
         PictureBoxBarang.SizeMode = PictureBoxSizeMode.Zoom
         PictureBoxBarang.TabIndex = 0
         PictureBoxBarang.TabStop = False
         ' 
         ' FormDataBarang
         ' 
-        AutoScaleDimensions = New SizeF(8F, 20F)
+        AutoScaleDimensions = New SizeF(10F, 25F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.White
-        ClientSize = New Size(914, 733)
+        ClientSize = New Size(1269, 916)
         Controls.Add(PanelDetail)
         Controls.Add(LblTotalData)
         Controls.Add(DgvDataBarang)
         Controls.Add(TxtCari)
         Controls.Add(TxtFilter)
-        Controls.Add(BtnHapus)
+        Controls.Add(BtnHapusItem)
         Controls.Add(BtnUbah)
         Controls.Add(BtnTambah)
-        Margin = New Padding(3, 4, 3, 4)
+        Margin = New Padding(4, 5, 4, 5)
         Name = "FormDataBarang"
         StartPosition = FormStartPosition.CenterScreen
         Text = "Data Barang"
@@ -374,7 +385,7 @@ Partial Class FormDataBarang
 
     Friend WithEvents BtnTambah As System.Windows.Forms.Button
     Friend WithEvents BtnUbah As System.Windows.Forms.Button
-    Friend WithEvents BtnHapus As System.Windows.Forms.Button
+    Friend WithEvents BtnHapusItem As System.Windows.Forms.Button
     Friend WithEvents TxtFilter As System.Windows.Forms.TextBox
     Friend WithEvents TxtCari As System.Windows.Forms.TextBox
     Friend WithEvents DgvDataBarang As System.Windows.Forms.DataGridView

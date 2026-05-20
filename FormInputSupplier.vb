@@ -1,10 +1,5 @@
 ﻿Imports MySql.Data.MySqlClient
 
-' ============================================================
-'  FormInputSupplier.vb  –  Tambah / Ubah Supplier
-'  Terkoneksi ke tabel: supplier
-' ============================================================
-
 Public Class FormInputSupplier
 
     Public Property Kode As String = ""
@@ -17,7 +12,7 @@ Public Class FormInputSupplier
         If ModeEdit Then
             txtKode.Text = Kode
             txtNama.Text = Nama
-            txtTelepon.Text = Telepon
+            txtTelp.Text = Telepon
             txtKota.Text = Kota
             txtKode.ReadOnly = True
         Else
@@ -29,49 +24,47 @@ Public Class FormInputSupplier
 
     Private Function GenerateKode() As String
         Try
-            Dim maxNum As Object = ExecScalar(
-                "SELECT IFNULL(MAX(CAST(SUBSTRING(kode_supplier,2) AS UNSIGNED)),0) FROM supplier"
-            )
+            Dim query As String = "SELECT IFNULL(MAX(CAST(SUBSTRING(kode_supplier, 2) AS UNSIGNED)), 0) FROM supplier"
+            Dim maxNum As Object = ExecScalar(query)
+
             Return "S" & (CInt(maxNum) + 1).ToString("D3")
         Catch
             Return "S001"
         End Try
     End Function
 
-    Private Sub btnSimpan_Click(sender As Object, e As EventArgs) Handles btnSimpan.Click
+    Private Sub BtnSimpanInput_Click(sender As Object, e As EventArgs) Handles btnSimpanInput.Click
         Dim kode As String = txtKode.Text.Trim()
         Dim nama As String = txtNama.Text.Trim()
-        Dim telepon As String = txtTelepon.Text.Trim()
+        Dim telepon As String = txtTelp.Text.Trim()
         Dim kota As String = txtKota.Text.Trim()
 
         If kode = "" OrElse nama = "" Then
-            MessageBox.Show("Kode dan Nama Supplier wajib diisi!",
-                            "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-            Return
+            MessageBox.Show("Kode dan nama supplier wajib diisi!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Exit Sub
         End If
 
         Try
             If ModeEdit Then
-                ExecNonQuery(
-                    "UPDATE supplier SET nama_supplier=@nama, telepon=@telepon, kota=@kota " &
-                    "WHERE kode_supplier=@kode",
-                    New Dictionary(Of String, Object) From {
-                        {"@nama", nama}, {"@telepon", telepon},
-                        {"@kota", kota}, {"@kode", kode}
-                    }
-                )
-                MessageBox.Show("Supplier berhasil diperbarui!",
-                                "Berhasil", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                Dim sqlUpdate As String = "UPDATE supplier SET nama_supplier = @nama, telepon = @telepon, kota = @kota WHERE kode_supplier = @kode"
+                Dim params As New Dictionary(Of String, Object) From {
+                    {"@nama", nama},
+                    {"@telepon", telepon},
+                    {"@kota", kota},
+                    {"@kode", kode}
+                }
+                ExecNonQuery(sqlUpdate, params)
+                MessageBox.Show("Data supplier berhasil diperbarui.", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Else
-                ExecNonQuery(
-                    "INSERT INTO supplier (kode_supplier,nama_supplier,telepon,kota) VALUES (@kode,@nama,@telepon,@kota)",
-                    New Dictionary(Of String, Object) From {
-                        {"@kode", kode}, {"@nama", nama},
-                        {"@telepon", telepon}, {"@kota", kota}
-                    }
-                )
-                MessageBox.Show("Supplier berhasil ditambahkan!",
-                                "Berhasil", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                Dim sqlInsert As String = "INSERT INTO supplier (kode_supplier, nama_supplier, telepon, kota) VALUES (@kode, @nama, @telepon, @kota)"
+                Dim params As New Dictionary(Of String, Object) From {
+                    {"@kode", kode},
+                    {"@nama", nama},
+                    {"@telepon", telepon},
+                    {"@kota", kota}
+                }
+                ExecNonQuery(sqlInsert, params)
+                MessageBox.Show("Supplier berhasil ditambahkan.", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information)
             End If
 
             Me.Kode = kode
@@ -83,14 +76,8 @@ Public Class FormInputSupplier
             Me.Close()
 
         Catch ex As Exception
-            MessageBox.Show("Gagal menyimpan: " & ex.Message,
-                            "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show("Gagal menyimpan data." & Environment.NewLine & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
-    End Sub
-
-    Private Sub btnBatal_Click(sender As Object, e As EventArgs) Handles btnBatal.Click
-        Me.DialogResult = DialogResult.Cancel
-        Me.Close()
     End Sub
 
 End Class

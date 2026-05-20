@@ -1,7 +1,7 @@
 ﻿Imports MySql.Data.MySqlClient
-Imports MySqlConnector
 
 Public Class FormInputBarang
+
     Public Property Kode As String
     Public Property Nama As String
     Public Property Kategori As String
@@ -12,10 +12,9 @@ Public Class FormInputBarang
     Public Property ModeEdit As Boolean = False
 
     Private Sub FormInputBarang_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        ' Isi ComboBox Kategori dari database
+
         LoadKategoriDB()
 
-        ' Isi komponen dengan data (jika ada)
         txtKode.Text = Kode
         txtNama.Text = Nama
         cbKategori.Text = Kategori
@@ -25,40 +24,78 @@ Public Class FormInputBarang
         txtStok.Text = Stok
 
         If ModeEdit Then
+
             txtKode.ReadOnly = True
             txtNama.Focus()
+
         End If
+
     End Sub
 
     Private Sub LoadKategoriDB()
+
         cbKategori.Items.Clear()
+
         Try
             Using conn As MySqlConnection = KoneksiDB.GetConnection()
-                Dim query As String = "SELECT nama_kategori FROM kategori ORDER BY nama_kategori"
+
+                Dim query As String =
+                    "SELECT nama_kategori
+                     FROM kategori
+                     ORDER BY nama_kategori"
+
                 Using cmd As New MySqlCommand(query, conn)
+
                     Using dr As MySqlDataReader = cmd.ExecuteReader()
-                        Do While dr.Read()
-                            cbKategori.Items.Add(dr("nama_kategori").ToString())
-                        Loop
+
+                        While dr.Read()
+
+                            cbKategori.Items.Add(
+                                dr("nama_kategori").ToString()
+                            )
+
+                        End While
+
                     End Using
                 End Using
             End Using
+
         Catch ex As Exception
-            ' Jika gagal, biarkan ComboBox kosong — tidak crash
+
+            ' Biarkan kosong jika gagal load kategori
+
         End Try
+
     End Sub
 
-    ' --- VALIDASI HANYA ANGKA ---
+    ' VALIDASI ANGKA
     Private Sub AngkaOnly_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtHarga.KeyPress, txtStok.KeyPress
-        If Not Char.IsDigit(e.KeyChar) AndAlso Not Char.IsControl(e.KeyChar) Then
+
+        If Not Char.IsDigit(e.KeyChar) AndAlso
+           Not Char.IsControl(e.KeyChar) Then
+
             e.Handled = True
+
         End If
+
     End Sub
 
+    ' TOMBOL SIMPAN
     Private Sub btnSimpan_Click(sender As Object, e As EventArgs) Handles btnSimpan.Click
-        If txtKode.Text.Trim = "" Or txtNama.Text.Trim = "" Or cbKategori.Text = "" Then
-            MessageBox.Show("Kode, Nama, dan Kategori wajib diisi!", "Peringatan")
+
+        If txtKode.Text.Trim = "" Or
+           txtNama.Text.Trim = "" Or
+           cbKategori.Text.Trim = "" Then
+
+            MessageBox.Show(
+                "Kode, nama, dan kategori wajib diisi!",
+                "Peringatan",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Warning
+            )
+
             Exit Sub
+
         End If
 
         Kode = txtKode.Text
@@ -70,5 +107,8 @@ Public Class FormInputBarang
         Stok = txtStok.Text
 
         Me.DialogResult = DialogResult.OK
+        Me.Close()
+
     End Sub
+
 End Class

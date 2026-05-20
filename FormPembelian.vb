@@ -1,59 +1,99 @@
 ﻿Imports MySql.Data.MySqlClient
-Imports MySqlConnector
 
 Public Class Form8
 
-    ' 1. Inisialisasi data saat form dimuat
+    ' =====================================
+    ' LOAD FORM
+    ' =====================================
     Private Sub FormPembelian_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
         dtpTanggal.Value = DateTime.Now
+
         LoadDataDB()
+
     End Sub
 
-    ' Load data detail pembelian terakhir dari database
+    ' =====================================
+    ' MENAMPILKAN DATA PEMBELIAN
+    ' =====================================
     Private Sub LoadDataDB()
+
         dgvDetailPembelian.Rows.Clear()
+
         Try
             Using conn As MySqlConnection = KoneksiDB.GetConnection()
-                ' Ambil detail dari pembelian terakhir yang ada
+
                 Dim query As String =
-                    "SELECT dp.kode_barang, dp.nama_barang, dp.qty, dp.harga_satuan, dp.subtotal " &
+                    "SELECT " &
+                    "dp.kode_barang, " &
+                    "dp.nama_barang, " &
+                    "dp.qty, " &
+                    "dp.harga_satuan, " &
+                    "dp.subtotal " &
                     "FROM detail_pembelian dp " &
-                    "INNER JOIN pembelian p ON dp.id_pembelian = p.id_pembelian " &
+                    "INNER JOIN pembelian p " &
+                    "ON dp.id_pembelian = p.id_pembelian " &
                     "ORDER BY p.tgl_pembelian DESC, dp.id_detail " &
                     "LIMIT 20"
 
                 Using cmd As New MySqlCommand(query, conn)
+
                     Using dr As MySqlDataReader = cmd.ExecuteReader()
-                        Do While dr.Read()
+
+                        While dr.Read()
+
                             dgvDetailPembelian.Rows.Add(
                                 dr("kode_barang").ToString(),
                                 dr("nama_barang").ToString(),
                                 dr("qty").ToString(),
-                                Format(Convert.ToDouble(dr("harga_satuan")), "###,###,##0"),
-                                Format(Convert.ToDouble(dr("subtotal")), "###,###,##0")
+                                Convert.ToDouble(dr("harga_satuan")).ToString("N0"),
+                                Convert.ToDouble(dr("subtotal")).ToString("N0")
                             )
-                        Loop
+
+                        End While
+
                     End Using
                 End Using
             End Using
+
         Catch ex As Exception
-            ' Jika gagal, tampilkan data kosong agar form tidak crash
+
+            MessageBox.Show(
+                "Gagal memuat data pembelian!" &
+                Environment.NewLine &
+                ex.Message,
+                "Error",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Error
+            )
+
         End Try
 
         HitungRingkasan()
+
     End Sub
 
-    ' 2. Fungsi untuk menghitung total, item, dan grand total
+    ' =====================================
+    ' HITUNG TOTAL PEMBELIAN
+    ' =====================================
     Private Sub HitungRingkasan()
+
         Dim totalItem As Integer = 0
         Dim subTotal As Double = 0
         Dim ongkir As Double = 0
 
         For Each row As DataGridViewRow In dgvDetailPembelian.Rows
-            If Not row.IsNewRow Then
-                totalItem += Val(row.Cells("colQty").Value)
-                subTotal += Val(row.Cells("colSubTotal").Value.ToString().Replace(".", ""))
-            End If
+
+            If row.IsNewRow Then Continue For
+
+            totalItem += Val(row.Cells("colQty").Value)
+
+            subTotal += Val(
+                row.Cells("colSubTotal").Value.ToString().
+                Replace(".", "").
+                Replace(",", "")
+            )
+
         Next
 
         Double.TryParse(txtOngkir.Text, ongkir)
@@ -61,18 +101,36 @@ Public Class Form8
         lblOutputTotalItem.Text = totalItem.ToString()
         lblOutputTotal.Text = subTotal.ToString("N0")
         lblOutputGrandTotal.Text = (subTotal + ongkir).ToString("N0")
+
     End Sub
 
-    ' 3. Update perhitungan saat nilai ongkir berubah
+    ' =====================================
+    ' SAAT ONGKIR BERUBAH
+    ' =====================================
     Private Sub txtOngkir_TextChanged(sender As Object, e As EventArgs) Handles txtOngkir.TextChanged
+
         HitungRingkasan()
+
     End Sub
 
-    ' 4. Logika tombol Batal
+    ' =====================================
+    ' TOMBOL BATAL
+    ' =====================================
     Private Sub btnBatal_Click(sender As Object, e As EventArgs) Handles btnBatal.Click
-        If MessageBox.Show("Batalkan transaksi ini?", "Konfirmasi", MessageBoxButtons.YesNo) = DialogResult.Yes Then
+
+        Dim konfirmasi As DialogResult = MessageBox.Show(
+            "Batalkan transaksi ini?",
+            "Konfirmasi",
+            MessageBoxButtons.YesNo,
+            MessageBoxIcon.Question
+        )
+
+        If konfirmasi = DialogResult.Yes Then
+
             Me.Close()
+
         End If
+
     End Sub
 
 End Class
