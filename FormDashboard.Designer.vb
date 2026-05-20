@@ -266,31 +266,31 @@ Partial Class FormDashboard
         ' DataBarangToolStripMenuItem
         ' 
         DataBarangToolStripMenuItem.Name = "DataBarangToolStripMenuItem"
-        DataBarangToolStripMenuItem.Size = New Size(224, 26)
+        DataBarangToolStripMenuItem.Size = New Size(186, 26)
         DataBarangToolStripMenuItem.Text = "Data Barang"
         ' 
         ' KategoriToolStripMenuItem
         ' 
         KategoriToolStripMenuItem.Name = "KategoriToolStripMenuItem"
-        KategoriToolStripMenuItem.Size = New Size(224, 26)
+        KategoriToolStripMenuItem.Size = New Size(186, 26)
         KategoriToolStripMenuItem.Text = "Kategori"
         ' 
         ' SupplierToolStripMenuItem
         ' 
         SupplierToolStripMenuItem.Name = "SupplierToolStripMenuItem"
-        SupplierToolStripMenuItem.Size = New Size(224, 26)
+        SupplierToolStripMenuItem.Size = New Size(186, 26)
         SupplierToolStripMenuItem.Text = "Supplier"
         ' 
         ' PelangganToolStripMenuItem
         ' 
         PelangganToolStripMenuItem.Name = "PelangganToolStripMenuItem"
-        PelangganToolStripMenuItem.Size = New Size(224, 26)
+        PelangganToolStripMenuItem.Size = New Size(186, 26)
         PelangganToolStripMenuItem.Text = "Pelanggan"
         ' 
         ' UserAdminToolStripMenuItem
         ' 
         UserAdminToolStripMenuItem.Name = "UserAdminToolStripMenuItem"
-        UserAdminToolStripMenuItem.Size = New Size(224, 26)
+        UserAdminToolStripMenuItem.Size = New Size(186, 26)
         UserAdminToolStripMenuItem.Text = "User / Admin"
         ' 
         ' TransaksiToolStripMenuItem

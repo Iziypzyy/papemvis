@@ -20,7 +20,6 @@ Partial Class FormUser
     '--- DEKLARASI KONTROL ---
     ' Tombol Aksi
     Friend WithEvents btnTambah As System.Windows.Forms.Button
-    Friend WithEvents btnSimpan As System.Windows.Forms.Button
     Friend WithEvents btnUbah As System.Windows.Forms.Button
     Friend WithEvents btnHapus As System.Windows.Forms.Button
     Friend WithEvents btnResetPassword As System.Windows.Forms.Button
@@ -54,10 +53,9 @@ Partial Class FormUser
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As DataGridViewCellStyle = New DataGridViewCellStyle()
         btnTambah = New Button()
-        btnSimpan = New Button()
         btnUbah = New Button()
         btnHapus = New Button()
         btnResetPassword = New Button()
@@ -76,6 +74,8 @@ Partial Class FormUser
         colLevel = New DataGridViewTextBoxColumn()
         colStatus = New DataGridViewTextBoxColumn()
         colTerakhirLogin = New DataGridViewTextBoxColumn()
+        txtCari = New TextBox()
+        btnAmbilFoto = New Button()
         CType(picAvatar, ComponentModel.ISupportInitialize).BeginInit()
         CType(dgvUsers, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
@@ -95,21 +95,6 @@ Partial Class FormUser
         btnTambah.Text = "+ Tambah"
         btnTambah.UseVisualStyleBackColor = False
         ' 
-        ' btnSimpan
-        ' 
-        btnSimpan.BackColor = Color.FromArgb(CByte(13), CByte(110), CByte(253))
-        btnSimpan.FlatAppearance.BorderSize = 0
-        btnSimpan.FlatStyle = FlatStyle.Flat
-        btnSimpan.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
-        btnSimpan.ForeColor = Color.White
-        btnSimpan.Location = New Point(143, 27)
-        btnSimpan.Margin = New Padding(3, 4, 3, 4)
-        btnSimpan.Name = "btnSimpan"
-        btnSimpan.Size = New Size(109, 47)
-        btnSimpan.TabIndex = 13
-        btnSimpan.Text = "Simpan"
-        btnSimpan.UseVisualStyleBackColor = False
-        ' 
         ' btnUbah
         ' 
         btnUbah.BackColor = Color.FromArgb(CByte(255), CByte(193), CByte(7))
@@ -117,7 +102,7 @@ Partial Class FormUser
         btnUbah.FlatStyle = FlatStyle.Flat
         btnUbah.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
         btnUbah.ForeColor = Color.Black
-        btnUbah.Location = New Point(263, 27)
+        btnUbah.Location = New Point(143, 27)
         btnUbah.Margin = New Padding(3, 4, 3, 4)
         btnUbah.Name = "btnUbah"
         btnUbah.Size = New Size(109, 47)
@@ -132,7 +117,7 @@ Partial Class FormUser
         btnHapus.FlatStyle = FlatStyle.Flat
         btnHapus.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
         btnHapus.ForeColor = Color.White
-        btnHapus.Location = New Point(383, 27)
+        btnHapus.Location = New Point(263, 27)
         btnHapus.Margin = New Padding(3, 4, 3, 4)
         btnHapus.Name = "btnHapus"
         btnHapus.Size = New Size(109, 47)
@@ -147,10 +132,10 @@ Partial Class FormUser
         btnResetPassword.FlatStyle = FlatStyle.Flat
         btnResetPassword.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
         btnResetPassword.ForeColor = Color.Black
-        btnResetPassword.Location = New Point(503, 27)
+        btnResetPassword.Location = New Point(383, 27)
         btnResetPassword.Margin = New Padding(3, 4, 3, 4)
         btnResetPassword.Name = "btnResetPassword"
-        btnResetPassword.Size = New Size(149, 47)
+        btnResetPassword.Size = New Size(155, 47)
         btnResetPassword.TabIndex = 10
         btnResetPassword.Text = "🔒 Reset Password"
         btnResetPassword.UseVisualStyleBackColor = False
@@ -235,10 +220,10 @@ Partial Class FormUser
         ' 
         picAvatar.BackColor = Color.FromArgb(CByte(240), CByte(240), CByte(245))
         picAvatar.BorderStyle = BorderStyle.FixedSingle
-        picAvatar.Location = New Point(594, 100)
+        picAvatar.Location = New Point(626, 100)
         picAvatar.Margin = New Padding(3, 4, 3, 4)
         picAvatar.Name = "picAvatar"
-        picAvatar.Size = New Size(160, 186)
+        picAvatar.Size = New Size(128, 148)
         picAvatar.SizeMode = PictureBoxSizeMode.Zoom
         picAvatar.TabIndex = 1
         picAvatar.TabStop = False
@@ -286,8 +271,8 @@ Partial Class FormUser
         ' 
         ' colStatus
         ' 
-        DataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter
-        colStatus.DefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter
+        colStatus.DefaultCellStyle = DataGridViewCellStyle3
         colStatus.HeaderText = "Status"
         colStatus.MinimumWidth = 6
         colStatus.Name = "colStatus"
@@ -296,13 +281,30 @@ Partial Class FormUser
         ' 
         ' colTerakhirLogin
         ' 
-        DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter
-        colTerakhirLogin.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter
+        colTerakhirLogin.DefaultCellStyle = DataGridViewCellStyle4
         colTerakhirLogin.HeaderText = "Terakhir Login"
         colTerakhirLogin.MinimumWidth = 6
         colTerakhirLogin.Name = "colTerakhirLogin"
         colTerakhirLogin.ReadOnly = True
         colTerakhirLogin.Width = 160
+        ' 
+        ' txtCari
+        ' 
+        txtCari.Location = New Point(23, 299)
+        txtCari.Name = "txtCari"
+        txtCari.PlaceholderText = "Cari User....."
+        txtCari.Size = New Size(777, 27)
+        txtCari.TabIndex = 15
+        ' 
+        ' btnAmbilFoto
+        ' 
+        btnAmbilFoto.Location = New Point(644, 255)
+        btnAmbilFoto.Name = "btnAmbilFoto"
+        btnAmbilFoto.Size = New Size(94, 29)
+        btnAmbilFoto.TabIndex = 16
+        btnAmbilFoto.Text = "Upload"
+        btnAmbilFoto.UseVisualStyleBackColor = True
         ' 
         ' FormUser
         ' 
@@ -310,6 +312,8 @@ Partial Class FormUser
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.White
         ClientSize = New Size(823, 693)
+        Controls.Add(btnAmbilFoto)
+        Controls.Add(txtCari)
         Controls.Add(dgvUsers)
         Controls.Add(picAvatar)
         Controls.Add(cmbStatus)
@@ -323,7 +327,6 @@ Partial Class FormUser
         Controls.Add(btnResetPassword)
         Controls.Add(btnHapus)
         Controls.Add(btnUbah)
-        Controls.Add(btnSimpan)
         Controls.Add(btnTambah)
         Font = New Font("Segoe UI", 9F)
         Margin = New Padding(3, 4, 3, 4)
@@ -336,4 +339,7 @@ Partial Class FormUser
         PerformLayout()
 
     End Sub
+
+    Friend WithEvents txtCari As TextBox
+    Friend WithEvents btnAmbilFoto As Button
 End Class

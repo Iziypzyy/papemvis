@@ -31,8 +31,9 @@
 
     ' 2. Logika saat tombol Batal diklik
     Private Sub ButtonBatal_Click(sender As Object, e As EventArgs) Handles ButtonBatal.Click
-        ' Menutup aplikasi secara keseluruhan
-        Application.Exit()
+        ' Kembali ke Login Pelanggan
+        Me.Hide()
+        FormLoginPelanggan.Show()
     End Sub
 
     ' 3. Menangani penutupan form secara manual (tombol X)

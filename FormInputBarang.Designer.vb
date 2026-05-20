@@ -111,7 +111,7 @@ Partial Class FormInputBarang
         ' 
         ' FormInputBarang
         ' 
-        AutoScaleDimensions = New SizeF(8.0F, 20.0F)
+        AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(309, 295)
         Controls.Add(Label1)
@@ -124,6 +124,7 @@ Partial Class FormInputBarang
         Controls.Add(txtNama)
         Controls.Add(cbKategori)
         Name = "FormInputBarang"
+        StartPosition = FormStartPosition.CenterParent
         Text = "FormInputBarang"
         ResumeLayout(False)
         PerformLayout()

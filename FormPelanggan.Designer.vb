@@ -24,10 +24,8 @@ Partial Class FormPelanggan
     Private Sub InitializeComponent()
         Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
         BtnTambah = New Button()
-        BtnSimpan = New Button()
         BtnUbah = New Button()
         BtnHapus = New Button()
-        BtnCari = New Button()
         TxtCari = New TextBox()
         DgvPelanggan = New DataGridView()
         ColKodePelanggan = New DataGridViewTextBoxColumn()
@@ -52,21 +50,6 @@ Partial Class FormPelanggan
         BtnTambah.Text = "+ Tambah"
         BtnTambah.UseVisualStyleBackColor = False
         ' 
-        ' BtnSimpan
-        ' 
-        BtnSimpan.BackColor = Color.FromArgb(CByte(13), CByte(110), CByte(253))
-        BtnSimpan.FlatAppearance.BorderSize = 0
-        BtnSimpan.FlatStyle = FlatStyle.Flat
-        BtnSimpan.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
-        BtnSimpan.ForeColor = Color.White
-        BtnSimpan.Location = New Point(143, 27)
-        BtnSimpan.Margin = New Padding(3, 4, 3, 4)
-        BtnSimpan.Name = "BtnSimpan"
-        BtnSimpan.Size = New Size(109, 47)
-        BtnSimpan.TabIndex = 1
-        BtnSimpan.Text = "Simpan"
-        BtnSimpan.UseVisualStyleBackColor = False
-        ' 
         ' BtnUbah
         ' 
         BtnUbah.BackColor = Color.FromArgb(CByte(255), CByte(193), CByte(7))
@@ -74,7 +57,7 @@ Partial Class FormPelanggan
         BtnUbah.FlatStyle = FlatStyle.Flat
         BtnUbah.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
         BtnUbah.ForeColor = Color.Black
-        BtnUbah.Location = New Point(263, 27)
+        BtnUbah.Location = New Point(143, 27)
         BtnUbah.Margin = New Padding(3, 4, 3, 4)
         BtnUbah.Name = "BtnUbah"
         BtnUbah.Size = New Size(109, 47)
@@ -89,7 +72,7 @@ Partial Class FormPelanggan
         BtnHapus.FlatStyle = FlatStyle.Flat
         BtnHapus.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
         BtnHapus.ForeColor = Color.White
-        BtnHapus.Location = New Point(383, 27)
+        BtnHapus.Location = New Point(263, 27)
         BtnHapus.Margin = New Padding(3, 4, 3, 4)
         BtnHapus.Name = "BtnHapus"
         BtnHapus.Size = New Size(109, 47)
@@ -97,33 +80,18 @@ Partial Class FormPelanggan
         BtnHapus.Text = "Hapus"
         BtnHapus.UseVisualStyleBackColor = False
         ' 
-        ' BtnCari
-        ' 
-        BtnCari.BackColor = Color.FromArgb(CByte(226), CByte(230), CByte(234))
-        BtnCari.FlatAppearance.BorderSize = 0
-        BtnCari.FlatStyle = FlatStyle.Flat
-        BtnCari.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
-        BtnCari.ForeColor = Color.Black
-        BtnCari.Location = New Point(503, 27)
-        BtnCari.Margin = New Padding(3, 4, 3, 4)
-        BtnCari.Name = "BtnCari"
-        BtnCari.Size = New Size(97, 47)
-        BtnCari.TabIndex = 4
-        BtnCari.Text = "Cari"
-        BtnCari.UseVisualStyleBackColor = False
-        ' 
         ' TxtCari
         ' 
         TxtCari.Anchor = AnchorStyles.Top Or AnchorStyles.Right
         TxtCari.BorderStyle = BorderStyle.FixedSingle
         TxtCari.Font = New Font("Segoe UI", 11F)
         TxtCari.ForeColor = Color.Gray
-        TxtCari.Location = New Point(617, 32)
+        TxtCari.Location = New Point(378, 42)
         TxtCari.Margin = New Padding(3, 4, 3, 4)
         TxtCari.Name = "TxtCari"
-        TxtCari.Size = New Size(251, 32)
+        TxtCari.PlaceholderText = "Cari Pelanggan...."
+        TxtCari.Size = New Size(491, 32)
         TxtCari.TabIndex = 5
-        TxtCari.Text = "Cari pelanggan..."
         ' 
         ' DgvPelanggan
         ' 
@@ -194,10 +162,8 @@ Partial Class FormPelanggan
         ClientSize = New Size(891, 587)
         Controls.Add(DgvPelanggan)
         Controls.Add(TxtCari)
-        Controls.Add(BtnCari)
         Controls.Add(BtnHapus)
         Controls.Add(BtnUbah)
-        Controls.Add(BtnSimpan)
         Controls.Add(BtnTambah)
         Margin = New Padding(3, 4, 3, 4)
         Name = "FormPelanggan"
@@ -210,10 +176,8 @@ Partial Class FormPelanggan
     End Sub
 
     Friend WithEvents BtnTambah As System.Windows.Forms.Button
-    Friend WithEvents BtnSimpan As System.Windows.Forms.Button
     Friend WithEvents BtnUbah As System.Windows.Forms.Button
     Friend WithEvents BtnHapus As System.Windows.Forms.Button
-    Friend WithEvents BtnCari As System.Windows.Forms.Button
     Friend WithEvents TxtCari As System.Windows.Forms.TextBox
     Friend WithEvents DgvPelanggan As System.Windows.Forms.DataGridView
     Friend WithEvents ColKodePelanggan As System.Windows.Forms.DataGridViewTextBoxColumn
