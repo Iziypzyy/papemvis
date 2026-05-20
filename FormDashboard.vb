@@ -155,7 +155,7 @@
         If hasil = DialogResult.Yes Then
 
             Me.Hide()
-            FormLogin.Show()
+            FormLoginPelanggan.Show()
 
         End If
 

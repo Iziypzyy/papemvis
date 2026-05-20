@@ -23,6 +23,11 @@ Partial Class FormLoginPelanggan
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         PnlSide = New Panel()
+        LblTokoPakaianPria = New Label()
+        LblSistemManajemen = New Label()
+        LblMensWear = New Label()
+        LblGentlemen = New Label()
+        PictureBoxLogo = New PictureBox()
         LblBrandSub = New Label()
         LblTitle = New Label()
         LblSubtitle = New Label()
@@ -33,11 +38,6 @@ Partial Class FormLoginPelanggan
         BtnLogin = New Button()
         LlblDaftar = New LinkLabel()
         LlblAdminArea = New LinkLabel()
-        PictureBoxLogo = New PictureBox()
-        LblGentlemen = New Label()
-        LblMensWear = New Label()
-        LblSistemManajemen = New Label()
-        LblTokoPakaianPria = New Label()
         PnlSide.SuspendLayout()
         CType(PictureBoxLogo, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
@@ -57,6 +57,67 @@ Partial Class FormLoginPelanggan
         PnlSide.Name = "PnlSide"
         PnlSide.Size = New Size(320, 600)
         PnlSide.TabIndex = 0
+        ' 
+        ' LblTokoPakaianPria
+        ' 
+        LblTokoPakaianPria.AutoSize = True
+        LblTokoPakaianPria.Font = New Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        LblTokoPakaianPria.ForeColor = Color.White
+        LblTokoPakaianPria.Location = New Point(79, 384)
+        LblTokoPakaianPria.Name = "LblTokoPakaianPria"
+        LblTokoPakaianPria.Size = New Size(163, 25)
+        LblTokoPakaianPria.TabIndex = 7
+        LblTokoPakaianPria.Text = "Toko Pakaian Pria"
+        LblTokoPakaianPria.TextAlign = ContentAlignment.MiddleCenter
+        ' 
+        ' LblSistemManajemen
+        ' 
+        LblSistemManajemen.AutoSize = True
+        LblSistemManajemen.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        LblSistemManajemen.ForeColor = Color.White
+        LblSistemManajemen.Location = New Point(89, 360)
+        LblSistemManajemen.Name = "LblSistemManajemen"
+        LblSistemManajemen.Size = New Size(142, 20)
+        LblSistemManajemen.TabIndex = 6
+        LblSistemManajemen.Text = "Sistem Manajemen"
+        LblSistemManajemen.TextAlign = ContentAlignment.MiddleCenter
+        ' 
+        ' LblMensWear
+        ' 
+        LblMensWear.AutoSize = True
+        LblMensWear.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
+        LblMensWear.ForeColor = Color.White
+        LblMensWear.Location = New Point(109, 285)
+        LblMensWear.Name = "LblMensWear"
+        LblMensWear.Size = New Size(103, 20)
+        LblMensWear.TabIndex = 5
+        LblMensWear.Text = "MEN'S WEAR"
+        LblMensWear.TextAlign = ContentAlignment.MiddleCenter
+        ' 
+        ' LblGentlemen
+        ' 
+        LblGentlemen.AutoSize = True
+        LblGentlemen.Font = New Font("Georgia", 14.25F, FontStyle.Bold)
+        LblGentlemen.ForeColor = Color.Goldenrod
+        LblGentlemen.Location = New Point(70, 250)
+        LblGentlemen.Name = "LblGentlemen"
+        LblGentlemen.Size = New Size(180, 29)
+        LblGentlemen.TabIndex = 4
+        LblGentlemen.Text = "GENTLEMEN"
+        LblGentlemen.TextAlign = ContentAlignment.MiddleCenter
+        ' 
+        ' PictureBoxLogo
+        ' 
+        PictureBoxLogo.BackColor = Color.Transparent
+        PictureBoxLogo.BackgroundImageLayout = ImageLayout.Stretch
+        PictureBoxLogo.Image = My.Resources.Resources.Fashion_man_logo
+        PictureBoxLogo.Location = New Point(71, 36)
+        PictureBoxLogo.Margin = New Padding(3, 4, 3, 4)
+        PictureBoxLogo.Name = "PictureBoxLogo"
+        PictureBoxLogo.Size = New Size(180, 180)
+        PictureBoxLogo.SizeMode = PictureBoxSizeMode.Zoom
+        PictureBoxLogo.TabIndex = 3
+        PictureBoxLogo.TabStop = False
         ' 
         ' LblBrandSub
         ' 
@@ -166,67 +227,6 @@ Partial Class FormLoginPelanggan
         LlblAdminArea.TabIndex = 9
         LlblAdminArea.TabStop = True
         LlblAdminArea.Text = "Masuk sebagai Admin"
-        ' 
-        ' PictureBoxLogo
-        ' 
-        PictureBoxLogo.BackColor = Color.Transparent
-        PictureBoxLogo.BackgroundImageLayout = ImageLayout.Stretch
-        PictureBoxLogo.Image = My.Resources.Resources.Fashion_man_logo
-        PictureBoxLogo.Location = New Point(71, 36)
-        PictureBoxLogo.Margin = New Padding(3, 4, 3, 4)
-        PictureBoxLogo.Name = "PictureBoxLogo"
-        PictureBoxLogo.Size = New Size(180, 180)
-        PictureBoxLogo.SizeMode = PictureBoxSizeMode.Zoom
-        PictureBoxLogo.TabIndex = 3
-        PictureBoxLogo.TabStop = False
-        ' 
-        ' LblGentlemen
-        ' 
-        LblGentlemen.AutoSize = True
-        LblGentlemen.Font = New Font("Georgia", 14.25F, FontStyle.Bold)
-        LblGentlemen.ForeColor = Color.Goldenrod
-        LblGentlemen.Location = New Point(70, 250)
-        LblGentlemen.Name = "LblGentlemen"
-        LblGentlemen.Size = New Size(180, 29)
-        LblGentlemen.TabIndex = 4
-        LblGentlemen.Text = "GENTLEMEN"
-        LblGentlemen.TextAlign = ContentAlignment.MiddleCenter
-        ' 
-        ' LblMensWear
-        ' 
-        LblMensWear.AutoSize = True
-        LblMensWear.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
-        LblMensWear.ForeColor = Color.White
-        LblMensWear.Location = New Point(109, 285)
-        LblMensWear.Name = "LblMensWear"
-        LblMensWear.Size = New Size(103, 20)
-        LblMensWear.TabIndex = 5
-        LblMensWear.Text = "MEN'S WEAR"
-        LblMensWear.TextAlign = ContentAlignment.MiddleCenter
-        ' 
-        ' LblSistemManajemen
-        ' 
-        LblSistemManajemen.AutoSize = True
-        LblSistemManajemen.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        LblSistemManajemen.ForeColor = Color.White
-        LblSistemManajemen.Location = New Point(89, 360)
-        LblSistemManajemen.Name = "LblSistemManajemen"
-        LblSistemManajemen.Size = New Size(142, 20)
-        LblSistemManajemen.TabIndex = 6
-        LblSistemManajemen.Text = "Sistem Manajemen"
-        LblSistemManajemen.TextAlign = ContentAlignment.MiddleCenter
-        ' 
-        ' LblTokoPakaianPria
-        ' 
-        LblTokoPakaianPria.AutoSize = True
-        LblTokoPakaianPria.Font = New Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        LblTokoPakaianPria.ForeColor = Color.White
-        LblTokoPakaianPria.Location = New Point(79, 384)
-        LblTokoPakaianPria.Name = "LblTokoPakaianPria"
-        LblTokoPakaianPria.Size = New Size(163, 25)
-        LblTokoPakaianPria.TabIndex = 7
-        LblTokoPakaianPria.Text = "Toko Pakaian Pria"
-        LblTokoPakaianPria.TextAlign = ContentAlignment.MiddleCenter
         ' 
         ' FormLoginPelanggan
         ' 

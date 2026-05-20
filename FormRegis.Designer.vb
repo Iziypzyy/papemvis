@@ -23,6 +23,8 @@ Partial Class FormRegis
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         PnlSide = New Panel()
+        LblTokoPakaianPria = New Label()
+        LblSistemManajemen = New Label()
         LblMensWear = New Label()
         LblGentlemen = New Label()
         PictureBoxLogo = New PictureBox()
@@ -42,8 +44,6 @@ Partial Class FormRegis
         TxtKonfirmasi = New TextBox()
         BtnDaftar = New Button()
         LlblSudahPunyaAkun = New LinkLabel()
-        LblSistemManajemen = New Label()
-        LblTokoPakaianPria = New Label()
         PnlSide.SuspendLayout()
         CType(PictureBoxLogo, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
@@ -63,6 +63,30 @@ Partial Class FormRegis
         PnlSide.Name = "PnlSide"
         PnlSide.Size = New Size(320, 773)
         PnlSide.TabIndex = 0
+        ' 
+        ' LblTokoPakaianPria
+        ' 
+        LblTokoPakaianPria.AutoSize = True
+        LblTokoPakaianPria.Font = New Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        LblTokoPakaianPria.ForeColor = Color.White
+        LblTokoPakaianPria.Location = New Point(75, 426)
+        LblTokoPakaianPria.Name = "LblTokoPakaianPria"
+        LblTokoPakaianPria.Size = New Size(163, 25)
+        LblTokoPakaianPria.TabIndex = 6
+        LblTokoPakaianPria.Text = "Toko Pakaian Pria"
+        LblTokoPakaianPria.TextAlign = ContentAlignment.MiddleCenter
+        ' 
+        ' LblSistemManajemen
+        ' 
+        LblSistemManajemen.AutoSize = True
+        LblSistemManajemen.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        LblSistemManajemen.ForeColor = Color.White
+        LblSistemManajemen.Location = New Point(85, 400)
+        LblSistemManajemen.Name = "LblSistemManajemen"
+        LblSistemManajemen.Size = New Size(142, 20)
+        LblSistemManajemen.TabIndex = 5
+        LblSistemManajemen.Text = "Sistem Manajemen"
+        LblSistemManajemen.TextAlign = ContentAlignment.MiddleCenter
         ' 
         ' LblMensWear
         ' 
@@ -264,30 +288,6 @@ Partial Class FormRegis
         LlblSudahPunyaAkun.TabIndex = 15
         LlblSudahPunyaAkun.TabStop = True
         LlblSudahPunyaAkun.Text = "Sudah punya akun? Masuk"
-        ' 
-        ' LblSistemManajemen
-        ' 
-        LblSistemManajemen.AutoSize = True
-        LblSistemManajemen.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        LblSistemManajemen.ForeColor = Color.White
-        LblSistemManajemen.Location = New Point(85, 400)
-        LblSistemManajemen.Name = "LblSistemManajemen"
-        LblSistemManajemen.Size = New Size(142, 20)
-        LblSistemManajemen.TabIndex = 5
-        LblSistemManajemen.Text = "Sistem Manajemen"
-        LblSistemManajemen.TextAlign = ContentAlignment.MiddleCenter
-        ' 
-        ' LblTokoPakaianPria
-        ' 
-        LblTokoPakaianPria.AutoSize = True
-        LblTokoPakaianPria.Font = New Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        LblTokoPakaianPria.ForeColor = Color.White
-        LblTokoPakaianPria.Location = New Point(75, 426)
-        LblTokoPakaianPria.Name = "LblTokoPakaianPria"
-        LblTokoPakaianPria.Size = New Size(163, 25)
-        LblTokoPakaianPria.TabIndex = 6
-        LblTokoPakaianPria.Text = "Toko Pakaian Pria"
-        LblTokoPakaianPria.TextAlign = ContentAlignment.MiddleCenter
         ' 
         ' FormRegis
         ' 
