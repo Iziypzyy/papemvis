@@ -155,7 +155,7 @@
         If hasil = DialogResult.Yes Then
 
             Me.Hide()
-            FormLogin.Show()
+            FormLoginAdmin.Show()
 
         End If
 
