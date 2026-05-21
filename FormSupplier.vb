@@ -68,27 +68,24 @@ Public Class FormSupplier
 
         If frm.ShowDialog() = DialogResult.OK Then
 
-            Try
-                Using conn As MySqlConnection = KoneksiDB.GetConnection()
+            Using conn As MySqlConnection = KoneksiDB.GetConnection()
 
-                    Dim query As String =
-                        "INSERT INTO supplier " &
-                        "(kode_supplier, nama_supplier, telepon, kota) " &
-                        "VALUES (@kode, @nama, @telepon, @kota)"
+                Dim query As String =
+                    "INSERT INTO supplier " &
+                    "(kode_supplier, nama_supplier, telepon, kota) " &
+                    "VALUES (@kode, @nama, @telepon, @kota)"
 
-                    Using cmd As New MySqlCommand(query, conn)
+                Using cmd As New MySqlCommand(query, conn)
 
-                        cmd.Parameters.AddWithValue("@kode", frm.Kode)
-                        cmd.Parameters.AddWithValue("@nama", frm.Nama)
-                        cmd.Parameters.AddWithValue("@telepon", frm.Telepon)
-                        cmd.Parameters.AddWithValue("@kota", frm.Kota)
+                    cmd.Parameters.AddWithValue("@kode", frm.Kode)
+                    cmd.Parameters.AddWithValue("@nama", frm.Nama)
+                    cmd.Parameters.AddWithValue("@telepon", frm.Telepon)
+                    cmd.Parameters.AddWithValue("@kota", frm.Kota)
 
-                        cmd.ExecuteNonQuery()
-
-                    End Using
                 End Using
+            End Using
 
-                MessageBox.Show(
+            MessageBox.Show(
                     "Data supplier berhasil ditambahkan!",
                     "Sukses",
                     MessageBoxButtons.OK,
@@ -96,20 +93,6 @@ Public Class FormSupplier
                 )
 
                 LoadDataDB()
-
-            Catch ex As Exception
-
-                MessageBox.Show(
-                    "Gagal menambah supplier!" &
-                    Environment.NewLine &
-                    ex.Message,
-                    "Error",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error
-                )
-
-            End Try
-
         End If
 
     End Sub
