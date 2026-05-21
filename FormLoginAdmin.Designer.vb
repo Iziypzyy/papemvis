@@ -32,7 +32,7 @@ Partial Class FormLoginAdmin
         TextBoxUsername = New TextBox()
         LabelPassword = New Label()
         TextBoxPassword = New TextBox()
-        CheckBoxIngatSaya = New CheckBox()
+        CheckBoxShowPassword = New CheckBox()
         ButtonLogin = New Button()
         ButtonBatal = New Button()
         LabelLoginTitle = New Label()
@@ -45,7 +45,7 @@ Partial Class FormLoginAdmin
         ' 
         ' PanelLeft
         ' 
-        PanelLeft.BackColor = Color.FromArgb(CByte(10), CByte(25), CByte(47))
+        PanelLeft.BackColor = Color.FromArgb(10, 25, 47)
         PanelLeft.Controls.Add(LblTokoPakaianPria)
         PanelLeft.Controls.Add(LblSistemManajemen)
         PanelLeft.Controls.Add(LblMensWear)
@@ -61,7 +61,7 @@ Partial Class FormLoginAdmin
         ' LblTokoPakaianPria
         ' 
         LblTokoPakaianPria.AutoSize = True
-        LblTokoPakaianPria.Font = New Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        LblTokoPakaianPria.Font = New Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0)
         LblTokoPakaianPria.ForeColor = Color.White
         LblTokoPakaianPria.Location = New Point(55, 422)
         LblTokoPakaianPria.Name = "LblTokoPakaianPria"
@@ -73,7 +73,7 @@ Partial Class FormLoginAdmin
         ' LblSistemManajemen
         ' 
         LblSistemManajemen.AutoSize = True
-        LblSistemManajemen.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        LblSistemManajemen.Font = New Font("Segoe UI", 9.0F, FontStyle.Bold, GraphicsUnit.Point, 0)
         LblSistemManajemen.ForeColor = Color.White
         LblSistemManajemen.Location = New Point(66, 393)
         LblSistemManajemen.Name = "LblSistemManajemen"
@@ -85,7 +85,7 @@ Partial Class FormLoginAdmin
         ' LblMensWear
         ' 
         LblMensWear.AutoSize = True
-        LblMensWear.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
+        LblMensWear.Font = New Font("Segoe UI", 9.0F, FontStyle.Bold)
         LblMensWear.ForeColor = Color.White
         LblMensWear.Location = New Point(86, 307)
         LblMensWear.Name = "LblMensWear"
@@ -122,7 +122,7 @@ Partial Class FormLoginAdmin
         ' LabelUsername
         ' 
         LabelUsername.AutoSize = True
-        LabelUsername.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        LabelUsername.Font = New Font("Segoe UI", 9.0F, FontStyle.Bold, GraphicsUnit.Point, 0)
         LabelUsername.Location = New Point(331, 200)
         LabelUsername.Name = "LabelUsername"
         LabelUsername.Size = New Size(80, 20)
@@ -132,7 +132,7 @@ Partial Class FormLoginAdmin
         ' TextBoxUsername
         ' 
         TextBoxUsername.BorderStyle = BorderStyle.FixedSingle
-        TextBoxUsername.Font = New Font("Times New Roman", 9F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        TextBoxUsername.Font = New Font("Times New Roman", 9.0F, FontStyle.Regular, GraphicsUnit.Point, 0)
         TextBoxUsername.Location = New Point(335, 227)
         TextBoxUsername.Margin = New Padding(3, 4, 3, 4)
         TextBoxUsername.Name = "TextBoxUsername"
@@ -143,7 +143,7 @@ Partial Class FormLoginAdmin
         ' LabelPassword
         ' 
         LabelPassword.AutoSize = True
-        LabelPassword.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        LabelPassword.Font = New Font("Segoe UI", 9.0F, FontStyle.Bold, GraphicsUnit.Point, 0)
         LabelPassword.Location = New Point(331, 280)
         LabelPassword.Name = "LabelPassword"
         LabelPassword.Size = New Size(76, 20)
@@ -153,7 +153,7 @@ Partial Class FormLoginAdmin
         ' TextBoxPassword
         ' 
         TextBoxPassword.BorderStyle = BorderStyle.FixedSingle
-        TextBoxPassword.Font = New Font("Times New Roman", 9F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        TextBoxPassword.Font = New Font("Times New Roman", 9.0F, FontStyle.Regular, GraphicsUnit.Point, 0)
         TextBoxPassword.Location = New Point(335, 307)
         TextBoxPassword.Margin = New Padding(3, 4, 3, 4)
         TextBoxPassword.Name = "TextBoxPassword"
@@ -162,24 +162,24 @@ Partial Class FormLoginAdmin
         TextBoxPassword.Size = New Size(343, 25)
         TextBoxPassword.TabIndex = 4
         ' 
-        ' CheckBoxIngatSaya
+        ' CheckBoxShowPassword
         ' 
-        CheckBoxIngatSaya.AutoSize = True
-        CheckBoxIngatSaya.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        CheckBoxIngatSaya.Location = New Point(335, 353)
-        CheckBoxIngatSaya.Margin = New Padding(3, 4, 3, 4)
-        CheckBoxIngatSaya.Name = "CheckBoxIngatSaya"
-        CheckBoxIngatSaya.Size = New Size(104, 24)
-        CheckBoxIngatSaya.TabIndex = 5
-        CheckBoxIngatSaya.Text = "Ingat Saya"
-        CheckBoxIngatSaya.UseVisualStyleBackColor = True
+        CheckBoxShowPassword.AutoSize = True
+        CheckBoxShowPassword.Font = New Font("Segoe UI", 9.0F, FontStyle.Regular, GraphicsUnit.Point, 0)
+        CheckBoxShowPassword.Location = New Point(335, 353)
+        CheckBoxShowPassword.Margin = New Padding(3, 4, 3, 4)
+        CheckBoxShowPassword.Name = "CheckBoxShowPassword"
+        CheckBoxShowPassword.Size = New Size(165, 24)
+        CheckBoxShowPassword.TabIndex = 5
+        CheckBoxShowPassword.Text = "Tampilkan Password"
+        CheckBoxShowPassword.UseVisualStyleBackColor = True
         ' 
         ' ButtonLogin
         ' 
-        ButtonLogin.BackColor = Color.FromArgb(CByte(10), CByte(25), CByte(47))
+        ButtonLogin.BackColor = Color.FromArgb(10, 25, 47)
         ButtonLogin.Cursor = Cursors.Hand
         ButtonLogin.FlatStyle = FlatStyle.Flat
-        ButtonLogin.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        ButtonLogin.Font = New Font("Segoe UI", 9.0F, FontStyle.Bold, GraphicsUnit.Point, 0)
         ButtonLogin.ForeColor = Color.White
         ButtonLogin.Location = New Point(335, 413)
         ButtonLogin.Margin = New Padding(3, 4, 3, 4)
@@ -194,7 +194,7 @@ Partial Class FormLoginAdmin
         ButtonBatal.BackColor = Color.White
         ButtonBatal.Cursor = Cursors.Hand
         ButtonBatal.FlatStyle = FlatStyle.Flat
-        ButtonBatal.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        ButtonBatal.Font = New Font("Segoe UI", 9.0F, FontStyle.Bold, GraphicsUnit.Point, 0)
         ButtonBatal.ForeColor = Color.Black
         ButtonBatal.Location = New Point(518, 413)
         ButtonBatal.Margin = New Padding(3, 4, 3, 4)
@@ -207,7 +207,7 @@ Partial Class FormLoginAdmin
         ' LabelLoginTitle
         ' 
         LabelLoginTitle.AutoSize = True
-        LabelLoginTitle.Font = New Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        LabelLoginTitle.Font = New Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0)
         LabelLoginTitle.Location = New Point(359, 112)
         LabelLoginTitle.Name = "LabelLoginTitle"
         LabelLoginTitle.Size = New Size(303, 38)
@@ -239,7 +239,7 @@ Partial Class FormLoginAdmin
         ' 
         ' FormLoginAdmin
         ' 
-        AutoScaleDimensions = New SizeF(8F, 20F)
+        AutoScaleDimensions = New SizeF(8.0F, 20.0F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = SystemColors.Window
         ClientSize = New Size(731, 533)
@@ -248,7 +248,7 @@ Partial Class FormLoginAdmin
         Controls.Add(LabelLoginTitle)
         Controls.Add(ButtonBatal)
         Controls.Add(ButtonLogin)
-        Controls.Add(CheckBoxIngatSaya)
+        Controls.Add(CheckBoxShowPassword)
         Controls.Add(TextBoxPassword)
         Controls.Add(LabelPassword)
         Controls.Add(TextBoxUsername)
@@ -279,7 +279,7 @@ Partial Class FormLoginAdmin
     Friend WithEvents TextBoxUsername As System.Windows.Forms.TextBox
     Friend WithEvents LabelPassword As System.Windows.Forms.Label
     Friend WithEvents TextBoxPassword As System.Windows.Forms.TextBox
-    Friend WithEvents CheckBoxIngatSaya As System.Windows.Forms.CheckBox
+    Friend WithEvents CheckBoxShowPassword As System.Windows.Forms.CheckBox
     Friend WithEvents ButtonLogin As System.Windows.Forms.Button
     Friend WithEvents ButtonBatal As System.Windows.Forms.Button
     Friend WithEvents LabelLoginTitle As System.Windows.Forms.Label
