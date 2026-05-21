@@ -49,6 +49,10 @@ Partial Class Form8
     Friend WithEvents btnCetak As System.Windows.Forms.Button
     Friend WithEvents btnBatal As System.Windows.Forms.Button
 
+    ' Tombol Tambah/Hapus Item
+    Friend WithEvents btnTambahItem As System.Windows.Forms.Button
+    Friend WithEvents btnHapusItem As System.Windows.Forms.Button
+
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
@@ -79,6 +83,8 @@ Partial Class Form8
         btnSimpan = New Button()
         btnCetak = New Button()
         btnBatal = New Button()
+        btnTambahItem = New Button()
+        btnHapusItem = New Button()
         CType(dgvDetailPembelian, ComponentModel.ISupportInitialize).BeginInit()
         pnlSummary.SuspendLayout()
         SuspendLayout()
@@ -192,6 +198,24 @@ Partial Class Form8
         colSubTotal.MinimumWidth = 6
         colSubTotal.Name = "colSubTotal"
         colSubTotal.Width = 135
+        ' 
+        ' btnTambahItem
+        '
+        btnTambahItem.Location = New Point(25, 370)
+        btnTambahItem.Name = "btnTambahItem"
+        btnTambahItem.Size = New Size(100, 29)
+        btnTambahItem.TabIndex = 7
+        btnTambahItem.Text = "+ Item"
+        btnTambahItem.UseVisualStyleBackColor = True
+        ' 
+        ' btnHapusItem
+        '
+        btnHapusItem.Location = New Point(135, 370)
+        btnHapusItem.Name = "btnHapusItem"
+        btnHapusItem.Size = New Size(100, 29)
+        btnHapusItem.TabIndex = 8
+        btnHapusItem.Text = "- Item"
+        btnHapusItem.UseVisualStyleBackColor = True
         ' 
         ' pnlSummary
         ' 
@@ -333,6 +357,8 @@ Partial Class Form8
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.FromArgb(CByte(245), CByte(245), CByte(250))
         ClientSize = New Size(743, 610)
+        Controls.Add(btnHapusItem)
+        Controls.Add(btnTambahItem)
         Controls.Add(btnBatal)
         Controls.Add(btnCetak)
         Controls.Add(btnSimpan)

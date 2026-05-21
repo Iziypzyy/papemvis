@@ -27,10 +27,8 @@ Partial Class FormDashboard
     Friend WithEvents LogoutToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents KeluarToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents DataBarangToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents KategoriToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SupplierToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents PelangganToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents UserAdminToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents PenjualanToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents PembelianToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents LaporanPenjualanToolStripMenuItem As ToolStripMenuItem
@@ -50,14 +48,11 @@ Partial Class FormDashboard
 
     Friend WithEvents BtnDashboard As Button
     Friend WithEvents BtnDataBarang As Button
-    Friend WithEvents BtnKategori As Button
     Friend WithEvents BtnSupplier As Button
-    Friend WithEvents BtnPelanggan As Button
     Friend WithEvents BtnPenjualan As Button
     Friend WithEvents BtnPembelian As Button
     Friend WithEvents BtnStok As Button
     Friend WithEvents BtnLaporan As Button
-    Friend WithEvents BtnUser As Button
     Friend WithEvents BtnLogout As Button
 
     Friend WithEvents PanelContent As Panel
@@ -116,10 +111,8 @@ Partial Class FormDashboard
         KeluarToolStripMenuItem = New ToolStripMenuItem()
         MasterDataToolStripMenuItem = New ToolStripMenuItem()
         DataBarangToolStripMenuItem = New ToolStripMenuItem()
-        KategoriToolStripMenuItem = New ToolStripMenuItem()
         SupplierToolStripMenuItem = New ToolStripMenuItem()
         PelangganToolStripMenuItem = New ToolStripMenuItem()
-        UserAdminToolStripMenuItem = New ToolStripMenuItem()
         TransaksiToolStripMenuItem = New ToolStripMenuItem()
         PenjualanToolStripMenuItem = New ToolStripMenuItem()
         PembelianToolStripMenuItem = New ToolStripMenuItem()
@@ -141,14 +134,12 @@ Partial Class FormDashboard
         LabelBrandSub = New Label()
         BtnDashboard = New Button()
         BtnDataBarang = New Button()
-        BtnKategori = New Button()
         BtnSupplier = New Button()
         BtnPelanggan = New Button()
         BtnPenjualan = New Button()
         BtnPembelian = New Button()
         BtnStok = New Button()
         BtnLaporan = New Button()
-        BtnUser = New Button()
         BtnLogout = New Button()
         PanelContent = New Panel()
         LabelWelcome = New Label()
@@ -240,7 +231,7 @@ Partial Class FormDashboard
         ' 
         ' MasterDataToolStripMenuItem
         ' 
-        MasterDataToolStripMenuItem.DropDownItems.AddRange(New ToolStripItem() {DataBarangToolStripMenuItem, KategoriToolStripMenuItem, SupplierToolStripMenuItem, PelangganToolStripMenuItem, UserAdminToolStripMenuItem})
+        MasterDataToolStripMenuItem.DropDownItems.AddRange(New ToolStripItem() {DataBarangToolStripMenuItem, SupplierToolStripMenuItem, PelangganToolStripMenuItem})
         MasterDataToolStripMenuItem.Name = "MasterDataToolStripMenuItem"
         MasterDataToolStripMenuItem.Size = New Size(109, 24)
         MasterDataToolStripMenuItem.Text = "Master Data"
@@ -248,32 +239,20 @@ Partial Class FormDashboard
         ' DataBarangToolStripMenuItem
         ' 
         DataBarangToolStripMenuItem.Name = "DataBarangToolStripMenuItem"
-        DataBarangToolStripMenuItem.Size = New Size(186, 26)
+        DataBarangToolStripMenuItem.Size = New Size(179, 26)
         DataBarangToolStripMenuItem.Text = "Data Barang"
-        ' 
-        ' KategoriToolStripMenuItem
-        ' 
-        KategoriToolStripMenuItem.Name = "KategoriToolStripMenuItem"
-        KategoriToolStripMenuItem.Size = New Size(186, 26)
-        KategoriToolStripMenuItem.Text = "Kategori"
         ' 
         ' SupplierToolStripMenuItem
         ' 
         SupplierToolStripMenuItem.Name = "SupplierToolStripMenuItem"
-        SupplierToolStripMenuItem.Size = New Size(186, 26)
+        SupplierToolStripMenuItem.Size = New Size(179, 26)
         SupplierToolStripMenuItem.Text = "Supplier"
         ' 
         ' PelangganToolStripMenuItem
         ' 
         PelangganToolStripMenuItem.Name = "PelangganToolStripMenuItem"
-        PelangganToolStripMenuItem.Size = New Size(186, 26)
+        PelangganToolStripMenuItem.Size = New Size(179, 26)
         PelangganToolStripMenuItem.Text = "Pelanggan"
-        ' 
-        ' UserAdminToolStripMenuItem
-        ' 
-        UserAdminToolStripMenuItem.Name = "UserAdminToolStripMenuItem"
-        UserAdminToolStripMenuItem.Size = New Size(186, 26)
-        UserAdminToolStripMenuItem.Text = "User / Admin"
         ' 
         ' TransaksiToolStripMenuItem
         ' 
@@ -377,14 +356,12 @@ Partial Class FormDashboard
         PanelSidebar.Controls.Add(LabelBrandSub)
         PanelSidebar.Controls.Add(BtnDashboard)
         PanelSidebar.Controls.Add(BtnDataBarang)
-        PanelSidebar.Controls.Add(BtnKategori)
         PanelSidebar.Controls.Add(BtnSupplier)
         PanelSidebar.Controls.Add(BtnPelanggan)
         PanelSidebar.Controls.Add(BtnPenjualan)
         PanelSidebar.Controls.Add(BtnPembelian)
         PanelSidebar.Controls.Add(BtnStok)
         PanelSidebar.Controls.Add(BtnLaporan)
-        PanelSidebar.Controls.Add(BtnUser)
         PanelSidebar.Controls.Add(BtnLogout)
         PanelSidebar.Location = New Point(0, 30)
         PanelSidebar.Margin = New Padding(2)
@@ -462,23 +439,6 @@ Partial Class FormDashboard
         BtnDataBarang.TextAlign = ContentAlignment.MiddleLeft
         BtnDataBarang.UseVisualStyleBackColor = False
         ' 
-        ' BtnKategori
-        ' 
-        BtnKategori.BackColor = Color.FromArgb(CByte(3), CByte(28), CByte(48))
-        BtnKategori.FlatAppearance.BorderSize = 0
-        BtnKategori.FlatStyle = FlatStyle.Flat
-        BtnKategori.Font = New Font("Segoe UI", 10F, FontStyle.Bold)
-        BtnKategori.ForeColor = Color.White
-        BtnKategori.Location = New Point(14, 186)
-        BtnKategori.Margin = New Padding(2)
-        BtnKategori.Name = "BtnKategori"
-        BtnKategori.Padding = New Padding(8, 0, 0, 0)
-        BtnKategori.Size = New Size(157, 32)
-        BtnKategori.TabIndex = 5
-        BtnKategori.Text = "▣   Kategori"
-        BtnKategori.TextAlign = ContentAlignment.MiddleLeft
-        BtnKategori.UseVisualStyleBackColor = False
-        ' 
         ' BtnSupplier
         ' 
         BtnSupplier.BackColor = Color.FromArgb(CByte(3), CByte(28), CByte(48))
@@ -486,7 +446,7 @@ Partial Class FormDashboard
         BtnSupplier.FlatStyle = FlatStyle.Flat
         BtnSupplier.Font = New Font("Segoe UI", 10F, FontStyle.Bold)
         BtnSupplier.ForeColor = Color.White
-        BtnSupplier.Location = New Point(14, 222)
+        BtnSupplier.Location = New Point(14, 185)
         BtnSupplier.Margin = New Padding(2)
         BtnSupplier.Name = "BtnSupplier"
         BtnSupplier.Padding = New Padding(8, 0, 0, 0)
@@ -503,7 +463,7 @@ Partial Class FormDashboard
         BtnPelanggan.FlatStyle = FlatStyle.Flat
         BtnPelanggan.Font = New Font("Segoe UI", 10F, FontStyle.Bold)
         BtnPelanggan.ForeColor = Color.White
-        BtnPelanggan.Location = New Point(14, 259)
+        BtnPelanggan.Location = New Point(14, 224)
         BtnPelanggan.Margin = New Padding(2)
         BtnPelanggan.Name = "BtnPelanggan"
         BtnPelanggan.Padding = New Padding(8, 0, 0, 0)
@@ -520,7 +480,7 @@ Partial Class FormDashboard
         BtnPenjualan.FlatStyle = FlatStyle.Flat
         BtnPenjualan.Font = New Font("Segoe UI", 10F, FontStyle.Bold)
         BtnPenjualan.ForeColor = Color.White
-        BtnPenjualan.Location = New Point(14, 296)
+        BtnPenjualan.Location = New Point(14, 264)
         BtnPenjualan.Margin = New Padding(2)
         BtnPenjualan.Name = "BtnPenjualan"
         BtnPenjualan.Padding = New Padding(8, 0, 0, 0)
@@ -537,7 +497,7 @@ Partial Class FormDashboard
         BtnPembelian.FlatStyle = FlatStyle.Flat
         BtnPembelian.Font = New Font("Segoe UI", 10F, FontStyle.Bold)
         BtnPembelian.ForeColor = Color.White
-        BtnPembelian.Location = New Point(14, 333)
+        BtnPembelian.Location = New Point(14, 305)
         BtnPembelian.Margin = New Padding(2)
         BtnPembelian.Name = "BtnPembelian"
         BtnPembelian.Padding = New Padding(8, 0, 0, 0)
@@ -554,7 +514,7 @@ Partial Class FormDashboard
         BtnStok.FlatStyle = FlatStyle.Flat
         BtnStok.Font = New Font("Segoe UI", 10F, FontStyle.Bold)
         BtnStok.ForeColor = Color.White
-        BtnStok.Location = New Point(14, 370)
+        BtnStok.Location = New Point(14, 346)
         BtnStok.Margin = New Padding(2)
         BtnStok.Name = "BtnStok"
         BtnStok.Padding = New Padding(8, 0, 0, 0)
@@ -571,7 +531,7 @@ Partial Class FormDashboard
         BtnLaporan.FlatStyle = FlatStyle.Flat
         BtnLaporan.Font = New Font("Segoe UI", 10F, FontStyle.Bold)
         BtnLaporan.ForeColor = Color.White
-        BtnLaporan.Location = New Point(14, 406)
+        BtnLaporan.Location = New Point(14, 381)
         BtnLaporan.Margin = New Padding(2)
         BtnLaporan.Name = "BtnLaporan"
         BtnLaporan.Padding = New Padding(8, 0, 0, 0)
@@ -580,23 +540,6 @@ Partial Class FormDashboard
         BtnLaporan.Text = "□   Laporan"
         BtnLaporan.TextAlign = ContentAlignment.MiddleLeft
         BtnLaporan.UseVisualStyleBackColor = False
-        ' 
-        ' BtnUser
-        ' 
-        BtnUser.BackColor = Color.FromArgb(CByte(3), CByte(28), CByte(48))
-        BtnUser.FlatAppearance.BorderSize = 0
-        BtnUser.FlatStyle = FlatStyle.Flat
-        BtnUser.Font = New Font("Segoe UI", 10F, FontStyle.Bold)
-        BtnUser.ForeColor = Color.White
-        BtnUser.Location = New Point(14, 443)
-        BtnUser.Margin = New Padding(2)
-        BtnUser.Name = "BtnUser"
-        BtnUser.Padding = New Padding(8, 0, 0, 0)
-        BtnUser.Size = New Size(157, 32)
-        BtnUser.TabIndex = 12
-        BtnUser.Text = "◉   User"
-        BtnUser.TextAlign = ContentAlignment.MiddleLeft
-        BtnUser.UseVisualStyleBackColor = False
         ' 
         ' BtnLogout
         ' 
@@ -639,10 +582,10 @@ Partial Class FormDashboard
         ' 
         LabelWelcome.Font = New Font("Segoe UI", 18F, FontStyle.Bold)
         LabelWelcome.ForeColor = Color.FromArgb(CByte(25), CByte(25), CByte(25))
-        LabelWelcome.Location = New Point(30, 30)
+        LabelWelcome.Location = New Point(30, 15)
         LabelWelcome.Margin = New Padding(2, 0, 2, 0)
         LabelWelcome.Name = "LabelWelcome"
-        LabelWelcome.Size = New Size(344, 34)
+        LabelWelcome.Size = New Size(344, 47)
         LabelWelcome.TabIndex = 0
         LabelWelcome.Text = "Selamat Datang, Admin!"
         ' 
@@ -650,7 +593,7 @@ Partial Class FormDashboard
         ' 
         LabelSubtitle.Font = New Font("Segoe UI", 10F)
         LabelSubtitle.ForeColor = Color.FromArgb(CByte(45), CByte(45), CByte(45))
-        LabelSubtitle.Location = New Point(32, 62)
+        LabelSubtitle.Location = New Point(32, 63)
         LabelSubtitle.Margin = New Padding(2, 0, 2, 0)
         LabelSubtitle.Name = "LabelSubtitle"
         LabelSubtitle.Size = New Size(344, 22)
@@ -1083,5 +1026,7 @@ Partial Class FormDashboard
         ResumeLayout(False)
         PerformLayout()
     End Sub
+
+    Friend WithEvents BtnPelanggan As Button
 
 End Class

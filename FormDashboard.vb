@@ -1,6 +1,6 @@
 ﻿Imports MySql.Data.MySqlClient
 
-Public Class FormDashboard
+Partial Public Class FormDashboard
 
     Private WithEvents waktuTimer As New Timer()
 
@@ -52,7 +52,6 @@ Public Class FormDashboard
             LabelInfoVersi.Text = "Versi Aplikasi          :   1.0.0.0"
 
         Catch ex As Exception
-            ' Jika XAMPP belum nyala / database error, akan masuk ke sini
             LabelProdukValue.Text = "-"
             LabelStokValue.Text = "-"
             LabelPenjualanValue.Text = "Rp 0"
@@ -122,61 +121,79 @@ Public Class FormDashboard
     End Sub
 
     Private Sub BtnDataBarang_Click(sender As Object, e As EventArgs) Handles BtnDataBarang.Click
-        ' HAPUS tanda kutip tunggal (') di bawah ini jika FormDataBarang sudah Anda buat!
-        ' FormDataBarang.Show() 
-        TampilkanPesanError("Data Barang")
+        Try
+            FormDataBarang.Show()
+        Catch ex As Exception
+            TampilkanPesanError("Data Barang")
+        End Try
     End Sub
 
-    Private Sub BtnKategori_Click(sender As Object, e As EventArgs) Handles BtnKategori.Click
-        ' HAPUS tanda kutip tunggal (') di bawah ini jika FormKategori sudah Anda buat!
-        ' FormKategori.Show()
-        TampilkanPesanError("Kategori")
+    ' Removed Handles clause because the control is not present in Designer.
+    Private Sub BtnKategori_Click(sender As Object, e As EventArgs)
+        Try
+            FormKategori.Show()
+        Catch ex As Exception
+            TampilkanPesanError("Kategori")
+        End Try
     End Sub
 
     Private Sub BtnSupplier_Click(sender As Object, e As EventArgs) Handles BtnSupplier.Click
-        ' HAPUS tanda kutip tunggal (') di bawah ini jika FormSupplier sudah Anda buat!
-        ' FormSupplier.Show()
-        TampilkanPesanError("Supplier")
+        Try
+            FormSupplier.Show()
+        Catch ex As Exception
+            TampilkanPesanError("Supplier")
+        End Try
     End Sub
 
     Private Sub BtnPelanggan_Click(sender As Object, e As EventArgs) Handles BtnPelanggan.Click
-        MessageBox.Show("Modul Pelanggan dinonaktifkan untuk akses Admin.", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        BukaAtauTampilkanFormPelanggan()
     End Sub
 
     Private Sub BtnPenjualan_Click(sender As Object, e As EventArgs) Handles BtnPenjualan.Click
-        ' HAPUS tanda kutip tunggal (') di bawah ini jika FormTransaksiPenjualan sudah Anda buat!
-        ' FormTransaksiPenjualan.Show()
-        TampilkanPesanError("Transaksi Penjualan")
+        Try
+            FormTransaksiPenjualan.Show()
+        Catch ex As Exception
+            TampilkanPesanError("Transaksi Penjualan")
+        End Try
     End Sub
 
     Private Sub BtnPembelian_Click(sender As Object, e As EventArgs) Handles BtnPembelian.Click
-        ' HAPUS tanda kutip tunggal (') di bawah ini jika FormPembelian (atau Form8) sudah Anda buat!
-        ' Form8.Show() 
-        TampilkanPesanError("Pembelian")
+        Try
+            ' Sesuaikan nama form pembelian Anda
+            Form8.Show()
+        Catch ex As Exception
+            TampilkanPesanError("Pembelian")
+        End Try
     End Sub
 
     Private Sub BtnStok_Click(sender As Object, e As EventArgs) Handles BtnStok.Click
-        ' HAPUS tanda kutip tunggal (') di bawah ini jika FormStokBarang sudah Anda buat!
-        ' FormStokBarang.Show()
-        TampilkanPesanError("Stok Barang")
+        Try
+            FormStokBarang.Show()
+        Catch ex As Exception
+            TampilkanPesanError("Stok Barang")
+        End Try
     End Sub
 
     Private Sub BtnLaporan_Click(sender As Object, e As EventArgs) Handles BtnLaporan.Click
-        ' HAPUS tanda kutip tunggal (') di bawah ini jika FormLaporan sudah Anda buat!
-        ' FormLaporan.Show()
-        TampilkanPesanError("Laporan Utama")
+        Try
+            FormLaporan.Show()
+        Catch ex As Exception
+            TampilkanPesanError("Laporan Utama")
+        End Try
     End Sub
 
-    Private Sub BtnUser_Click(sender As Object, e As EventArgs) Handles BtnUser.Click
-        ' HAPUS tanda kutip tunggal (') di bawah ini jika FormUser sudah Anda buat!
-        ' FormUser.Show()
-        TampilkanPesanError("Manajemen User")
+    ' Removed Handles clause because the control is not present in Designer.
+    Private Sub BtnUser_Click(sender As Object, e As EventArgs)
+        Try
+            FormUser.Show()
+        Catch ex As Exception
+            TampilkanPesanError("Manajemen User")
+        End Try
     End Sub
 
     Private Sub BtnLogout_Click(sender As Object, e As EventArgs) Handles BtnLogout.Click
         If MessageBox.Show("Yakin ingin mengakhiri sesi dan logout?", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
             Me.Hide()
-            ' Karena Anda SUDAH MEMBUAT FormLoginAdmin, ini aman untuk dipanggil:
             Try
                 FormLoginAdmin.Show()
             Catch ex As Exception
@@ -204,8 +221,10 @@ Public Class FormDashboard
         BtnDataBarang.PerformClick()
     End Sub
 
-    Private Sub KategoriToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles KategoriToolStripMenuItem.Click
-        BtnKategori.PerformClick()
+    ' Removed Handles clause because the menu item is not present in Designer.
+    Private Sub KategoriToolStripMenuItem_Click(sender As Object, e As EventArgs)
+        ' Memanggil logika tombol kategori dengan parameter yang benar
+        BtnKategori_Click(Nothing, Nothing)
     End Sub
 
     Private Sub SupplierToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SupplierToolStripMenuItem.Click
@@ -213,11 +232,13 @@ Public Class FormDashboard
     End Sub
 
     Private Sub PelangganToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PelangganToolStripMenuItem.Click
-        BtnPelanggan.PerformClick()
+        BukaAtauTampilkanFormPelanggan()
     End Sub
 
-    Private Sub UserAdminToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles UserAdminToolStripMenuItem.Click
-        BtnUser.PerformClick()
+    ' Removed Handles clause because the menu item is not present in Designer.
+    Private Sub UserAdminToolStripMenuItem_Click(sender As Object, e As EventArgs)
+        ' Memanggil logika tombol user dengan parameter yang benar
+        BtnUser_Click(Nothing, Nothing)
     End Sub
 
     Private Sub PenjualanToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PenjualanToolStripMenuItem.Click
@@ -257,6 +278,7 @@ Public Class FormDashboard
     End Sub
 
     Private Sub TentangAplikasiToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TentangAplikasiToolStripMenuItem.Click
+        ' Mengganti vbNewLine dengan Environment.NewLine (Menghilangkan Warning)
         MessageBox.Show("Sistem Manajemen Toko Pakaian Pria" & Environment.NewLine & "Gentlemen Men's Wear - Versi 1.0", "Tentang Aplikasi", MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub
 
@@ -268,7 +290,36 @@ Public Class FormDashboard
     ' 5. FUNGSI BANTUAN (HELPER)
     ' ==========================================
     Private Sub TampilkanPesanError(namaModul As String)
-        MessageBox.Show("Form untuk modul [" & namaModul & "] belum dibuat." & Environment.NewLine & "Silakan buat form tersebut di Solution Explorer, lalu buka kode ini dan hapus tanda kutip tunggal (') pada baris fungsinya.", "Modul Belum Tersedia", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        ' Mengganti vbNewLine dengan Environment.NewLine
+        MessageBox.Show("Form untuk modul [" & namaModul & "] belum dibuat." & Environment.NewLine & "Silakan buat form tersebut di Solution Explorer.", "Modul Belum Tersedia", MessageBoxButtons.OK, MessageBoxIcon.Information)
+    End Sub
+
+    ' Event kosong jika tidak digunakan sebaiknya dibiarkan atau dihapus jika tidak ada binding di Designer
+    Private Sub PanelContent_Paint(sender As Object, e As PaintEventArgs) Handles PanelContent.Paint
+    End Sub
+
+    Private Sub MenuStrip1_ItemClicked(sender As Object, e As ToolStripItemClickedEventArgs) Handles MenuStrip1.ItemClicked
+    End Sub
+
+    Private Sub BukaAtauTampilkanFormPelanggan()
+        Try
+            ' Cari jika FormPelanggan sudah terbuka pada collection OpenForms
+            Dim frm = Application.OpenForms.OfType(Of FormPelanggan)().FirstOrDefault()
+            If frm IsNot Nothing Then
+                ' Jika sudah ada, tampilkan dan bawa ke depan
+                If frm.WindowState = FormWindowState.Minimized Then
+                    frm.WindowState = FormWindowState.Normal
+                End If
+                frm.BringToFront()
+                frm.Focus()
+            Else
+                ' Buat instance baru dan tampilkan
+                frm = New FormPelanggan()
+                frm.Show()
+            End If
+        Catch ex As Exception
+            MessageBox.Show("Gagal membuka modul Pelanggan." & Environment.NewLine & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
     End Sub
 
 End Class

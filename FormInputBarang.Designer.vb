@@ -25,12 +25,12 @@ Partial Class FormInputBarang
         cbKategori = New ComboBox()
         txtNama = New TextBox()
         txtStok = New TextBox()
-        txtKode = New TextBox()
         txtUkuran = New TextBox()
         txtWarna = New TextBox()
         txtHarga = New TextBox()
         btnSimpan = New Button()
         Label1 = New Label()
+        lblKode = New Label()
         SuspendLayout()
         ' 
         ' cbKategori
@@ -59,13 +59,15 @@ Partial Class FormInputBarang
         txtStok.Size = New Size(125, 27)
         txtStok.TabIndex = 2
         ' 
-        ' txtKode
+        ' lblKode
         ' 
-        txtKode.Location = New Point(12, 33)
-        txtKode.Name = "txtKode"
-        txtKode.PlaceholderText = "Kode Barang"
-        txtKode.Size = New Size(275, 27)
-        txtKode.TabIndex = 3
+        lblKode.Location = New Point(12, 33)
+        lblKode.Name = "lblKode"
+        lblKode.Size = New Size(275, 27)
+        lblKode.BorderStyle = BorderStyle.FixedSingle
+        lblKode.Text = "-"
+        lblKode.TextAlign = ContentAlignment.MiddleLeft
+        lblKode.TabIndex = 3
         ' 
         ' txtUkuran
         ' 
@@ -119,7 +121,7 @@ Partial Class FormInputBarang
         Controls.Add(txtHarga)
         Controls.Add(txtWarna)
         Controls.Add(txtUkuran)
-        Controls.Add(txtKode)
+        Controls.Add(lblKode)
         Controls.Add(txtStok)
         Controls.Add(txtNama)
         Controls.Add(cbKategori)
@@ -133,10 +135,10 @@ Partial Class FormInputBarang
     Friend WithEvents cbKategori As ComboBox
     Friend WithEvents txtNama As TextBox
     Friend WithEvents txtStok As TextBox
-    Friend WithEvents txtKode As TextBox
     Friend WithEvents txtUkuran As TextBox
     Friend WithEvents txtWarna As TextBox
     Friend WithEvents txtHarga As TextBox
     Friend WithEvents btnSimpan As Button
     Friend WithEvents Label1 As Label
+    Friend WithEvents lblKode As Label
 End Class

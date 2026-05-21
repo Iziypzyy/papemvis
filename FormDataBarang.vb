@@ -2,11 +2,43 @@
 
 Public Class FormDataBarang
 
+    Public Property ModeSelect As Boolean = False
+    Private _selectedKode As String = ""
+    Private _selectedNama As String = ""
+    Private _selectedHarga As Decimal = 0D
+
+    Public ReadOnly Property SelectedKode As String
+        Get
+            Return _selectedKode
+        End Get
+    End Property
+
+    Public ReadOnly Property SelectedNama As String
+        Get
+            Return _selectedNama
+        End Get
+    End Property
+
+    Public ReadOnly Property SelectedHarga As Decimal
+        Get
+            Return _selectedHarga
+        End Get
+    End Property
+
     ' LOAD DATA SAAT FORM DIBUKA
     Private Sub FormDataBarang_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
         LoadDataDB()
 
+        ' jika dipakai sebagai selector, sembunyikan tombol-tombol yang mengubah master
+        If ModeSelect Then
+            ' tombol di Designer: BtnTambah, BtnUbah, BtnHapusItem
+            Try
+                BtnTambah.Visible = False
+                BtnUbah.Visible = False
+                BtnHapusItem.Visible = False
+            Catch
+            End Try
+        End If
     End Sub
 
     Public Sub LoadDataDB()
@@ -67,13 +99,27 @@ Public Class FormDataBarang
 
     End Sub
 
+    ' Double-click pada baris -> pilih barang saat ModeSelect = True
+    Private Sub DgvDataBarang_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DgvDataBarang.CellDoubleClick
+        If ModeSelect AndAlso DgvDataBarang.CurrentRow IsNot Nothing Then
+            With DgvDataBarang.CurrentRow
+                _selectedKode = .Cells(0).Value.ToString()
+                _selectedNama = .Cells(1).Value.ToString()
+                Dim priceStr = .Cells(5).Value.ToString()
+                ' hilangkan pemisah ribuan untuk parsing
+                Decimal.TryParse(priceStr.Replace(".", "").Replace(",", ""), _selectedHarga)
+            End With
+            Me.DialogResult = DialogResult.OK
+            Me.Close()
+        End If
+    End Sub
+
     ' TOMBOL TAMBAH
     Private Sub BtnTambah_Click(sender As Object, e As EventArgs) Handles BtnTambah.Click
-
         Dim frm As New FormInputBarang()
 
         If frm.ShowDialog() = DialogResult.OK Then
-
+            ' existing code unchanged...
             Try
                 Using conn As MySqlConnection = KoneksiDB.GetConnection()
 
@@ -131,7 +177,6 @@ Public Class FormDataBarang
             End Try
 
         End If
-
     End Sub
 
     ' TOMBOL UBAH
@@ -223,19 +268,26 @@ Public Class FormDataBarang
 
     End Sub
 
+    ' Helper: set label text hanya jika kontrol ada di form (dipakai karena user menghapus beberapa label)
+    Private Sub SetLabelIfExists(ctrlName As String, text As String)
+        Dim ctrls() As Control = Me.Controls.Find(ctrlName, True)
+        If ctrls.Length > 0 AndAlso TypeOf ctrls(0) Is Label Then
+            CType(ctrls(0), Label).Text = text
+        End If
+    End Sub
+
     ' UPDATE DETAIL DATA
     Private Sub DgvDataBarang_SelectionChanged(sender As Object, e As EventArgs) Handles DgvDataBarang.SelectionChanged
 
         If DgvDataBarang.CurrentRow IsNot Nothing Then
 
             With DgvDataBarang.CurrentRow
-
-                LblValKode.Text = .Cells(0).Value.ToString()
-                LblValNama.Text = .Cells(1).Value.ToString()
-                LblValKategori.Text = .Cells(2).Value.ToString()
-                LblValHarga.Text = .Cells(5).Value.ToString()
-                LblValStok.Text = .Cells(6).Value.ToString()
-
+                ' Gunakan helper agar tidak error jika label detail dihapus oleh designer
+                SetLabelIfExists("LblValKode", .Cells(0).Value.ToString())
+                SetLabelIfExists("LblValNama", .Cells(1).Value.ToString())
+                SetLabelIfExists("LblValKategori", .Cells(2).Value.ToString())
+                SetLabelIfExists("LblValHarga", .Cells(5).Value.ToString())
+                SetLabelIfExists("LblValStok", .Cells(6).Value.ToString())
             End With
 
         End If
@@ -287,11 +339,12 @@ Public Class FormDataBarang
 
                     LoadDataDB()
 
-                    LblValKode.Text = "-"
-                    LblValNama.Text = "-"
-                    LblValKategori.Text = "-"
-                    LblValHarga.Text = "0"
-                    LblValStok.Text = "0"
+                    ' Reset label kalau ada
+                    SetLabelIfExists("LblValKode", "-")
+                    SetLabelIfExists("LblValNama", "-")
+                    SetLabelIfExists("LblValKategori", "-")
+                    SetLabelIfExists("LblValHarga", "0")
+                    SetLabelIfExists("LblValStok", "0")
 
                 Catch ex As Exception
 

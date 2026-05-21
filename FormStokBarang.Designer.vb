@@ -24,7 +24,6 @@ Partial Class FormStokBarang
     Friend WithEvents colKode As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents colNama As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents colStok As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents colStokMin As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents colSatuan As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents colStatus As System.Windows.Forms.DataGridViewTextBoxColumn
 
@@ -51,7 +50,6 @@ Partial Class FormStokBarang
         colKode = New DataGridViewTextBoxColumn()
         colNama = New DataGridViewTextBoxColumn()
         colStok = New DataGridViewTextBoxColumn()
-        colStokMin = New DataGridViewTextBoxColumn()
         colSatuan = New DataGridViewTextBoxColumn()
         colStatus = New DataGridViewTextBoxColumn()
         lblTotalData = New Label()
@@ -69,9 +67,9 @@ Partial Class FormStokBarang
         txtCari.Location = New Point(29, 33)
         txtCari.Margin = New Padding(3, 4, 3, 4)
         txtCari.Name = "txtCari"
+        txtCari.PlaceholderText = "Cari barang..."
         txtCari.Size = New Size(285, 29)
         txtCari.TabIndex = 6
-        txtCari.Text = "Cari barang..."
         ' 
         ' dgvStok
         ' 
@@ -79,7 +77,7 @@ Partial Class FormStokBarang
         dgvStok.AllowUserToDeleteRows = False
         dgvStok.BackgroundColor = Color.White
         dgvStok.ColumnHeadersHeight = 35
-        dgvStok.Columns.AddRange(New DataGridViewColumn() {colKode, colNama, colStok, colStokMin, colSatuan, colStatus})
+        dgvStok.Columns.AddRange(New DataGridViewColumn() {colKode, colNama, colStok, colSatuan, colStatus})
         dgvStok.Location = New Point(29, 87)
         dgvStok.Margin = New Padding(3, 4, 3, 4)
         dgvStok.Name = "dgvStok"
@@ -115,16 +113,6 @@ Partial Class FormStokBarang
         colStok.Name = "colStok"
         colStok.ReadOnly = True
         colStok.Width = 60
-        ' 
-        ' colStokMin
-        ' 
-        DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter
-        colStokMin.DefaultCellStyle = DataGridViewCellStyle2
-        colStokMin.HeaderText = "Stok Min"
-        colStokMin.MinimumWidth = 6
-        colStokMin.Name = "colStokMin"
-        colStokMin.ReadOnly = True
-        colStokMin.Width = 80
         ' 
         ' colSatuan
         ' 
@@ -171,9 +159,9 @@ Partial Class FormStokBarang
         lblKetAman.AutoSize = True
         lblKetAman.Location = New Point(583, 680)
         lblKetAman.Name = "lblKetAman"
-        lblKetAman.Size = New Size(48, 20)
+        lblKetAman.Size = New Size(36, 20)
         lblKetAman.TabIndex = 2
-        lblKetAman.Text = "Aman"
+        lblKetAman.Text = "ADA"
         ' 
         ' pnlWarnaMenipis
         ' 
@@ -189,9 +177,9 @@ Partial Class FormStokBarang
         lblKetMenipis.AutoSize = True
         lblKetMenipis.Location = New Point(686, 680)
         lblKetMenipis.Name = "lblKetMenipis"
-        lblKetMenipis.Size = New Size(61, 20)
+        lblKetMenipis.Size = New Size(40, 20)
         lblKetMenipis.TabIndex = 0
-        lblKetMenipis.Text = "Menipis"
+        lblKetMenipis.Text = "HABIS"
         ' 
         ' FormStokBarang
         ' 

@@ -15,19 +15,21 @@ Public Class FormInputBarang
 
         LoadKategoriDB()
 
-        txtKode.Text = Kode
-        txtNama.Text = Nama
-        cbKategori.Text = Kategori
-        txtUkuran.Text = Ukuran
-        txtWarna.Text = Warna
-        txtHarga.Text = Harga
-        txtStok.Text = Stok
-
+        ' Kode sekarang otomatis (ditampilkan di lblKode)
         If ModeEdit Then
+            ' Jika edit, tampilkan kode yang diteruskan dari form parent
+            lblKode.Text = Kode
+            txtNama.Text = Nama
+            cbKategori.Text = Kategori
+            txtUkuran.Text = Ukuran
+            txtWarna.Text = Warna
+            txtHarga.Text = Harga
+            txtStok.Text = Stok
 
-            txtKode.ReadOnly = True
             txtNama.Focus()
-
+        Else
+            ' Generate kode baru untuk barang
+            lblKode.Text = GenerateKode()
         End If
 
     End Sub
@@ -68,6 +70,24 @@ Public Class FormInputBarang
 
     End Sub
 
+    ' Generate kode barang otomatis, format B### (B001, B002,...)
+    Private Function GenerateKode() As String
+        Try
+            ' Ambil nilai numeric terbesar dari kode_barang (mengasumsikan format Bnnn)
+            Dim sql As String = "SELECT IFNULL(MAX(CAST(SUBSTRING(kode_barang, 2) AS UNSIGNED)), 0) FROM barang"
+            Dim maxNumObj As Object = ExecScalar(sql)
+            Dim maxNum As Integer = 0
+
+            If maxNumObj IsNot Nothing AndAlso Integer.TryParse(maxNumObj.ToString(), maxNum) Then
+                ' ok
+            End If
+
+            Return "B" & (maxNum + 1).ToString("D3")
+        Catch
+            Return "B001"
+        End Try
+    End Function
+
     ' VALIDASI ANGKA
     Private Sub AngkaOnly_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtHarga.KeyPress, txtStok.KeyPress
 
@@ -83,12 +103,12 @@ Public Class FormInputBarang
     ' TOMBOL SIMPAN
     Private Sub btnSimpan_Click(sender As Object, e As EventArgs) Handles btnSimpan.Click
 
-        If txtKode.Text.Trim = "" Or
-           txtNama.Text.Trim = "" Or
+        ' Kode sekarang otomatis, jadi validasi hanya untuk Nama & Kategori
+        If txtNama.Text.Trim = "" Or
            cbKategori.Text.Trim = "" Then
 
             MessageBox.Show(
-                "Kode, nama, dan kategori wajib diisi!",
+                "Nama dan kategori wajib diisi!",
                 "Peringatan",
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Warning
@@ -98,7 +118,8 @@ Public Class FormInputBarang
 
         End If
 
-        Kode = txtKode.Text
+        ' Ambil nilai dari kontrol (kode dari lblKode)
+        Kode = lblKode.Text
         Nama = txtNama.Text
         Kategori = cbKategori.Text
         Ukuran = txtUkuran.Text
