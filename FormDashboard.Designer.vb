@@ -62,7 +62,6 @@ Partial Class FormDashboard
     Friend WithEvents LabelTime As Label
 
     Friend WithEvents PanelProduk As Panel
-    Friend WithEvents PanelStok As Panel
     Friend WithEvents PanelPenjualan As Panel
     Friend WithEvents PanelPelanggan As Panel
 
@@ -70,11 +69,6 @@ Partial Class FormDashboard
     Friend WithEvents LabelProdukTitle As Label
     Friend WithEvents LabelProdukValue As Label
     Friend WithEvents LabelProdukInfo As Label
-
-    Friend WithEvents LabelStokIcon As Label
-    Friend WithEvents LabelStokTitle As Label
-    Friend WithEvents LabelStokValue As Label
-    Friend WithEvents LabelStokInfo As Label
 
     Friend WithEvents LabelPenjualanIcon As Label
     Friend WithEvents LabelPenjualanTitle As Label
@@ -89,12 +83,6 @@ Partial Class FormDashboard
     Friend WithEvents PanelTopProduk As Panel
     Friend WithEvents LabelTopProdukTitle As Label
     Friend WithEvents TableTopProduk As TableLayoutPanel
-
-    Friend WithEvents PanelNotifikasi As Panel
-    Friend WithEvents LabelNotifikasiTitle As Label
-    Friend WithEvents LabelNotif1 As Label
-    Friend WithEvents LabelNotif2 As Label
-    Friend WithEvents LabelNotif3 As Label
 
     Friend WithEvents PanelInfo As Panel
     Friend WithEvents LabelInfoTitle As Label
@@ -151,11 +139,6 @@ Partial Class FormDashboard
         LabelProdukTitle = New Label()
         LabelProdukValue = New Label()
         LabelProdukInfo = New Label()
-        PanelStok = New Panel()
-        LabelStokIcon = New Label()
-        LabelStokTitle = New Label()
-        LabelStokValue = New Label()
-        LabelStokInfo = New Label()
         PanelPenjualan = New Panel()
         LabelPenjualanIcon = New Label()
         LabelPenjualanTitle = New Label()
@@ -169,11 +152,6 @@ Partial Class FormDashboard
         PanelTopProduk = New Panel()
         LabelTopProdukTitle = New Label()
         TableTopProduk = New TableLayoutPanel()
-        PanelNotifikasi = New Panel()
-        LabelNotifikasiTitle = New Label()
-        LabelNotif1 = New Label()
-        LabelNotif2 = New Label()
-        LabelNotif3 = New Label()
         PanelInfo = New Panel()
         LabelInfoTitle = New Label()
         LabelInfoUser = New Label()
@@ -183,11 +161,9 @@ Partial Class FormDashboard
         PanelSidebar.SuspendLayout()
         PanelContent.SuspendLayout()
         PanelProduk.SuspendLayout()
-        PanelStok.SuspendLayout()
         PanelPenjualan.SuspendLayout()
         PanelPelanggan.SuspendLayout()
         PanelTopProduk.SuspendLayout()
-        PanelNotifikasi.SuspendLayout()
         PanelInfo.SuspendLayout()
         SuspendLayout()
         ' 
@@ -566,11 +542,9 @@ Partial Class FormDashboard
         PanelContent.Controls.Add(LabelDate)
         PanelContent.Controls.Add(LabelTime)
         PanelContent.Controls.Add(PanelProduk)
-        PanelContent.Controls.Add(PanelStok)
         PanelContent.Controls.Add(PanelPenjualan)
         PanelContent.Controls.Add(PanelPelanggan)
         PanelContent.Controls.Add(PanelTopProduk)
-        PanelContent.Controls.Add(PanelNotifikasi)
         PanelContent.Controls.Add(PanelInfo)
         PanelContent.Location = New Point(186, 30)
         PanelContent.Margin = New Padding(2)
@@ -678,62 +652,6 @@ Partial Class FormDashboard
         LabelProdukInfo.TabIndex = 3
         LabelProdukInfo.Text = "Produk"
         ' 
-        ' PanelStok
-        ' 
-        PanelStok.BackColor = Color.White
-        PanelStok.BorderStyle = BorderStyle.FixedSingle
-        PanelStok.Controls.Add(LabelStokIcon)
-        PanelStok.Controls.Add(LabelStokTitle)
-        PanelStok.Controls.Add(LabelStokValue)
-        PanelStok.Controls.Add(LabelStokInfo)
-        PanelStok.Location = New Point(216, 104)
-        PanelStok.Margin = New Padding(2)
-        PanelStok.Name = "PanelStok"
-        PanelStok.Size = New Size(164, 84)
-        PanelStok.TabIndex = 5
-        ' 
-        ' LabelStokIcon
-        ' 
-        LabelStokIcon.BackColor = Color.FromArgb(CByte(255), CByte(181), CByte(0))
-        LabelStokIcon.Font = New Font("Segoe UI", 18F, FontStyle.Bold)
-        LabelStokIcon.ForeColor = Color.White
-        LabelStokIcon.Location = New Point(13, 22)
-        LabelStokIcon.Margin = New Padding(2, 0, 2, 0)
-        LabelStokIcon.Name = "LabelStokIcon"
-        LabelStokIcon.Size = New Size(38, 38)
-        LabelStokIcon.TabIndex = 0
-        LabelStokIcon.Text = "!"
-        LabelStokIcon.TextAlign = ContentAlignment.MiddleCenter
-        ' 
-        ' LabelStokTitle
-        ' 
-        LabelStokTitle.Font = New Font("Segoe UI", 8F, FontStyle.Bold)
-        LabelStokTitle.Location = New Point(62, 14)
-        LabelStokTitle.Margin = New Padding(2, 0, 2, 0)
-        LabelStokTitle.Name = "LabelStokTitle"
-        LabelStokTitle.Size = New Size(100, 19)
-        LabelStokTitle.TabIndex = 1
-        LabelStokTitle.Text = "STOK MENIPIS"
-        ' 
-        ' LabelStokValue
-        ' 
-        LabelStokValue.Font = New Font("Segoe UI", 14F, FontStyle.Bold)
-        LabelStokValue.Location = New Point(62, 34)
-        LabelStokValue.Margin = New Padding(2, 0, 2, 0)
-        LabelStokValue.Name = "LabelStokValue"
-        LabelStokValue.Size = New Size(100, 26)
-        LabelStokValue.TabIndex = 2
-        LabelStokValue.Text = "18"
-        ' 
-        ' LabelStokInfo
-        ' 
-        LabelStokInfo.Location = New Point(62, 59)
-        LabelStokInfo.Margin = New Padding(2, 0, 2, 0)
-        LabelStokInfo.Name = "LabelStokInfo"
-        LabelStokInfo.Size = New Size(100, 18)
-        LabelStokInfo.TabIndex = 3
-        LabelStokInfo.Text = "Produk"
-        ' 
         ' PanelPenjualan
         ' 
         PanelPenjualan.BackColor = Color.White
@@ -742,10 +660,10 @@ Partial Class FormDashboard
         PanelPenjualan.Controls.Add(LabelPenjualanTitle)
         PanelPenjualan.Controls.Add(LabelPenjualanValue)
         PanelPenjualan.Controls.Add(LabelPenjualanInfo)
-        PanelPenjualan.Location = New Point(402, 104)
+        PanelPenjualan.Location = New Point(215, 104)
         PanelPenjualan.Margin = New Padding(2)
         PanelPenjualan.Name = "PanelPenjualan"
-        PanelPenjualan.Size = New Size(164, 84)
+        PanelPenjualan.Size = New Size(351, 84)
         PanelPenjualan.TabIndex = 6
         ' 
         ' LabelPenjualanIcon
@@ -777,7 +695,7 @@ Partial Class FormDashboard
         LabelPenjualanValue.Location = New Point(62, 35)
         LabelPenjualanValue.Margin = New Padding(2, 0, 2, 0)
         LabelPenjualanValue.Name = "LabelPenjualanValue"
-        LabelPenjualanValue.Size = New Size(100, 24)
+        LabelPenjualanValue.Size = New Size(264, 24)
         LabelPenjualanValue.TabIndex = 2
         LabelPenjualanValue.Text = "Rp 5.250.000"
         ' 
@@ -888,61 +806,6 @@ Partial Class FormDashboard
         TableTopProduk.Size = New Size(664, 132)
         TableTopProduk.TabIndex = 0
         ' 
-        ' PanelNotifikasi
-        ' 
-        PanelNotifikasi.BackColor = Color.White
-        PanelNotifikasi.BorderStyle = BorderStyle.FixedSingle
-        PanelNotifikasi.Controls.Add(LabelNotifikasiTitle)
-        PanelNotifikasi.Controls.Add(LabelNotif1)
-        PanelNotifikasi.Controls.Add(LabelNotif2)
-        PanelNotifikasi.Controls.Add(LabelNotif3)
-        PanelNotifikasi.Location = New Point(30, 420)
-        PanelNotifikasi.Margin = New Padding(2)
-        PanelNotifikasi.Name = "PanelNotifikasi"
-        PanelNotifikasi.Size = New Size(364, 128)
-        PanelNotifikasi.TabIndex = 10
-        ' 
-        ' LabelNotifikasiTitle
-        ' 
-        LabelNotifikasiTitle.Font = New Font("Segoe UI", 10F, FontStyle.Bold)
-        LabelNotifikasiTitle.Location = New Point(14, 13)
-        LabelNotifikasiTitle.Margin = New Padding(2, 0, 2, 0)
-        LabelNotifikasiTitle.Name = "LabelNotifikasiTitle"
-        LabelNotifikasiTitle.Size = New Size(160, 20)
-        LabelNotifikasiTitle.TabIndex = 0
-        LabelNotifikasiTitle.Text = "Notifikasi"
-        ' 
-        ' LabelNotif1
-        ' 
-        LabelNotif1.Font = New Font("Segoe UI", 10F)
-        LabelNotif1.ForeColor = Color.Red
-        LabelNotif1.Location = New Point(18, 44)
-        LabelNotif1.Margin = New Padding(2, 0, 2, 0)
-        LabelNotif1.Name = "LabelNotif1"
-        LabelNotif1.Size = New Size(312, 20)
-        LabelNotif1.TabIndex = 1
-        LabelNotif1.Text = "- 18 produk dengan stok menipis"
-        ' 
-        ' LabelNotif2
-        ' 
-        LabelNotif2.Font = New Font("Segoe UI", 10F)
-        LabelNotif2.Location = New Point(18, 68)
-        LabelNotif2.Margin = New Padding(2, 0, 2, 0)
-        LabelNotif2.Name = "LabelNotif2"
-        LabelNotif2.Size = New Size(312, 20)
-        LabelNotif2.TabIndex = 2
-        LabelNotif2.Text = "- 2 pesanan pembelian belum diterima"
-        ' 
-        ' LabelNotif3
-        ' 
-        LabelNotif3.Font = New Font("Segoe UI", 10F)
-        LabelNotif3.Location = New Point(18, 92)
-        LabelNotif3.Margin = New Padding(2, 0, 2, 0)
-        LabelNotif3.Name = "LabelNotif3"
-        LabelNotif3.Size = New Size(328, 20)
-        LabelNotif3.TabIndex = 3
-        LabelNotif3.Text = "- Backup data terakhir: 22/05/2024 08:00"
-        ' 
         ' PanelInfo
         ' 
         PanelInfo.BackColor = Color.White
@@ -951,10 +814,10 @@ Partial Class FormDashboard
         PanelInfo.Controls.Add(LabelInfoUser)
         PanelInfo.Controls.Add(LabelInfoLevel)
         PanelInfo.Controls.Add(LabelInfoVersi)
-        PanelInfo.Location = New Point(412, 420)
+        PanelInfo.Location = New Point(32, 420)
         PanelInfo.Margin = New Padding(2)
         PanelInfo.Name = "PanelInfo"
-        PanelInfo.Size = New Size(336, 128)
+        PanelInfo.Size = New Size(716, 128)
         PanelInfo.TabIndex = 11
         ' 
         ' LabelInfoTitle
@@ -1017,11 +880,9 @@ Partial Class FormDashboard
         PanelSidebar.ResumeLayout(False)
         PanelContent.ResumeLayout(False)
         PanelProduk.ResumeLayout(False)
-        PanelStok.ResumeLayout(False)
         PanelPenjualan.ResumeLayout(False)
         PanelPelanggan.ResumeLayout(False)
         PanelTopProduk.ResumeLayout(False)
-        PanelNotifikasi.ResumeLayout(False)
         PanelInfo.ResumeLayout(False)
         ResumeLayout(False)
         PerformLayout()

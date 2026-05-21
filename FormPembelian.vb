@@ -15,7 +15,7 @@ Public Class Form8
         txtNoPembelian.Text = GenerateNoPembelian()
         LoadSuppliers()
         LoadDataDB()
-
+        LoadBarangToCombo()
     End Sub
 
     ' =====================================
@@ -369,4 +369,156 @@ Public Class Form8
         HitungRingkasan()
     End Sub
 
+    Private Sub btnTambahItem_Click(sender As Object, e As EventArgs) Handles btnTambahItem.Click
+        If cmbBarang.SelectedIndex = -1 OrElse cmbBarang.SelectedValue Is Nothing Then
+            MessageBox.Show("Pilih barang terlebih dahulu!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return
+        End If
+
+        Dim kodeBarang As String = cmbBarang.SelectedValue.ToString()
+
+        ' Ambil nama asli barang (tanpa kode_barang di depannya)
+        Dim drv As DataRowView = TryCast(cmbBarang.SelectedItem, DataRowView)
+        Dim namaBarang As String = drv("nama_barang").ToString()
+
+        Dim qty As Integer = Convert.ToInt32(txtQtyInput.Value)
+        Dim harga As Double = 0
+        Double.TryParse(txtHargaInput.Text, harga)
+        Dim subtotal As Double = qty * harga
+
+        If qty <= 0 Then
+            MessageBox.Show("Quantity harus lebih dari 0!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return
+        End If
+
+        ' Cek apakah barang sudah ada di grid? Kalau sudah ada, tumpuk Qty-nya
+        For Each row As DataGridViewRow In dgvDetailPembelian.Rows
+            If row.IsNewRow Then Continue For
+
+            If row.Cells("colKode").Value?.ToString() = kodeBarang Then
+                Dim currentQty As Integer = 0
+                Integer.TryParse(If(row.Cells("colQty").Value, "0").ToString(), currentQty)
+
+                Dim newQty As Integer = currentQty + qty
+                row.Cells("colQty").Value = newQty
+                row.Cells("colSubTotal").Value = (newQty * harga).ToString("N0")
+
+                ResetInputBarang()
+                HitungRingkasan()
+                Exit Sub
+            End If
+        Next
+
+        ' Jika belum ada, masukkan baris baru ke grid
+        dgvDetailPembelian.Rows.Add(kodeBarang, namaBarang, qty, harga.ToString("N0"), subtotal.ToString("N0"))
+
+        ResetInputBarang()
+        HitungRingkasan()
+    End Sub
+
+    ' Bersihkan field inputan atas setelah sukses masuk grid
+    Private Sub ResetInputBarang()
+        cmbBarang.SelectedIndex = -1
+        txtQtyInput.Value = 1
+        txtHargaInput.Text = "0"
+        txtSubtotalInput.Text = "0"
+    End Sub
+
+    Private Sub LoadBarangToCombo()
+        Try
+            Dim dt As DataTable = DataModule.ExecSelect("SELECT kode_barang, nama_barang, harga FROM barang ORDER BY nama_barang ASC")
+
+            ' Buat kolom gabungan biar di combo muncul "KODE - NAMA BARANG"
+            dt.Columns.Add("DisplayColumn", GetType(String), "kode_barang + ' - ' + nama_barang")
+
+            cmbBarang.DisplayMember = "DisplayColumn"
+            cmbBarang.ValueMember = "kode_barang"
+            cmbBarang.DataSource = dt
+
+            If dt.Rows.Count > 0 Then cmbBarang.SelectedIndex = -1
+        Catch ex As Exception
+            MessageBox.Show("Gagal memuat daftar barang: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
+
+    Private Sub cmbBarang_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbBarang.SelectedIndexChanged
+        If cmbBarang.SelectedIndex = -1 OrElse cmbBarang.SelectedValue Is Nothing Then
+            txtHargaInput.Text = "0"
+            txtQtyInput.Value = 1
+            Exit Sub
+        End If
+
+        Try
+            ' Ambil row data barang yang sedang dipilih di combo
+            Dim drv As DataRowView = TryCast(cmbBarang.SelectedItem, DataRowView)
+            If drv IsNot Nothing Then
+                Dim harga As Double = Convert.ToDouble(drv("harga"))
+                txtHargaInput.Text = harga.ToString("N0")
+                HitungSubtotalInput()
+            End If
+        Catch
+        End Try
+    End Sub
+
+    ' Hitung subtotal box kecil sebelum masuk ke grid
+    Private Sub txtQtyInput_ValueChanged(sender As Object, e As EventArgs) Handles txtQtyInput.ValueChanged
+        HitungSubtotalInput()
+    End Sub
+
+    Private Sub HitungSubtotalInput()
+        Try
+            Dim qty As Integer = Convert.ToInt32(txtQtyInput.Value)
+            Dim harga As Double = 0
+            Double.TryParse(txtHargaInput.Text, harga)
+
+            txtSubtotalInput.Text = (qty * harga).ToString("N0")
+        Catch
+        End Try
+    End Sub
+
+    Private Sub btnHapusItem_Click(sender As Object, e As EventArgs) Handles btnHapusItem.Click
+        ' 1. Pastikan ada baris yang dipilih di DataGridView
+        If dgvDetailPembelian.CurrentRow IsNot Nothing AndAlso Not dgvDetailPembelian.CurrentRow.IsNewRow Then
+
+            Dim noPembelian As String = txtNoPembelian.Text
+            Dim kodeBarang As String = dgvDetailPembelian.CurrentRow.Cells("colKode").Value?.ToString()
+            Dim namaBarang As String = If(dgvDetailPembelian.CurrentRow.Cells("colNama").Value, "").ToString()
+
+            ' 2. Konfirmasi dulu ke user
+            Dim konfirmasi As DialogResult = MessageBox.Show("Apakah Anda yakin ingin menghapus " & namaBarang & " dari daftar?",
+                                                         "Konfirmasi Hapus",
+                                                         MessageBoxButtons.YesNo,
+                                                         MessageBoxIcon.Question)
+
+            If konfirmasi = DialogResult.Yes Then
+                Try
+                    ' 3. Hapus dulu dari tampilan Grid (Layar) biar langsung hilang di depan mata user
+                    dgvDetailPembelian.Rows.Remove(dgvDetailPembelian.CurrentRow)
+
+                    ' 4. Jalankan query DELETE ke DB (menggunakan Subquery Cara 1 kemarin)
+                    Dim query As String = "DELETE FROM detail_pembelian " &
+                                      "WHERE id_pembelian = (SELECT id_pembelian FROM pembelian WHERE no_pembelian = '" & noPembelian & "') " &
+                                      "AND kode_barang = '" & kodeBarang & "'"
+
+                    ' Jalankan perintah ke database
+                    DataModule.ExecNonQuery(query)
+
+                    ' 5. Hitung ulang total ringkasan di bagian bawah form
+                    HitungRingkasan()
+
+                    MessageBox.Show("Data berhasil dihapus!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+                Catch ex As Exception
+                    ' Tetap hitung ringkasan meskipun error database, biar tampilan sinkron
+                    HitungRingkasan()
+                    MessageBox.Show("Gagal menghapus data dari database: " & ex.Message, "Error Database", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                End Try
+            End If
+        Else
+            MessageBox.Show("Silakan pilih baris barang di dalam tabel yang ingin dihapus terlebih dahulu!",
+                        "Peringatan",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning)
+        End If
+    End Sub
 End Class

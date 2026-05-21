@@ -27,11 +27,6 @@ Partial Class Form8
     Friend WithEvents btnCariSupplier As System.Windows.Forms.Button
 
     Friend WithEvents dgvDetailPembelian As System.Windows.Forms.DataGridView
-    Friend WithEvents colKode As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents colNama As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents colQty As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents colHarga As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents colSubTotal As System.Windows.Forms.DataGridViewTextBoxColumn
 
     ' Bagian Summary / Output
     Friend WithEvents pnlSummary As System.Windows.Forms.Panel
@@ -85,8 +80,14 @@ Partial Class Form8
         btnBatal = New Button()
         btnTambahItem = New Button()
         btnHapusItem = New Button()
+        cmbBarang = New ComboBox()
+        Label1 = New Label()
+        txtQtyInput = New NumericUpDown()
+        txtSubtotalInput = New TextBox()
+        txtHargaInput = New TextBox()
         CType(dgvDetailPembelian, ComponentModel.ISupportInitialize).BeginInit()
         pnlSummary.SuspendLayout()
+        CType(txtQtyInput, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' lblNoPembelian
@@ -138,13 +139,13 @@ Partial Class Form8
         cmbSupplier.FormattingEnabled = True
         cmbSupplier.Location = New Point(130, 104)
         cmbSupplier.Name = "cmbSupplier"
-        cmbSupplier.Size = New Size(285, 28)
+        cmbSupplier.Size = New Size(248, 28)
         cmbSupplier.TabIndex = 6
         cmbSupplier.Text = "SUP001 - PT. Fashionindo Utama"
         ' 
         ' btnCariSupplier
         ' 
-        btnCariSupplier.Location = New Point(425, 103)
+        btnCariSupplier.Location = New Point(385, 104)
         btnCariSupplier.Name = "btnCariSupplier"
         btnCariSupplier.Size = New Size(40, 29)
         btnCariSupplier.TabIndex = 5
@@ -198,24 +199,6 @@ Partial Class Form8
         colSubTotal.MinimumWidth = 6
         colSubTotal.Name = "colSubTotal"
         colSubTotal.Width = 135
-        ' 
-        ' btnTambahItem
-        '
-        btnTambahItem.Location = New Point(25, 370)
-        btnTambahItem.Name = "btnTambahItem"
-        btnTambahItem.Size = New Size(100, 29)
-        btnTambahItem.TabIndex = 7
-        btnTambahItem.Text = "+ Item"
-        btnTambahItem.UseVisualStyleBackColor = True
-        ' 
-        ' btnHapusItem
-        '
-        btnHapusItem.Location = New Point(135, 370)
-        btnHapusItem.Name = "btnHapusItem"
-        btnHapusItem.Size = New Size(100, 29)
-        btnHapusItem.TabIndex = 8
-        btnHapusItem.Text = "- Item"
-        btnHapusItem.UseVisualStyleBackColor = True
         ' 
         ' pnlSummary
         ' 
@@ -351,12 +334,76 @@ Partial Class Form8
         btnBatal.Text = "Batal"
         btnBatal.UseVisualStyleBackColor = False
         ' 
+        ' btnTambahItem
+        ' 
+        btnTambahItem.Location = New Point(25, 370)
+        btnTambahItem.Name = "btnTambahItem"
+        btnTambahItem.Size = New Size(100, 29)
+        btnTambahItem.TabIndex = 7
+        btnTambahItem.Text = "+ Item"
+        btnTambahItem.UseVisualStyleBackColor = True
+        ' 
+        ' btnHapusItem
+        ' 
+        btnHapusItem.Location = New Point(135, 370)
+        btnHapusItem.Name = "btnHapusItem"
+        btnHapusItem.Size = New Size(100, 29)
+        btnHapusItem.TabIndex = 8
+        btnHapusItem.Text = "- Item"
+        btnHapusItem.UseVisualStyleBackColor = True
+        ' 
+        ' cmbBarang
+        ' 
+        cmbBarang.DropDownStyle = ComboBoxStyle.DropDownList
+        cmbBarang.FormattingEnabled = True
+        cmbBarang.Location = New Point(433, 63)
+        cmbBarang.Name = "cmbBarang"
+        cmbBarang.Size = New Size(172, 28)
+        cmbBarang.TabIndex = 12
+        ' 
+        ' Label1
+        ' 
+        Label1.AutoSize = True
+        Label1.Location = New Point(433, 40)
+        Label1.Name = "Label1"
+        Label1.Size = New Size(56, 20)
+        Label1.TabIndex = 13
+        Label1.Text = "Barang"
+        ' 
+        ' txtQtyInput
+        ' 
+        txtQtyInput.Location = New Point(611, 63)
+        txtQtyInput.Name = "txtQtyInput"
+        txtQtyInput.Size = New Size(99, 27)
+        txtQtyInput.TabIndex = 14
+        ' 
+        ' txtSubtotalInput
+        ' 
+        txtSubtotalInput.Location = New Point(560, 104)
+        txtSubtotalInput.Name = "txtSubtotalInput"
+        txtSubtotalInput.PlaceholderText = "SubTotal Harga"
+        txtSubtotalInput.Size = New Size(150, 27)
+        txtSubtotalInput.TabIndex = 15
+        ' 
+        ' txtHargaInput
+        ' 
+        txtHargaInput.Location = New Point(431, 104)
+        txtHargaInput.Name = "txtHargaInput"
+        txtHargaInput.PlaceholderText = "Harga"
+        txtHargaInput.Size = New Size(125, 27)
+        txtHargaInput.TabIndex = 16
+        ' 
         ' Form8
         ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.FromArgb(CByte(245), CByte(245), CByte(250))
         ClientSize = New Size(743, 610)
+        Controls.Add(txtHargaInput)
+        Controls.Add(txtSubtotalInput)
+        Controls.Add(txtQtyInput)
+        Controls.Add(Label1)
+        Controls.Add(cmbBarang)
         Controls.Add(btnHapusItem)
         Controls.Add(btnTambahItem)
         Controls.Add(btnBatal)
@@ -377,8 +424,20 @@ Partial Class Form8
         CType(dgvDetailPembelian, ComponentModel.ISupportInitialize).EndInit()
         pnlSummary.ResumeLayout(False)
         pnlSummary.PerformLayout()
+        CType(txtQtyInput, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()
 
     End Sub
+
+    Friend WithEvents cmbBarang As ComboBox
+    Friend WithEvents Label1 As Label
+    Friend WithEvents colKode As DataGridViewTextBoxColumn
+    Friend WithEvents colNama As DataGridViewTextBoxColumn
+    Friend WithEvents colQty As DataGridViewTextBoxColumn
+    Friend WithEvents colHarga As DataGridViewTextBoxColumn
+    Friend WithEvents colSubTotal As DataGridViewTextBoxColumn
+    Friend WithEvents txtQtyInput As NumericUpDown
+    Friend WithEvents txtSubtotalInput As TextBox
+    Friend WithEvents txtHargaInput As TextBox
 End Class

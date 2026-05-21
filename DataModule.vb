@@ -43,10 +43,11 @@ Module DataModule
                 End Using
             End Using
         Catch ex As MySqlException
-            ' Jika terjadi error spesifik MySQL, beri informasi singkat dalam Bahasa Indonesia
-            Throw New ApplicationException("Gagal menjalankan perintah database." & Environment.NewLine & "Pesan: " & ex.Message, ex)
+            ' JANGAN dibungkus ke ApplicationException agar Form bisa membaca ex.Number (seperti 1062)
+            Throw ex
         Catch ex As Exception
-            Throw New ApplicationException("Terjadi kesalahan saat menjalankan perintah database." & Environment.NewLine & ex.Message, ex)
+            ' Untuk error umum lainnya, boleh tetap dilempar apa adanya
+            Throw ex
         End Try
     End Sub
 
@@ -63,8 +64,12 @@ Module DataModule
                     Return cmd.ExecuteScalar()
                 End Using
             End Using
+        Catch ex As MySqlException
+            ' Lemparkan error MySQL
+            Throw ex
         Catch ex As Exception
-            Throw New ApplicationException("Gagal mengambil nilai dari database." & Environment.NewLine & ex.Message, ex)
+            ' Untuk error umum lainnya juga langsung dilempar apa adanya
+            Throw ex
         End Try
     End Function
 

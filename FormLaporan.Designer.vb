@@ -32,30 +32,6 @@ Partial Class FormLaporan
     Friend WithEvents dtpSampai As System.Windows.Forms.DateTimePicker
     Friend WithEvents btnTampilkan As System.Windows.Forms.Button
 
-    ' Area Faux Chart (Grafik Buatan)
-    Friend WithEvents pnlChartBox As System.Windows.Forms.Panel
-    Friend WithEvents lblChartTitle As System.Windows.Forms.Label
-    ' Label Sumbu Y
-    Friend WithEvents lblY8 As System.Windows.Forms.Label
-    Friend WithEvents lblY6 As System.Windows.Forms.Label
-    Friend WithEvents lblY4 As System.Windows.Forms.Label
-    Friend WithEvents lblY2 As System.Windows.Forms.Label
-    Friend WithEvents lblY0 As System.Windows.Forms.Label
-    ' Label Sumbu X
-    Friend WithEvents lblX1 As System.Windows.Forms.Label
-    Friend WithEvents lblX2 As System.Windows.Forms.Label
-    Friend WithEvents lblX3 As System.Windows.Forms.Label
-    Friend WithEvents lblX4 As System.Windows.Forms.Label
-    Friend WithEvents lblX5 As System.Windows.Forms.Label
-    Friend WithEvents lblX6 As System.Windows.Forms.Label
-    ' Bar Grafik
-    Friend WithEvents pnlBar1 As System.Windows.Forms.Panel
-    Friend WithEvents pnlBar2 As System.Windows.Forms.Panel
-    Friend WithEvents pnlBar3 As System.Windows.Forms.Panel
-    Friend WithEvents pnlBar4 As System.Windows.Forms.Panel
-    Friend WithEvents pnlBar5 As System.Windows.Forms.Panel
-    Friend WithEvents pnlBar6 As System.Windows.Forms.Panel
-
     ' Area Data Grid
     Friend WithEvents dgvLaporan As System.Windows.Forms.DataGridView
     Friend WithEvents colTanggal As System.Windows.Forms.DataGridViewTextBoxColumn
@@ -91,25 +67,6 @@ Partial Class FormLaporan
         colTotalTransaksi = New DataGridViewTextBoxColumn()
         colTotalPenjualan = New DataGridViewTextBoxColumn()
         colLabaKotor = New DataGridViewTextBoxColumn()
-        pnlChartBox = New Panel()
-        pnlBar6 = New Panel()
-        pnlBar5 = New Panel()
-        pnlBar4 = New Panel()
-        pnlBar3 = New Panel()
-        pnlBar2 = New Panel()
-        pnlBar1 = New Panel()
-        lblX6 = New Label()
-        lblX5 = New Label()
-        lblX4 = New Label()
-        lblX3 = New Label()
-        lblX2 = New Label()
-        lblX1 = New Label()
-        lblY0 = New Label()
-        lblY2 = New Label()
-        lblY4 = New Label()
-        lblY6 = New Label()
-        lblY8 = New Label()
-        lblChartTitle = New Label()
         btnTampilkan = New Button()
         dtpSampai = New DateTimePicker()
         lblSampaiTanggal = New Label()
@@ -123,7 +80,6 @@ Partial Class FormLaporan
         tabPenjualan.SuspendLayout()
         pnlTotal.SuspendLayout()
         CType(dgvLaporan, ComponentModel.ISupportInitialize).BeginInit()
-        pnlChartBox.SuspendLayout()
         SuspendLayout()
         ' 
         ' tabControlLaporan
@@ -143,7 +99,6 @@ Partial Class FormLaporan
         tabPenjualan.BackColor = Color.White
         tabPenjualan.Controls.Add(pnlTotal)
         tabPenjualan.Controls.Add(dgvLaporan)
-        tabPenjualan.Controls.Add(pnlChartBox)
         tabPenjualan.Controls.Add(btnTampilkan)
         tabPenjualan.Controls.Add(dtpSampai)
         tabPenjualan.Controls.Add(lblSampaiTanggal)
@@ -263,213 +218,12 @@ Partial Class FormLaporan
         colLabaKotor.Name = "colLabaKotor"
         colLabaKotor.Width = 175
         ' 
-        ' pnlChartBox
-        ' 
-        pnlChartBox.BorderStyle = BorderStyle.FixedSingle
-        pnlChartBox.Controls.Add(pnlBar6)
-        pnlChartBox.Controls.Add(pnlBar5)
-        pnlChartBox.Controls.Add(pnlBar4)
-        pnlChartBox.Controls.Add(pnlBar3)
-        pnlChartBox.Controls.Add(pnlBar2)
-        pnlChartBox.Controls.Add(pnlBar1)
-        pnlChartBox.Controls.Add(lblX6)
-        pnlChartBox.Controls.Add(lblX5)
-        pnlChartBox.Controls.Add(lblX4)
-        pnlChartBox.Controls.Add(lblX3)
-        pnlChartBox.Controls.Add(lblX2)
-        pnlChartBox.Controls.Add(lblX1)
-        pnlChartBox.Controls.Add(lblY0)
-        pnlChartBox.Controls.Add(lblY2)
-        pnlChartBox.Controls.Add(lblY4)
-        pnlChartBox.Controls.Add(lblY6)
-        pnlChartBox.Controls.Add(lblY8)
-        pnlChartBox.Controls.Add(lblChartTitle)
-        pnlChartBox.Location = New Point(303, 20)
-        pnlChartBox.Margin = New Padding(3, 4, 3, 4)
-        pnlChartBox.Name = "pnlChartBox"
-        pnlChartBox.Size = New Size(457, 226)
-        pnlChartBox.TabIndex = 2
-        ' 
-        ' pnlBar6
-        ' 
-        pnlBar6.BackColor = Color.FromArgb(CByte(30), CByte(90), CByte(170))
-        pnlBar6.Location = New Point(343, 53)
-        pnlBar6.Margin = New Padding(3, 4, 3, 4)
-        pnlBar6.Name = "pnlBar6"
-        pnlBar6.Size = New Size(29, 127)
-        pnlBar6.TabIndex = 0
-        ' 
-        ' pnlBar5
-        ' 
-        pnlBar5.BackColor = Color.FromArgb(CByte(30), CByte(90), CByte(170))
-        pnlBar5.Location = New Point(286, 87)
-        pnlBar5.Margin = New Padding(3, 4, 3, 4)
-        pnlBar5.Name = "pnlBar5"
-        pnlBar5.Size = New Size(29, 93)
-        pnlBar5.TabIndex = 1
-        ' 
-        ' pnlBar4
-        ' 
-        pnlBar4.BackColor = Color.FromArgb(CByte(30), CByte(90), CByte(170))
-        pnlBar4.Location = New Point(229, 113)
-        pnlBar4.Margin = New Padding(3, 4, 3, 4)
-        pnlBar4.Name = "pnlBar4"
-        pnlBar4.Size = New Size(29, 67)
-        pnlBar4.TabIndex = 2
-        ' 
-        ' pnlBar3
-        ' 
-        pnlBar3.BackColor = Color.FromArgb(CByte(30), CByte(90), CByte(170))
-        pnlBar3.Location = New Point(171, 107)
-        pnlBar3.Margin = New Padding(3, 4, 3, 4)
-        pnlBar3.Name = "pnlBar3"
-        pnlBar3.Size = New Size(29, 73)
-        pnlBar3.TabIndex = 3
-        ' 
-        ' pnlBar2
-        ' 
-        pnlBar2.BackColor = Color.FromArgb(CByte(30), CByte(90), CByte(170))
-        pnlBar2.Location = New Point(114, 140)
-        pnlBar2.Margin = New Padding(3, 4, 3, 4)
-        pnlBar2.Name = "pnlBar2"
-        pnlBar2.Size = New Size(29, 40)
-        pnlBar2.TabIndex = 4
-        ' 
-        ' pnlBar1
-        ' 
-        pnlBar1.BackColor = Color.FromArgb(CByte(30), CByte(90), CByte(170))
-        pnlBar1.Location = New Point(57, 127)
-        pnlBar1.Margin = New Padding(3, 4, 3, 4)
-        pnlBar1.Name = "pnlBar1"
-        pnlBar1.Size = New Size(29, 53)
-        pnlBar1.TabIndex = 5
-        ' 
-        ' lblX6
-        ' 
-        lblX6.AutoSize = True
-        lblX6.Font = New Font("Segoe UI", 8F)
-        lblX6.Location = New Point(337, 187)
-        lblX6.Name = "lblX6"
-        lblX6.Size = New Size(46, 19)
-        lblX6.TabIndex = 6
-        lblX6.Text = "22/05"
-        ' 
-        ' lblX5
-        ' 
-        lblX5.AutoSize = True
-        lblX5.Font = New Font("Segoe UI", 8F)
-        lblX5.Location = New Point(280, 187)
-        lblX5.Name = "lblX5"
-        lblX5.Size = New Size(46, 19)
-        lblX5.TabIndex = 7
-        lblX5.Text = "21/05"
-        ' 
-        ' lblX4
-        ' 
-        lblX4.AutoSize = True
-        lblX4.Font = New Font("Segoe UI", 8F)
-        lblX4.Location = New Point(223, 187)
-        lblX4.Name = "lblX4"
-        lblX4.Size = New Size(46, 19)
-        lblX4.TabIndex = 8
-        lblX4.Text = "20/05"
-        ' 
-        ' lblX3
-        ' 
-        lblX3.AutoSize = True
-        lblX3.Font = New Font("Segoe UI", 8F)
-        lblX3.Location = New Point(166, 187)
-        lblX3.Name = "lblX3"
-        lblX3.Size = New Size(46, 19)
-        lblX3.TabIndex = 9
-        lblX3.Text = "18/05"
-        ' 
-        ' lblX2
-        ' 
-        lblX2.AutoSize = True
-        lblX2.Font = New Font("Segoe UI", 8F)
-        lblX2.Location = New Point(109, 187)
-        lblX2.Name = "lblX2"
-        lblX2.Size = New Size(46, 19)
-        lblX2.TabIndex = 10
-        lblX2.Text = "17/05"
-        ' 
-        ' lblX1
-        ' 
-        lblX1.AutoSize = True
-        lblX1.Font = New Font("Segoe UI", 8F)
-        lblX1.Location = New Point(51, 187)
-        lblX1.Name = "lblX1"
-        lblX1.Size = New Size(46, 19)
-        lblX1.TabIndex = 11
-        lblX1.Text = "16/05"
-        ' 
-        ' lblY0
-        ' 
-        lblY0.AutoSize = True
-        lblY0.Font = New Font("Segoe UI", 8F)
-        lblY0.Location = New Point(23, 180)
-        lblY0.Name = "lblY0"
-        lblY0.Size = New Size(17, 19)
-        lblY0.TabIndex = 12
-        lblY0.Text = "0"
-        ' 
-        ' lblY2
-        ' 
-        lblY2.AutoSize = True
-        lblY2.Font = New Font("Segoe UI", 8F)
-        lblY2.Location = New Point(11, 147)
-        lblY2.Name = "lblY2"
-        lblY2.Size = New Size(29, 19)
-        lblY2.TabIndex = 13
-        lblY2.Text = "2 jt"
-        ' 
-        ' lblY4
-        ' 
-        lblY4.AutoSize = True
-        lblY4.Font = New Font("Segoe UI", 8F)
-        lblY4.Location = New Point(11, 113)
-        lblY4.Name = "lblY4"
-        lblY4.Size = New Size(29, 19)
-        lblY4.TabIndex = 14
-        lblY4.Text = "4 jt"
-        ' 
-        ' lblY6
-        ' 
-        lblY6.AutoSize = True
-        lblY6.Font = New Font("Segoe UI", 8F)
-        lblY6.Location = New Point(11, 80)
-        lblY6.Name = "lblY6"
-        lblY6.Size = New Size(29, 19)
-        lblY6.TabIndex = 15
-        lblY6.Text = "6 jt"
-        ' 
-        ' lblY8
-        ' 
-        lblY8.AutoSize = True
-        lblY8.Font = New Font("Segoe UI", 8F)
-        lblY8.Location = New Point(11, 47)
-        lblY8.Name = "lblY8"
-        lblY8.Size = New Size(29, 19)
-        lblY8.TabIndex = 16
-        lblY8.Text = "8 jt"
-        ' 
-        ' lblChartTitle
-        ' 
-        lblChartTitle.AutoSize = True
-        lblChartTitle.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
-        lblChartTitle.Location = New Point(11, 13)
-        lblChartTitle.Name = "lblChartTitle"
-        lblChartTitle.Size = New Size(137, 20)
-        lblChartTitle.TabIndex = 17
-        lblChartTitle.Text = "Penjualan per Hari"
-        ' 
         ' btnTampilkan
         ' 
         btnTampilkan.BackColor = Color.FromArgb(CByte(240), CByte(240), CByte(240))
         btnTampilkan.FlatAppearance.BorderColor = Color.Silver
         btnTampilkan.FlatStyle = FlatStyle.Flat
-        btnTampilkan.Location = New Point(166, 160)
+        btnTampilkan.Location = New Point(252, 161)
         btnTampilkan.Margin = New Padding(3, 4, 3, 4)
         btnTampilkan.Name = "btnTampilkan"
         btnTampilkan.Size = New Size(114, 40)
@@ -483,7 +237,7 @@ Partial Class FormLaporan
         dtpSampai.Location = New Point(131, 109)
         dtpSampai.Margin = New Padding(3, 4, 3, 4)
         dtpSampai.Name = "dtpSampai"
-        dtpSampai.Size = New Size(148, 27)
+        dtpSampai.Size = New Size(235, 27)
         dtpSampai.TabIndex = 4
         ' 
         ' lblSampaiTanggal
@@ -501,7 +255,7 @@ Partial Class FormLaporan
         dtpDari.Location = New Point(131, 63)
         dtpDari.Margin = New Padding(3, 4, 3, 4)
         dtpDari.Name = "dtpDari"
-        dtpDari.Size = New Size(148, 27)
+        dtpDari.Size = New Size(235, 27)
         dtpDari.TabIndex = 6
         ' 
         ' lblDariTanggal
@@ -569,8 +323,6 @@ Partial Class FormLaporan
         pnlTotal.ResumeLayout(False)
         pnlTotal.PerformLayout()
         CType(dgvLaporan, ComponentModel.ISupportInitialize).EndInit()
-        pnlChartBox.ResumeLayout(False)
-        pnlChartBox.PerformLayout()
         ResumeLayout(False)
 
     End Sub

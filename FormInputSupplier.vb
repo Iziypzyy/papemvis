@@ -24,15 +24,20 @@ Public Class FormInputSupplier
 
     Private Function GenerateKode() As String
         Try
-            Dim query As String = "SELECT IFNULL(MAX(CAST(SUBSTRING(kode_supplier, 2) AS UNSIGNED)), 0) FROM supplier"
-            Dim maxNumObj As Object = ExecScalar(query)
-            Dim maxNum As Integer = 0
-            If maxNumObj IsNot Nothing AndAlso Integer.TryParse(maxNumObj.ToString(), maxNum) Then
-                ' ok
+            ' Mengambil kode_supplier urutan paling terakhir/terbesar
+            Dim query As String = "SELECT kode_supplier FROM supplier ORDER BY kode_supplier DESC LIMIT 1"
+            Dim maxCodeObj As Object = ExecScalar(query)
+
+            If maxCodeObj IsNot Nothing AndAlso maxCodeObj IsNot DBNull.Value Then
+                Dim lastCode As String = maxCodeObj.ToString()
+                Dim numStr As String = lastCode.Substring(1)
+                Dim nextNum As Integer = Integer.Parse(numStr) + 1
+                Return "S" & nextNum.ToString("D3")
+            Else
+                Return "S001" ' Jika tabel supplier masih kosong
             End If
-            Return "S" & (maxNum + 1).ToString("D3")
-        Catch
-            Return "S001"
+        Catch ex As Exception
+            Throw New Exception("Gagal membuat kode otomatis: " & ex.Message)
         End Try
     End Function
 
@@ -46,81 +51,77 @@ Public Class FormInputSupplier
             Exit Sub
         End If
 
+        ' 1. MODE EDIT
+        If ModeEdit Then
+            Dim sqlUpdate As String = "UPDATE supplier SET nama_supplier = @nama, telepon = @telepon, kota = @kota WHERE kode_supplier = @kode"
+            Dim paramsUpdate As New Dictionary(Of String, Object) From {
+                {"@nama", nama},
+                {"@telepon", telepon},
+                {"@kota", kota},
+                {"@kode", txtKode.Text.Trim()}
+            }
+            ExecNonQuery(sqlUpdate, paramsUpdate)
+            MessageBox.Show("Data supplier berhasil diperbarui.", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Me.DialogResult = DialogResult.OK
+            Me.Close()
+            Return
+        End If
+
+        ' 2. MODE TAMBAH BARU
+        Dim kodeFix As String = GenerateKode()
+        Dim suksesInsert As Boolean = False
+
         Try
-            If ModeEdit Then
-                Dim sqlUpdate As String = "UPDATE supplier SET nama_supplier = @nama, telepon = @telepon, kota = @kota WHERE kode_supplier = @kode"
-                Dim paramsUpdate As New Dictionary(Of String, Object) From {
-                    {"@nama", nama},
-                    {"@telepon", telepon},
-                    {"@kota", kota},
-                    {"@kode", txtKode.Text.Trim()}
-                }
-                ExecNonQuery(sqlUpdate, paramsUpdate)
-                MessageBox.Show("Data supplier berhasil diperbarui.", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                Me.DialogResult = DialogResult.OK
-                Me.Close()
-                Return
-            End If
-
-            ' INSERT dengan retry: setiap percobaan generate kode terbaru dari DB
-            Dim attempts As Integer = 0
-            Dim maxAttempts As Integer = 6
-            Dim inserted As Boolean = False
-
-            While Not inserted AndAlso attempts < maxAttempts
-                attempts += 1
-                Dim kodeTry As String = GenerateKode() ' selalu ambil nilai terbaru sebelum insert
-                Try
-                    Dim sqlInsert As String = "INSERT INTO supplier (kode_supplier, nama_supplier, telepon, kota) VALUES (@kode, @nama, @telepon, @kota)"
-                    Dim paramsInsert As New Dictionary(Of String, Object) From {
-                        {"@kode", kodeTry},
-                        {"@nama", nama},
-                        {"@telepon", telepon},
-                        {"@kota", kota}
-                    }
-                    ExecNonQuery(sqlInsert, paramsInsert)
-
-                    ' berhasil insert
-                    inserted = True
-                    txtKode.Text = kodeTry
-                    MessageBox.Show("Supplier berhasil ditambahkan.", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information)
-
-                    Me.Kode = kodeTry
-                    Me.Nama = nama
-                    Me.Telepon = telepon
-                    Me.Kota = kota
-
-                    Me.DialogResult = DialogResult.OK
-                    Me.Close()
-                    Return
-
-                Catch ex As Exception
-                    ' Jika ini MySQL duplicate key error (1062) coba ulang dengan kode baru
-                    Dim mysqlEx = TryCast(ex, MySqlException)
-                    If mysqlEx IsNot Nothing AndAlso mysqlEx.Number = 1062 Then
-                        ' jika masih punya kesempatan, ulangi loop dengan kode baru
-                        If attempts >= maxAttempts Then
-                            MessageBox.Show("Gagal menambah supplier karena kode duplikat berulang. Silakan coba lagi.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                            Exit Sub
-                        Else
-                            ' sedikit delay agar nilai MAX berubah jika ada proses lain (opsional)
-                            System.Threading.Thread.Sleep(50)
-                            Continue While
-                        End If
-                    Else
-                        ' error lain: tampilkan dan keluar
-                        Throw
-                    End If
-                End Try
-            End While
-
-            If Not inserted Then
-                MessageBox.Show("Gagal menambah supplier setelah beberapa percobaan. Periksa koneksi atau coba ulang.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            End If
+            Dim sqlInsert As String = "INSERT INTO supplier (kode_supplier, nama_supplier, telepon, kota) VALUES (@kode, @nama, @telepon, @kota)"
+            Dim paramsInsert As New Dictionary(Of String, Object) From {
+                {"@kode", kodeFix},
+                {"@nama", nama},
+                {"@telepon", telepon},
+                {"@kota", kota}
+            }
+            ExecNonQuery(sqlInsert, paramsInsert)
+            suksesInsert = True
 
         Catch ex As Exception
-            MessageBox.Show("Gagal menyimpan data." & Environment.NewLine & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            ' Sisi perbaikan: ex yang di-TryCast, bukan kodeFix!
+            Dim mysqlEx As MySqlException = TryCast(ex, MySqlException)
+
+            ' Jaga-jaga kalau ExecNonQuery membungkus error-nya di dalam ApplicationException
+            If mysqlEx Is Nothing AndAlso ex.InnerException IsNot Nothing Then
+                mysqlEx = TryCast(ex.InnerException, MySqlException)
+            End If
+
+            ' Jika error karena Duplikat (1062), coba generate ulang SEKALI LAGI
+            If mysqlEx IsNot Nothing AndAlso mysqlEx.Number = 1062 Then
+                kodeFix = GenerateKode() ' Ambil nomor paling baru hasil increment DB
+
+                Dim paramsInsertRetry As New Dictionary(Of String, Object) From {
+                    {"@kode", kodeFix},
+                    {"@nama", nama},
+                    {"@telepon", telepon},
+                    {"@kota", kota}
+                }
+                Dim sqlInsert As String = "INSERT INTO supplier (kode_supplier, nama_supplier, telepon, kota) VALUES (@kode, @nama, @telepon, @kota)"
+                ExecNonQuery(sqlInsert, paramsInsertRetry)
+                suksesInsert = True
+            Else
+                ' Jika errornya bukan karena duplikat, lempar ke catch luar
+                Throw ex
+            End If
         End Try
+
+        ' Jika sukses tersimpan, set properti dan tutup form
+        If suksesInsert Then
+            MessageBox.Show("Supplier berhasil ditambahkan.", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+            Me.Kode = kodeFix
+            Me.Nama = nama
+            Me.Telepon = telepon
+            Me.Kota = kota
+
+            Me.DialogResult = DialogResult.OK
+            Me.Close()
+        End If
     End Sub
 
 End Class

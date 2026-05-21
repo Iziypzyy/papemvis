@@ -24,23 +24,17 @@ Public Class FormLaporan
         Try
             Using conn As MySqlConnection = KoneksiDB.GetConnection()
 
+                ' 1. Query disinkronkan kolomnya
                 Dim query As String =
-                    "SELECT tanggal, total_transaksi, total_penjualan, estimasi_laba
-                     FROM v_laporan_harian
-                     WHERE tanggal BETWEEN @dari AND @sampai
-                     ORDER BY tanggal DESC"
+                "SELECT tanggal, total_transaksi, total_barang_terjual, total_pendapatan_bersih " &
+                "FROM laporan_harian " &
+                "WHERE tanggal BETWEEN @dari AND @sampai " &
+                "ORDER BY tanggal DESC"
 
                 Using cmd As New MySqlCommand(query, conn)
 
-                    cmd.Parameters.AddWithValue(
-                        "@dari",
-                        dtpDari.Value.ToString("yyyy-MM-dd")
-                    )
-
-                    cmd.Parameters.AddWithValue(
-                        "@sampai",
-                        dtpSampai.Value.ToString("yyyy-MM-dd")
-                    )
+                    cmd.Parameters.AddWithValue("@dari", dtpDari.Value.ToString("yyyy-MM-dd"))
+                    cmd.Parameters.AddWithValue("@sampai", dtpSampai.Value.ToString("yyyy-MM-dd"))
 
                     Dim totalTransaksi As Integer = 0
                     Dim totalPenjualan As Double = 0
@@ -50,24 +44,20 @@ Public Class FormLaporan
 
                         While dr.Read()
 
-                            Dim tanggal As String =
-                                Format(CDate(dr("tanggal")), "dd/MM/yyyy")
+                            Dim tanggal As String = Format(CDate(dr("tanggal")), "dd/MM/yyyy")
+                            Dim transaksi As Integer = Convert.ToInt32(dr("total_transaksi"))
 
-                            Dim transaksi As Integer =
-                                Convert.ToInt32(dr("total_transaksi"))
+                            ' Nama kolom disamakan dengan SQL Select
+                            Dim penjualan As Double = Convert.ToDouble(dr("total_barang_terjual"))
+                            Dim laba As Double = Convert.ToDouble(dr("total_pendapatan_bersih"))
 
-                            Dim penjualan As Double =
-                                Convert.ToDouble(dr("total_penjualan"))
-
-                            Dim laba As Double =
-                                Convert.ToDouble(dr("estimasi_laba"))
-
+                            ' Memasukkan data ke baris Grid DataGridView
                             dgvLaporan.Rows.Add(
-                                tanggal,
-                                transaksi,
-                                Format(penjualan, "###,###,##0"),
-                                Format(laba, "###,###,##0")
-                            )
+                            tanggal,
+                            transaksi,
+                            Format(penjualan, "N0"),
+                            Format(laba, "N0")
+                        )
 
                             totalTransaksi += transaksi
                             totalPenjualan += penjualan
@@ -77,10 +67,10 @@ Public Class FormLaporan
 
                     End Using
 
-                    ' Menampilkan ringkasan laporan
-                    lblTotalTransaksi.Text = totalTransaksi.ToString()
-                    lblTotalPenjualan.Text = Format(totalPenjualan, "###,###,##0")
-                    lblTotalLaba.Text = Format(totalLaba, "###,###,##0")
+                    ' Menampilkan ringkasan laporan ke komponen label di bawah form
+                    lblTotalTransaksi.Text = totalTransaksi.ToString("N0")
+                    lblTotalPenjualan.Text = totalPenjualan.ToString("N0")
+                    lblTotalLaba.Text = totalLaba.ToString("N0")
 
                 End Using
             End Using
@@ -88,30 +78,13 @@ Public Class FormLaporan
         Catch ex As Exception
 
             MessageBox.Show(
-                "Laporan gagal dimuat!" & vbNewLine & ex.Message,
-                "Error",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Error
-            )
+            "Laporan gagal dimuat!" & vbNewLine & ex.Message,
+            "Error",
+            MessageBoxButtons.OK,
+            MessageBoxIcon.Error
+        )
 
         End Try
-
-        UpdateChartBars()
-
-    End Sub
-
-    ' =========================
-    ' VISUALISASI GRAFIK
-    ' =========================
-    Private Sub UpdateChartBars()
-
-        pnlBar1.Height = 50
-        pnlBar2.Height = 30
-        pnlBar3.Height = 90
-        pnlBar4.Height = 60
-        pnlBar5.Height = 40
-        pnlBar6.Height = 110
-
     End Sub
 
     ' =========================

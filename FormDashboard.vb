@@ -34,18 +34,13 @@ Partial Public Class FormDashboard
                     Using dr As MySqlDataReader = cmd.ExecuteReader()
                         If dr.Read() Then
                             LabelProdukValue.Text = dr("total_produk").ToString()
-                            LabelStokValue.Text = dr("produk_stok_menipis").ToString()
                             LabelPenjualanValue.Text = "Rp " & Format(Convert.ToDouble(dr("penjualan_hari_ini")), "###,###,##0")
                             LabelPelangganValue.Text = dr("total_pelanggan").ToString()
 
-                            LabelNotif1.Text = "- " & dr("produk_stok_menipis").ToString() & " produk dengan stok menipis"
                         End If
                     End Using
                 End Using
             End Using
-
-            LabelNotif2.Text = "- Sistem berjalan normal"
-            LabelNotif3.Text = "- Backup data terakhir : " & Format(Date.Now, "dd/MM/yyyy HH:mm")
 
             LabelInfoUser.Text = "User Aktif              :   admin"
             LabelInfoLevel.Text = "Level                   :   Administrator"
@@ -53,13 +48,8 @@ Partial Public Class FormDashboard
 
         Catch ex As Exception
             LabelProdukValue.Text = "-"
-            LabelStokValue.Text = "-"
             LabelPenjualanValue.Text = "Rp 0"
             LabelPelangganValue.Text = "-"
-
-            LabelNotif1.Text = "- Gagal terhubung ke Database"
-            LabelNotif2.Text = "- Pastikan XAMPP/MySQL aktif"
-            LabelNotif3.Text = "- Menunggu koneksi..."
         End Try
     End Sub
 
